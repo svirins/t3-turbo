@@ -37,7 +37,14 @@ export const postRouter = createTRPCRouter({
       return post;
     }),
 
-  delete: protectedProcedure.input(z.number()).mutation(({ ctx, input }) => {
-    return ctx.db.delete(schema.post).where(eq(schema.post.id, input));
-  }),
+  delete: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const post = await ctx.prisma.post.delete({
+        where: {
+          id: input.id,
+        },
+      });
+      return post;
+    }),
 });
