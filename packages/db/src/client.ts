@@ -6,19 +6,18 @@ import { fetch as undiciFetch } from "undici";
 
 dotenv.config();
 
+/* eslint-disable no-var */
+declare global {
+  var prisma: PrismaClient | undefined;
+}
+
 const client = new Client({
   url: process.env.DATABASE_URL!,
   fetch: undiciFetch,
 });
 const adapter = new PrismaPlanetScale(client);
-export const prisma = new PrismaClient({ adapter });
+export const prisma = global.prisma ?? new PrismaClient({ adapter });
 
-// declare global {
-//   var prisma: PrismaClient | undefined;
-// }
-
-// export const prisma = global.prisma ?? new PrismaClient();
-
-// if (process.env.NODE_ENV !== "production") global.prisma = prisma;
+if (process.env.NODE_ENV !== "production") global.prisma = prisma;
 
 export * from "@prisma/client";
