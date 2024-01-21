@@ -2,6 +2,8 @@
 import "./src/env.js";
 import "@acme/auth/env";
 
+const { withAxiom } = require("next-axiom");
+
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
@@ -20,4 +22,4 @@ const config = {
   typescript: { ignoreBuildErrors: true },
 };
 
-export default config;
+export default withAxiom(config);
