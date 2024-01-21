@@ -19,8 +19,8 @@
       "persistent": true,
       "cache": false
     },
-    "studio": {},
-    "push": {},
+    "db:studio": {},
+    "db:push": {},
     "format": {
       "outputs": ["node_modules/.cache/.prettiercache"],
       "outputMode": "new-only"
