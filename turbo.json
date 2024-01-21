@@ -1,6 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalDependencies": ["**/.env"],
+  "globalDependencies": ["**/.env.*local"],
   "pipeline": {
     "topo": {
       "dependsOn": ["^topo"]
@@ -19,6 +19,8 @@
       "persistent": true,
       "cache": false
     },
+    "studio": {},
+    "push": {},
     "format": {
       "outputs": ["node_modules/.cache/.prettiercache"],
       "outputMode": "new-only"
@@ -36,11 +38,10 @@
     }
   },
   "globalEnv": [
-    "DATABASE_URL",
-    "AUTH_DISCORD_ID",
-    "AUTH_DISCORD_SECRET",
-    "AUTH_REDIRECT_PROXY_URL",
-    "AUTH_SECRET",
-    "AUTH_URL"
+    "GOOGLE_CLIENT_ID",
+    "GOOGLE_CLIENT_SECRET",
+    "NEXTAUTH_SECRET",
+    "NEXTAUTH_URL",
+    "DATABASE_URL"
   ]
 }

@@ -10,10 +10,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "prisma generate && tsup",
+    "build": "pnpm with-env prisma generate && tsup",
     "clean": "rm -rf .turbo node_modules dist",
-    "db:push": "prisma db push",
-    "db:studio": "prisma studio"
+    "push": "pnpm with-env prisma db push",
+    "studio": "pnpm with-env prisma studio",
+    "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
     "@prisma/client": "latest"
@@ -22,6 +23,7 @@
     "@acme/eslint-config": "workspace:*",
     "@acme/prettier-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8.56.0",
     "prettier": "^3.1.1",
     "prisma": "latest",
