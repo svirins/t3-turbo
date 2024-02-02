@@ -1,23 +1,23 @@
-import { Client } from "@planetscale/database";
-import { PrismaPlanetScale } from "@prisma/adapter-planetscale";
 import { PrismaClient } from "@prisma/client";
-import dotenv from "dotenv";
-import { fetch as undiciFetch } from "undici";
 
-dotenv.config();
+// import { withAccelerate } from "@prisma/extension-accelerate";
 
-/* eslint-disable no-var */
+const prismaClientSingleton = () => {
+  // return new PrismaClient({ log: ["error"] }).$extends(withAccelerate());
+  return new PrismaClient({ log: ["error"] });
+};
+
 declare global {
-  var prisma: PrismaClient | undefined;
+  var prisma: undefined | ReturnType<typeof prismaClientSingleton>;
 }
 
-const client = new Client({
-  url: process.env.DATABASE_URL!,
-  fetch: undiciFetch,
-});
-const adapter = new PrismaPlanetScale(client);
-export const prisma = global.prisma ?? new PrismaClient({ adapter });
+// we have to be careful here because we don't want to create a new PrismaClient instance in the API route
 
-if (process.env.NODE_ENV !== "production") global.prisma = prisma;
+// we are exporting global prisma instance here.
+// I can be used in every place where we import prisma
+export const prisma = globalThis.prisma ?? prismaClientSingleton();
 
+// we are exporting all prisma types here
 export * from "@prisma/client";
+
+if (process.env.NODE_ENV !== "production") globalThis.prisma = prisma;

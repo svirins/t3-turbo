@@ -17,11 +17,9 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@planetscale/database": "^1.14.0",
-    "@prisma/adapter-planetscale": "^5.9.0",
-    "@prisma/client": "latest",
-    "dotenv": "^16.4.1",
-    "undici": "^6.6.0"
+    "@prisma/client": "5.8.0",
+    "@prisma/extension-accelerate": "^0.6.2",
+    "dotenv": "^16.4.1"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:*",
@@ -30,7 +28,7 @@
     "dotenv-cli": "^7.3.0",
     "eslint": "^8.56.0",
     "prettier": "^3.2.4",
-    "prisma": "latest",
+    "prisma": "5.8.0",
     "tsup": "8.0.1",
     "typescript": "^5.3.3"
   },

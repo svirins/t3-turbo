@@ -15,30 +15,27 @@ import {
 } from "@acme/ui/form";
 import { Input } from "@acme/ui/input";
 import { toast } from "@acme/ui/toast";
-import { CreatePostSchema } from "@acme/validators";
+import { CreateGroupSchema } from "@acme/validators";
 
 import { api } from "~/trpc/react";
 
-export function CreatePostForm() {
+export function CreategroupForm() {
   const form = useForm({
-    schema: CreatePostSchema,
-    defaultValues: {
-      content: "",
-      title: "",
-    },
+    schema: CreateGroupSchema,
+    defaultValues: {},
   });
 
   const utils = api.useUtils();
-  const createPost = api.post.create.useMutation({
+  const creategroup = api.group.create.useMutation({
     onSuccess: async () => {
       form.reset();
-      await utils.post.invalidate();
+      await utils.group.invalidate();
     },
     onError: (err) => {
       toast.error(
         err?.data?.code === "UNAUTHORIZED"
-          ? "You must be logged in to post"
-          : "Failed to create post",
+          ? "You must be logged in to group"
+          : "Failed to create group",
       );
     },
   });
@@ -48,7 +45,7 @@ export function CreatePostForm() {
       <form
         className="flex w-full max-w-2xl flex-col gap-4"
         onSubmit={form.handleSubmit(async (data) => {
-          createPost.mutate(data);
+          creategroup.mutate(data);
         })}
       >
         <FormField
@@ -81,24 +78,24 @@ export function CreatePostForm() {
   );
 }
 
-export function PostList(props: {
-  posts: Promise<RouterOutputs["post"]["all"]>;
+export function groupList(props: {
+  groups: Promise<RouterOutputs["group"]["all"]>;
 }) {
   // TODO: Make `useSuspenseQuery` work without having to pass a promise from RSC
-  const initialData = use(props.posts);
-  const { data: posts } = api.post.all.useQuery(undefined, {
+  const initialData = use(props.groups);
+  const { data: groups } = api.group.all.useQuery(undefined, {
     initialData,
   });
 
-  if (posts.length === 0) {
+  if (groups.length === 0) {
     return (
       <div className="relative flex w-full flex-col gap-4">
-        <PostCardSkeleton pulse={false} />
-        <PostCardSkeleton pulse={false} />
-        <PostCardSkeleton pulse={false} />
+        <GroupCardSkeleton pulse={false} />
+        <GroupCardSkeleton pulse={false} />
+        <GroupCardSkeleton pulse={false} />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/10">
-          <p className="text-2xl font-bold text-white">No posts yet</p>
+          <p className="text-2xl font-bold text-white">No groups yet</p>
         </div>
       </div>
     );
@@ -106,26 +103,26 @@ export function PostList(props: {
 
   return (
     <div className="flex w-full flex-col gap-4">
-      {posts.map((p) => {
-        return <PostCard key={p.id} post={p} />;
+      {groups.map((p) => {
+        return <GroupCard key={p.id} group={p} />;
       })}
     </div>
   );
 }
 
-export function PostCard(props: {
-  post: RouterOutputs["post"]["all"][number];
+export function groupCard(props: {
+  group: RouterOutputs["group"]["all"][number];
 }) {
   const utils = api.useUtils();
-  const deletePost = api.post.delete.useMutation({
+  const deletegroup = api.group.delete.useMutation({
     onSuccess: async () => {
-      await utils.post.invalidate();
+      await utils.group.invalidate();
     },
     onError: (err) => {
       toast.error(
         err?.data?.code === "UNAUTHORIZED"
-          ? "You must be logged in to delete a post"
-          : "Failed to delete post",
+          ? "You must be logged in to delete a group"
+          : "Failed to delete group",
       );
     },
   });
@@ -133,14 +130,14 @@ export function PostCard(props: {
   return (
     <div className="flex flex-row rounded-lg bg-muted p-4">
       <div className="flex-grow">
-        <h2 className="text-2xl font-bold text-primary">{props.post.title}</h2>
-        <p className="mt-2 text-sm">{props.post.content}</p>
+        <h2 className="text-2xl font-bold text-primary">{props.group.title}</h2>
+        <p className="mt-2 text-sm">{props.group.content}</p>
       </div>
       <div>
         <Button
           variant="ghost"
           className="cursor-pointer text-sm font-bold uppercase text-primary hover:bg-transparent hover:text-white"
-          onClick={() => deletePost.mutate(props.post.id)}
+          onClick={() => deletegroup.mutate(props.group.id)}
         >
           Delete
         </Button>
@@ -149,7 +146,7 @@ export function PostCard(props: {
   );
 }
 
-export function PostCardSkeleton(props: { pulse?: boolean }) {
+export function GroupCardSkeleton(props: { pulse?: boolean }) {
   const { pulse = true } = props;
   return (
     <div className="flex flex-row rounded-lg bg-muted p-4">
