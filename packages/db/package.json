@@ -18,10 +18,10 @@
   },
   "dependencies": {
     "@planetscale/database": "^1.14.0",
-    "@prisma/adapter-planetscale": "^5.8.1",
+    "@prisma/adapter-planetscale": "^5.9.0",
     "@prisma/client": "latest",
-    "dotenv": "^16.3.2",
-    "undici": "^6.4.0"
+    "dotenv": "^16.4.1",
+    "undici": "^6.6.0"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:*",
@@ -29,7 +29,7 @@
     "@acme/tsconfig": "workspace:*",
     "dotenv-cli": "^7.3.0",
     "eslint": "^8.56.0",
-    "prettier": "^3.1.1",
+    "prettier": "^3.2.4",
     "prisma": "latest",
     "tsup": "8.0.1",
     "typescript": "^5.3.3"
