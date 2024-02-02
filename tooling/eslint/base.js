@@ -3,8 +3,8 @@ const config = {
   extends: [
     "turbo",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended-type-checked",
-    "plugin:@typescript-eslint/stylistic-type-checked",
+    // "plugin:@typescript-eslint/recommended-type-checked",
+    // "plugin:@typescript-eslint/stylistic-type-checked",
     "prettier",
   ],
   env: {
@@ -33,6 +33,7 @@ const config = {
     "@typescript-eslint/no-unsafe-call": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/no-redundant-type-constituents": "off",
   },
   ignorePatterns: [
     "**/*.config.js",

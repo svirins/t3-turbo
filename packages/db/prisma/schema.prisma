@@ -23,7 +23,7 @@ model group {
     createdAt  DateTime @default(now())
     established DateTime? @default(now())
     city        String
-    state       State
+    state       String
     adress      String
     phone       String
     email       String?
@@ -32,13 +32,4 @@ model group {
     longitude   Float
 }
 
-
-enum State {
-  Minskaya
-  Gomelskaya
-  Brestskaya
-  Vitebskaya
-  Grodnenskaya
-  Mogilevskaya
-}
 

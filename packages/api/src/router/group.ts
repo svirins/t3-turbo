@@ -28,9 +28,7 @@ export const groupRouter = createTRPCRouter({
     .input(CreateGroupSchema)
     .mutation(async ({ ctx, input }) => {
       const group = await ctx.prisma.group.create({
-        data: {
-          input,
-        },
+        data: input,
       });
       return group;
     }),

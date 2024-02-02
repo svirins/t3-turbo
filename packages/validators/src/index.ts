@@ -1,18 +1,10 @@
 import { z } from "zod";
 
-enum State {
-  Minskaya,
-  Gomelskaya,
-  Brestskaya,
-  Vitebskaya,
-  Grodnenskaya,
-  Mogilevskaya,
-}
 export const CreateGroupSchema = z.object({
   name: z.string().min(3),
   established: z.date().optional(),
   city: z.string().min(3),
-  state: z.nativeEnum(State),
+  state: z.string(),
   adress: z.string().min(3),
   email: z.string().email().optional(),
   phone: z.string().min(10),

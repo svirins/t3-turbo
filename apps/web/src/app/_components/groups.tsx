@@ -50,7 +50,7 @@ export function CreategroupForm() {
       >
         <FormField
           control={form.control}
-          name="title"
+          name="name"
           render={({ field }) => (
             <FormItem>
               <FormControl>
@@ -60,7 +60,7 @@ export function CreategroupForm() {
             </FormItem>
           )}
         />
-        <FormField
+        {/* <FormField
           control={form.control}
           name="content"
           render={({ field }) => (
@@ -71,7 +71,7 @@ export function CreategroupForm() {
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
         <Button>Create</Button>
       </form>
     </Form>
@@ -103,14 +103,14 @@ export function groupList(props: {
 
   return (
     <div className="flex w-full flex-col gap-4">
-      {groups.map((p) => {
-        return <GroupCard key={p.id} group={p} />;
+      {groups.map((group) => {
+        return <GroupCard key={group.id} group={group} />;
       })}
     </div>
   );
 }
 
-export function groupCard(props: {
+export function GroupCard(props: {
   group: RouterOutputs["group"]["all"][number];
 }) {
   const utils = api.useUtils();
@@ -130,8 +130,7 @@ export function groupCard(props: {
   return (
     <div className="flex flex-row rounded-lg bg-muted p-4">
       <div className="flex-grow">
-        <h2 className="text-2xl font-bold text-primary">{props.group.title}</h2>
-        <p className="mt-2 text-sm">{props.group.content}</p>
+        <h2 className="text-2xl font-bold text-primary">{props.group.name}</h2>
       </div>
       <div>
         <Button
