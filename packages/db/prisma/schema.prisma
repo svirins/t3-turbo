@@ -52,8 +52,8 @@ model Day {
 
 model Meeting {
   id    String   @id @default(cuid())
-  start DateTime
-  end   DateTime
+  start DateTime @db.Time()
+  end   DateTime @db.Time()
   topic Topic
   day   Day      @relation(fields: [dayId], references: [id])
   dayId String

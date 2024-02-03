@@ -1,13 +1,22 @@
 import { z } from "zod";
 
-import { CreateGroupSchema } from "@acme/validators";
-
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const groupRouter = createTRPCRouter({
   all: publicProcedure.query(async ({ ctx }) => {
     const groups = await ctx.prisma.group.findMany({
-      take: 100,
+      include: {
+        address: {
+          include: {
+            location: true,
+          },
+        },
+        days: {
+          include: {
+            meetings: true,
+          },
+        },
+      },
       orderBy: [{ createdAt: "desc" }],
     });
     return groups;
@@ -20,25 +29,42 @@ export const groupRouter = createTRPCRouter({
         where: {
           id: input.id,
         },
+        include: {
+          address: {
+            include: {
+              location: true,
+            },
+          },
+          days: {
+            include: {
+              meetings: true,
+            },
+          },
+        },
       });
       return group;
     }),
 
-  create: publicProcedure
-    .input(CreateGroupSchema)
-    .mutation(async ({ ctx, input }) => {
-      const group = await ctx.prisma.group.create({
-        data: input,
+  byName: publicProcedure
+    .input(z.object({ name: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const group = await ctx.prisma.group.findUnique({
+        where: {
+          name: input.name,
+        },
+        include: {
+          address: {
+            include: {
+              location: true,
+            },
+          },
+          days: {
+            include: {
+              meetings: true,
+            },
+          },
+        },
       });
       return group;
     }),
-
-  delete: publicProcedure.input(z.string()).mutation(async ({ ctx, input }) => {
-    const group = await ctx.prisma.group.delete({
-      where: {
-        id: input,
-      },
-    });
-    return group;
-  }),
 });
