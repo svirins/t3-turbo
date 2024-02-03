@@ -2,16 +2,16 @@ import { Suspense } from "react";
 
 import { api } from "~/trpc/server";
 import {
-  CreatePostForm,
-  PostCardSkeleton,
-  PostList,
+  CreateGroupForm,
+  GroupCardSkeleton,
+  GroupList,
 } from "./_components/groups";
 
 // export const runtime = "edge";
 
 export default async function HomePage() {
   // You can await this here if you don't want to show Suspense fallback below
-  const posts = api.group.all();
+  const groups = api.group.all();
 
   return (
     <main className="container h-screen py-16">
@@ -20,18 +20,18 @@ export default async function HomePage() {
           Create <span className="text-primary">T3</span> Turbo
         </h1>
 
-        <CreatePostForm />
+        <CreateGroupForm />
         <div className="w-full max-w-2xl overflow-y-scroll">
           <Suspense
             fallback={
               <div className="flex w-full flex-col gap-4">
-                <PostCardSkeleton />
-                <PostCardSkeleton />
-                <PostCardSkeleton />
+                <GroupCardSkeleton />
+                <GroupCardSkeleton />
+                <GroupCardSkeleton />
               </div>
             }
           >
-            <PostList posts={posts} />
+            <GroupList groups={groups} />
           </Suspense>
         </div>
       </div>

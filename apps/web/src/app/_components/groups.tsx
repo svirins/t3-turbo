@@ -19,7 +19,7 @@ import { CreateGroupSchema } from "@acme/validators";
 
 import { api } from "~/trpc/react";
 
-export function CreategroupForm() {
+export function CreateGroupForm() {
   const form = useForm({
     schema: CreateGroupSchema,
     defaultValues: {},
@@ -78,7 +78,7 @@ export function CreategroupForm() {
   );
 }
 
-export function groupList(props: {
+export function GroupList(props: {
   groups: Promise<RouterOutputs["group"]["all"]>;
 }) {
   // TODO: Make `useSuspenseQuery` work without having to pass a promise from RSC

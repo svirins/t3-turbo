@@ -35,7 +35,7 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@acme/eslint-config/base"
+      "@acme/eslint-config/db-api"
     ]
   },
   "prettier": "@acme/prettier-config"

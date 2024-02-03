@@ -6,7 +6,8 @@
   "files": [
     "./base.js",
     "./nextjs.js",
-    "./react.js"
+    "./react.js",
+    "./db-api.js"
   ],
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
@@ -28,8 +29,10 @@
   "devDependencies": {
     "@acme/prettier-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
+    "@ts-safeql/eslint-plugin": "^2.0.3",
     "@types/eslint": "^8.56.0",
     "eslint": "^8.56.0",
+    "libpg-query": "^15.0.2",
     "prettier": "^3.1.1",
     "typescript": "^5.3.3"
   },
