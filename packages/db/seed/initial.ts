@@ -19,11 +19,9 @@ const groupsData = [
         street: "123 Street",
         room: "123",
         comments: "Some comments",
-        lattitude: 123.123,
-        longitude: 123.123,
         location: {
-          create: {
-            coords: {},
+          connect: {
+            id: 1,
           },
         },
       },

@@ -1,10 +1,10 @@
 import { z } from "zod";
 
-import { States, Topics, WeekDays } from "@acme/types";
+import { Topics } from "@acme/types";
 
 export const CreateMeetingsSchema = z.object({
   start: z.string().datetime(),
   end: z.string().datetime(),
-  topic: z.string(),
+  topic: z.nativeEnum(Topics),
   dayId: z.string(),
 });

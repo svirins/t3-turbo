@@ -15,7 +15,8 @@
     "push": "pnpm with-env prisma db push",
     "format": "pnpm with-env prisma format",
     "studio": "pnpm with-env prisma studio",
-    "with-env": "dotenv -e ../../.env --"
+    "with-env": "dotenv -e ../../.env --",
+    "seed": "bun run ./seed/locations.ts"
   },
   "dependencies": {
     "@prisma/client": "5.8.0",
