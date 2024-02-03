@@ -13,6 +13,7 @@
     "build": "pnpm with-env prisma generate && tsup",
     "clean": "rm -rf .turbo node_modules dist",
     "push": "pnpm with-env prisma db push",
+    "format": "pnpm with-env prisma format",
     "studio": "pnpm with-env prisma studio",
     "with-env": "dotenv -e ../../.env --"
   },

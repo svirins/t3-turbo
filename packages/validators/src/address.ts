@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { CreateLocationSchema } from "./location";
+
 export const CreateAddressSchema = z.object({
   city: z.string().min(3),
   state: z.string(),
@@ -8,5 +10,6 @@ export const CreateAddressSchema = z.object({
   comments: z.string().optional(),
   latitude: z.number(),
   longitude: z.number(),
+  location: CreateLocationSchema,
   groupId: z.string(),
 });

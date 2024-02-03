@@ -21,23 +21,25 @@ model Group {
 }
 
 model Address {
-  id        String  @id @default(cuid())
-  city      String
-  state     State
-  street    String
-  room      String?
-  comments  String?
-  latitude  Float
-  longitude Float
-  group     Group   @relation(fields: [groupId], references: [id])
-  groupId   String  @unique
+  id         String    @id @default(cuid())
+  city       String
+  state      State
+  street     String
+  room       String?
+  comments   String?
+  latitude   Float
+  longitude  Float
+  location   Location?
+  group      Group     @relation(fields: [groupId], references: [id])
+  groupId    String    @unique
+  locationId String
 }
 
 model Location {
-  id     String                               @id @default(cuid())
-  coords Unsupported("geometry(Point, 4326)")
-
-  @@index([coords], name: "location_idx", type: Gist)
+  id        String                               @id @default(cuid())
+  coords    Unsupported("geometry(Point, 4326)")
+  address   Address                              @relation(fields: [addressId], references: [id])
+  addressId String                               @unique
 }
 
 model Day {
@@ -45,7 +47,7 @@ model Day {
   name     WeekDay
   meetings Meeting[]
   group    Group     @relation(fields: [groupId], references: [id])
-  groupId  String    @unique
+  groupId  String
 }
 
 model Meeting {
