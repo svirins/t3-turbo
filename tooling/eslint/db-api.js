@@ -1,18 +1,16 @@
 /** @type {import("eslint").Linter.Config} */
+require("dotenv").config();
+
 const config = {
-  extends: [
-    "turbo",
-    "eslint:recommended",
-    // "plugin:@typescript-eslint/recommended-type-checked",
-    // "plugin:@typescript-eslint/stylistic-type-checked",
-    "prettier",
-  ],
+  extends: ["turbo", "eslint:recommended", "prettier"],
   env: {
     es2022: true,
     node: true,
   },
   parser: "@typescript-eslint/parser",
-  parserOptions: { project: true },
+  parserOptions: {
+    project: "./tsconfig.json",
+  },
   plugins: ["@typescript-eslint", "import", "@ts-safeql/eslint-plugin"],
   rules: {
     "turbo/no-undeclared-env-vars": "off",
@@ -39,6 +37,7 @@ const config = {
       {
         connections: [
           {
+            connectionUrl: process.env.DATABASE_URL,
             // The migrations path:
             migrationsDir: "./prisma/migrations",
             targets: [

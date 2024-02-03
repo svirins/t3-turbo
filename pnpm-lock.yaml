@@ -15,7 +15,7 @@ importers:
         specifier: ^1.12.2
         version: 1.12.2(@types/node@20.11.16)(typescript@5.3.3)
       prettier:
-        specifier: ^3.1.1
+        specifier: ^3.2.4
         version: 3.2.4
       turbo:
         specifier: ^1.12.2
@@ -295,6 +295,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6.10.0
         version: 6.19.0(eslint@8.56.0)(typescript@5.3.3)
+      dotenv:
+        specifier: ^16.4.1
+        version: 16.4.1
       eslint-config-prettier:
         specifier: ^9.1.0
         version: 9.1.0(eslint@8.56.0)
@@ -329,9 +332,6 @@ importers:
       eslint:
         specifier: ^8.56.0
         version: 8.56.0
-      libpg-query:
-        specifier: ^15.0.2
-        version: 15.0.2
       prettier:
         specifier: ^3.1.1
         version: 3.2.4
@@ -567,11 +567,11 @@ packages:
       '@babel/types': 7.23.6
     dev: false
 
-  /@babel/runtime-corejs3@7.23.8:
-    resolution: {integrity: sha512-2ZzmcDugdm0/YQKFVYsXiwUN7USPX8PM7cytpb4PFl87fM+qYPSvTZX//8tyeJB1j0YDmafBJEbl5f8NfLyuKw==}
+  /@babel/runtime-corejs3@7.23.9:
+    resolution: {integrity: sha512-oeOFTrYWdWXCvXGB5orvMTJ6gCZ9I6FBjR+M38iKNXCsPxr4xT0RTdg5uz1H7QP8pp74IzPtwritEr+JscqHXQ==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      core-js-pure: 3.35.0
+      core-js-pure: 3.35.1
       regenerator-runtime: 0.14.1
     dev: true
 
@@ -3040,8 +3040,8 @@ packages:
       is-what: 4.1.16
     dev: false
 
-  /core-js-pure@3.35.0:
-    resolution: {integrity: sha512-f+eRYmkou59uh7BPcyJ8MC76DiGhspj1KMxVIcF24tzP8NA9HVa1uC7BTW2tgx7E1QVCzDzsgp7kArrzhlz8Ew==}
+  /core-js-pure@3.35.1:
+    resolution: {integrity: sha512-zcIdi/CL3MWbBJYo5YCeVAAx+Sy9yJE9I3/u9LkFABwbeaPhTMRWraM8mYFp9jW5Z50hOy7FVzCc8dCrpZqtIQ==}
     requiresBuild: true
     dev: true
 
@@ -3993,7 +3993,7 @@ packages:
       dir-glob: 3.0.1
       fast-glob: 3.3.2
       glob: 7.2.3
-      ignore: 5.3.0
+      ignore: 5.3.1
       merge2: 1.4.1
       slash: 3.0.0
     dev: true
@@ -5010,7 +5010,7 @@ packages:
     resolution: {integrity: sha512-Cov028YhBZ5aB7MdMWJEmwyBig43aGL5WT4vdoB28Oitau1zZAcHUn8Sgfk9HM33TqhtLJ9PlM/O0Mv+QpV/4Q==}
     engines: {node: '>=8.9.4'}
     dependencies:
-      '@babel/runtime-corejs3': 7.23.8
+      '@babel/runtime-corejs3': 7.23.9
       '@types/inquirer': 6.5.0
       change-case: 3.1.0
       del: 5.1.0
