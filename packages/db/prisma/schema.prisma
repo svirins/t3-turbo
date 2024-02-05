@@ -26,7 +26,7 @@ model Address {
   state    State
   street   String
   room     String?
-  comments String?
+  comments String?   @default("")
   location Location?
   group    Group     @relation(fields: [groupId], references: [id])
   groupId  String    @unique

@@ -3,21 +3,22 @@ import { PrismaClient } from "@prisma/client";
 
 import { States, Topics, WeekDays } from "@acme/types";
 
-type SeedLocationData = {
-  id: string;
-  name: string;
-  latitude: number;
-  longitude: number;
-};
+// type SeedLocationData = {
+//   id: string;
+//   name: string;
+//   latitude: number;
+//   longitude: number;
+// };
 
-type Location = {
-  id: string;
-  name: string;
-  coords: {
-    latitude: number;
-    longitude: number;
-  };
-};
+// type Location = {
+//   id: string;
+//   name: string;
+//   coords: {
+//     latitude: number;
+//     longitude: number;
+//   };
+// };
+new Date(2024, 0, 0, 12, 0, 0, 0);
 
 const locations = [
   {
@@ -72,51 +73,90 @@ const groupsData = [
       create: [
         {
           name: WeekDays.Monday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Tuesday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Traditions,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Wednesday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Thursday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Friday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Saturday,
-          start: "10:00",
-          end: "11:00",
-          topic: Topics.Steps,
-        },
-        {
-          name: WeekDays.Saturday,
-          start: "16:00",
-          end: "17:30",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+              {
+                start: new Date(2024, 0, 0, 14, 0, 0, 0),
+                end: new Date(2024, 0, 0, 15, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Sunday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Speaker,
+          meetings: {
+            create: {
+              start: new Date(2024, 0, 0, 12, 0, 0, 0),
+              end: new Date(2024, 0, 0, 13, 0, 0, 0),
+              topic: Topics.Steps,
+            },
+          },
         },
       ],
     },
@@ -140,51 +180,63 @@ const groupsData = [
       create: [
         {
           name: WeekDays.Monday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Tuesday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Traditions,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Wednesday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Thursday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Friday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
-        },
-        {
-          name: WeekDays.Saturday,
-          start: "10:00",
-          end: "11:00",
-          topic: Topics.Steps,
-        },
-        {
-          name: WeekDays.Saturday,
-          start: "16:00",
-          end: "17:30",
-          topic: Topics.Steps,
-        },
-        {
-          name: WeekDays.Sunday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Speaker,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
       ],
     },
@@ -208,51 +260,90 @@ const groupsData = [
       create: [
         {
           name: WeekDays.Monday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Tuesday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Traditions,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Wednesday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Thursday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Friday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Saturday,
-          start: "10:00",
-          end: "11:00",
-          topic: Topics.Steps,
-        },
-        {
-          name: WeekDays.Saturday,
-          start: "16:00",
-          end: "17:30",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+              {
+                start: new Date(2024, 0, 0, 14, 0, 0, 0),
+                end: new Date(2024, 0, 0, 15, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Sunday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Speaker,
+          meetings: {
+            create: {
+              start: new Date(2024, 0, 0, 12, 0, 0, 0),
+              end: new Date(2024, 0, 0, 13, 0, 0, 0),
+              topic: Topics.Steps,
+            },
+          },
         },
       ],
     },
@@ -275,51 +366,90 @@ const groupsData = [
       create: [
         {
           name: WeekDays.Monday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Tuesday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Traditions,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Wednesday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Thursday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Friday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Saturday,
-          start: "10:00",
-          end: "11:00",
-          topic: Topics.Steps,
-        },
-        {
-          name: WeekDays.Saturday,
-          start: "16:00",
-          end: "17:30",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+              {
+                start: new Date(2024, 0, 0, 14, 0, 0, 0),
+                end: new Date(2024, 0, 0, 15, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Sunday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Speaker,
+          meetings: {
+            create: {
+              start: new Date(2024, 0, 0, 12, 0, 0, 0),
+              end: new Date(2024, 0, 0, 13, 0, 0, 0),
+              topic: Topics.Steps,
+            },
+          },
         },
       ],
     },
@@ -331,7 +461,7 @@ const groupsData = [
         city: "Минск",
         state: States.Minskaya,
         street: "ул Наполеона Орды 47а",
-        сomments: "Социальный центр 2 этаж к. 208",
+        comments: "Социальный центр 2 этаж к. 208",
         location: {
           connect: {
             id: "cls7u9ym500010al46f3ve1kn",
@@ -343,51 +473,90 @@ const groupsData = [
       create: [
         {
           name: WeekDays.Monday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Tuesday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Traditions,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Wednesday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Thursday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Friday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Saturday,
-          start: "10:00",
-          end: "11:00",
-          topic: Topics.Steps,
-        },
-        {
-          name: WeekDays.Saturday,
-          start: "16:00",
-          end: "17:30",
-          topic: Topics.Steps,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 12, 0, 0, 0),
+                end: new Date(2024, 0, 0, 13, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+              {
+                start: new Date(2024, 0, 0, 14, 0, 0, 0),
+                end: new Date(2024, 0, 0, 15, 0, 0, 0),
+                topic: Topics.Steps,
+              },
+            ],
+          },
         },
         {
           name: WeekDays.Sunday,
-          start: "12:00",
-          end: "13:00",
-          topic: Topics.Speaker,
+          meetings: {
+            create: {
+              start: new Date(2024, 0, 0, 12, 0, 0, 0),
+              end: new Date(2024, 0, 0, 13, 0, 0, 0),
+              topic: Topics.Steps,
+            },
+          },
         },
       ],
     },
@@ -397,39 +566,58 @@ const groupsData = [
 
 const prisma = new PrismaClient({
   log: ["error", "query", "info", "warn"],
-}).$extends({
-  model: {
-    location: {
-      async create(data: {
-        id: string;
-        name: string;
-        latitude: number;
-        longitude: number;
-      }) {
-        const loc: Location = {
-          id: data.id,
-          name: data.name,
-          coords: {
-            latitude: data.latitude,
-            longitude: data.longitude,
-          },
-        };
-        const point = `POINT(${loc.coords.longitude} ${loc.coords.latitude})`;
-        await prisma.$queryRaw`
-          INSERT INTO "Location" (id, name, coords) VALUES (${loc.id}, ${loc.name}, ST_GeomFromText(${point}, 4326));
-        `;
-        return loc;
-      },
-    },
-  },
 });
+
+// const prisma = new PrismaClient({
+//   log: ["error", "query", "info", "warn"],
+// }).$extends({
+//   model: {
+//     location: {
+//       async create(data: {
+//         id: string;
+//         name: string;
+//         latitude: number;
+//         longitude: number;
+//       }) {
+//         const loc: Location = {
+//           id: data.id,
+//           name: data.name,
+//           coords: {
+//             latitude: data.latitude,
+//             longitude: data.longitude,
+//           },
+//         };
+//         const point = `POINT(${loc.coords.longitude} ${loc.coords.latitude})`;
+//         await prisma.$queryRaw`
+//           INSERT INTO "Location" (id, name, coords) VALUES (${loc.id}, ${loc.name}, ST_GeomFromText(${point}, 4326));
+//         `;
+//         return loc;
+//       },
+//     },
+//   },
+// });
 
 // import { groupsData } from "./data";
 
-async function seedLocation(locations: SeedLocationData[]) {
-  for (const seedElement of locations) {
+// async function seedLocation(locations: SeedLocationData[]) {
+//   for (const seedElement of locations) {
+//     try {
+//       const result = await prisma.location.create(seedElement);
+//       console.log("Created group: ", result);
+//     } catch (error) {
+//       console.error("Error creating group: ", error);
+//     }
+//   }
+// }
+
+async function createGroup(data: Prisma.GroupCreateInput) {
+  return prisma.group.create({ data });
+}
+
+async function seedGroups(groupsData: Prisma.GroupCreateInput[]) {
+  for (const seedElement of groupsData) {
     try {
-      const result = await prisma.location.create(seedElement);
+      const result = await createGroup(seedElement);
       console.log("Created group: ", result);
     } catch (error) {
       console.error("Error creating group: ", error);
@@ -438,21 +626,6 @@ async function seedLocation(locations: SeedLocationData[]) {
 }
 
 (async () => {
-  console.log("Seeding locations...");
-  await seedLocation(locations);
+  console.log("Seeding groups...");
+  await seedGroups(groupsData);
 })();
-
-// async function createGroup(data: Prisma.GroupCreateInput) {
-//   return prisma.group.create({ data });
-// }
-
-// async function seedGroups(groupsData: Prisma.GroupCreateInput[]) {
-//   for (const seedElement of groupsData) {
-//     try {
-//       const result = await createGroup(seedElement);
-//       console.log("Created group: ", result);
-//     } catch (error) {
-//       console.error("Error creating group: ", error);
-//     }
-//   }
-// }
