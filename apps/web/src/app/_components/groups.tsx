@@ -19,9 +19,7 @@ import { cn } from "@acme/ui";
 
 import { api } from "~/trpc/react";
 
-export function GroupList(props: {
-  groups: Promise<RouterOutputs["group"]["all"]>;
-}) {
+export function GroupList(props: { groups: RouterOutputs["group"]["all"] }) {
   // TODO: Make `useSuspenseQuery` work without having to pass a promise from RSC
   const initialData = use(props.groups);
   const { data: groups } = api.group.all.useQuery(undefined, {

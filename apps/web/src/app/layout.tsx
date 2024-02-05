@@ -15,21 +15,21 @@ import "~/app/globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(
     env.VERCEL_ENV === "production"
-      ? "https://turbo.t3.gg"
+      ? "https://na-locator.vercel.app/"
       : "http://localhost:3000",
   ),
-  title: "Create T3 Turbo",
-  description: "Simple monorepo with shared backend for web & mobile apps",
+  title: "NA Belarus Locator",
+  description: "Simple app to locate NA meetings in Belarus",
   openGraph: {
-    title: "Create T3 Turbo",
-    description: "Simple monorepo with shared backend for web & mobile apps",
-    url: "https://create-t3-turbo.vercel.app",
-    siteName: "Create T3 Turbo",
+    title: "NA Belarus Locator",
+    description: "Simple app to locate NA meetings in Belarus",
+    url: "https://na-locator.vercel.app/",
+    siteName: "NA Belarus Locator",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@jullerino",
-    creator: "@jullerino",
+    site: "@svirins",
+    creator: "@svirins",
   },
 };
 

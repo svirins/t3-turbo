@@ -7,7 +7,12 @@ import { GroupCardSkeleton, GroupList } from "./_components/groups";
 
 export default async function HomePage() {
   // You can await this here if you don't want to show Suspense fallback below
-  const groups = api.group.all();
+  const groups = await api.group.all();
+  const locations = await api.location.all();
+  console.log("Groups");
+  console.dir(groups);
+  console.log("Locations");
+  console.dir(locations);
 
   return (
     <main className="container h-screen py-16">
