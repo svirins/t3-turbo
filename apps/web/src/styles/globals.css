@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: optional;
+  src: url("/fonts/Inter-VariableFont_slnt,wght.ttf") format("woff2");
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -46,5 +54,9 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+  }
+  /* Overrides the original padding of the Popup component in the Map */
+  .mapboxgl-popup-content {
+    padding: 0 !important;
   }
 }
