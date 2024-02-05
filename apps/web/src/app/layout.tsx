@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Roboto_Mono } from "next/font/google";
 import { AxiomWebVitals } from "next-axiom";
 
 import { ThemeProvider, ThemeToggle } from "@acme/ui/theme";
@@ -7,7 +8,19 @@ import { Toaster } from "@acme/ui/toast";
 import { env } from "~/env";
 import { TRPCReactProvider } from "~/trpc/react";
 
-import "~/app/globals.css";
+import "~/styles/globals.css";
+
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const roboto_mono = Roboto_Mono({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-roboto-mono",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -39,7 +52,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} ${roboto_mono.variable}`}
+      suppressHydrationWarning
+    >
       <AxiomWebVitals />
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
