@@ -23,3 +23,13 @@ export enum States {
   Minskaya = "Minskaya",
   Mogilevskaya = "Mogilevskaya",
 }
+
+export interface Location {
+  id: string;
+  name: string;
+  addressId?: string;
+  coords: {
+    latitude: number;
+    longitude: number;
+  };
+}

@@ -21,7 +21,6 @@ export const groupRouter = createTRPCRouter({
     });
     return groups;
   }),
-
   byId: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(async ({ ctx, input }) => {
