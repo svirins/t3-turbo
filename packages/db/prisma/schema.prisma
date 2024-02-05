@@ -21,21 +21,21 @@ model Group {
 }
 
 model Address {
-  id       String           @id @default(cuid())
+  id       String    @id @default(cuid())
   city     String
   state    State
   street   String
   room     String?
   comments String?
-  location PointOfInterest?
-  group    Group            @relation(fields: [groupId], references: [id])
-  groupId  String           @unique
+  location Location?
+  group    Group     @relation(fields: [groupId], references: [id])
+  groupId  String    @unique
 }
 
-model PointOfInterest {
+model Location {
   id        String                                @id @default(cuid())
   name      String
-  location  Unsupported("geography(Point, 4326)")
+  coords    Unsupported("geography(Point, 4326)")
   address   Address?                              @relation(fields: [addressId], references: [id])
   addressId String?                               @unique
 }

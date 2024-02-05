@@ -1,6 +1,25 @@
+import type { Prisma } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
+
 import { States, Topics, WeekDays } from "@acme/types";
 
-export const locations = [
+type SeedLocationData = {
+  id: string;
+  name: string;
+  latitude: number;
+  longitude: number;
+};
+
+type Location = {
+  id: string;
+  name: string;
+  coords: {
+    latitude: number;
+    longitude: number;
+  };
+};
+
+const locations = [
   {
     id: "cls7u33m5000008l8dd9cf4oj",
     name: "10ka",
@@ -33,7 +52,7 @@ export const locations = [
   },
 ];
 
-export const groupsData = [
+const groupsData = [
   {
     name: "Десятка",
     address: {
@@ -374,3 +393,66 @@ export const groupsData = [
     },
   },
 ];
+// https://www.prisma.io/docs/orm/prisma-client/queries/raw-database-access/custom-and-type-safe-queries
+
+const prisma = new PrismaClient({
+  log: ["error", "query", "info", "warn"],
+}).$extends({
+  model: {
+    location: {
+      async create(data: {
+        id: string;
+        name: string;
+        latitude: number;
+        longitude: number;
+      }) {
+        const loc: Location = {
+          id: data.id,
+          name: data.name,
+          coords: {
+            latitude: data.latitude,
+            longitude: data.longitude,
+          },
+        };
+        const point = `POINT(${loc.coords.longitude} ${loc.coords.latitude})`;
+        await prisma.$queryRaw`
+          INSERT INTO "Location" (id, name, coords) VALUES (${loc.id}, ${loc.name}, ST_GeomFromText(${point}, 4326));
+        `;
+        return loc;
+      },
+    },
+  },
+});
+
+// import { groupsData } from "./data";
+
+async function seedLocation(locations: SeedLocationData[]) {
+  for (const seedElement of locations) {
+    try {
+      const result = await prisma.location.create(seedElement);
+      console.log("Created group: ", result);
+    } catch (error) {
+      console.error("Error creating group: ", error);
+    }
+  }
+}
+
+(async () => {
+  console.log("Seeding locations...");
+  await seedLocation(locations);
+})();
+
+// async function createGroup(data: Prisma.GroupCreateInput) {
+//   return prisma.group.create({ data });
+// }
+
+// async function seedGroups(groupsData: Prisma.GroupCreateInput[]) {
+//   for (const seedElement of groupsData) {
+//     try {
+//       const result = await createGroup(seedElement);
+//       console.log("Created group: ", result);
+//     } catch (error) {
+//       console.error("Error creating group: ", error);
+//     }
+//   }
+// }
