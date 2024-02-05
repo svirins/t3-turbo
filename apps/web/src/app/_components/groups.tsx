@@ -4,79 +4,20 @@ import { use } from "react";
 
 import type { RouterOutputs } from "@acme/api";
 import { cn } from "@acme/ui";
-import { Button } from "@acme/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-  useForm,
-} from "@acme/ui/form";
-import { Input } from "@acme/ui/input";
-import { toast } from "@acme/ui/toast";
-import { CreateGroupSchema } from "@acme/validators";
+
+// import { Button } from "@acme/ui/button";
+// import {
+//   Form,
+//   FormControl,
+//   FormField,
+//   FormItem,
+//   FormMessage,
+//   useForm,
+// } from "@acme/ui/form";
+// import { Input } from "@acme/ui/input";
+// import { toast } from "@acme/ui/toast";
 
 import { api } from "~/trpc/react";
-
-export function CreateGroupForm() {
-  const form = useForm({
-    schema: CreateGroupSchema,
-    defaultValues: {},
-  });
-
-  const utils = api.useUtils();
-  const creategroup = api.group.create.useMutation({
-    onSuccess: async () => {
-      form.reset();
-      await utils.group.invalidate();
-    },
-    onError: (err) => {
-      toast.error(
-        err?.data?.code === "UNAUTHORIZED"
-          ? "You must be logged in to group"
-          : "Failed to create group",
-      );
-    },
-  });
-
-  return (
-    <Form {...form}>
-      <form
-        className="flex w-full max-w-2xl flex-col gap-4"
-        onSubmit={form.handleSubmit(async (data) => {
-          creategroup.mutate(data);
-        })}
-      >
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input {...field} placeholder="Title" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* <FormField
-          control={form.control}
-          name="content"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input {...field} placeholder="Content" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
-        <Button>Create</Button>
-      </form>
-    </Form>
-  );
-}
 
 export function GroupList(props: {
   groups: Promise<RouterOutputs["group"]["all"]>;
@@ -113,34 +54,14 @@ export function GroupList(props: {
 export function GroupCard(props: {
   group: RouterOutputs["group"]["all"][number];
 }) {
-  const utils = api.useUtils();
-  const deletegroup = api.group.delete.useMutation({
-    onSuccess: async () => {
-      await utils.group.invalidate();
-    },
-    onError: (err) => {
-      toast.error(
-        err?.data?.code === "UNAUTHORIZED"
-          ? "You must be logged in to delete a group"
-          : "Failed to delete group",
-      );
-    },
-  });
+  // const utils = api.useUtils();
 
   return (
     <div className="flex flex-row rounded-lg bg-muted p-4">
       <div className="flex-grow">
         <h2 className="text-2xl font-bold text-primary">{props.group.name}</h2>
       </div>
-      <div>
-        <Button
-          variant="ghost"
-          className="cursor-pointer text-sm font-bold uppercase text-primary hover:bg-transparent hover:text-white"
-          onClick={() => deletegroup.mutate(props.group.id)}
-        >
-          Delete
-        </Button>
-      </div>
+      <div></div>
     </div>
   );
 }

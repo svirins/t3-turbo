@@ -1,11 +1,7 @@
 import { Suspense } from "react";
 
 import { api } from "~/trpc/server";
-import {
-  CreateGroupForm,
-  GroupCardSkeleton,
-  GroupList,
-} from "./_components/groups";
+import { GroupCardSkeleton, GroupList } from "./_components/groups";
 
 // export const runtime = "edge";
 
@@ -17,10 +13,9 @@ export default async function HomePage() {
     <main className="container h-screen py-16">
       <div className="flex flex-col items-center justify-center gap-4">
         <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-          Create <span className="text-primary">T3</span> Turbo
+          <span className="text-primary">NA</span> Belarus locator
         </h1>
 
-        <CreateGroupForm />
         <div className="w-full max-w-2xl overflow-y-scroll">
           <Suspense
             fallback={

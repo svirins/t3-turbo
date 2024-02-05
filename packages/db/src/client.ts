@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prismaClientSingleton = () => {
   // return new PrismaClient({ log: ["error"] }).$extends(withAccelerate());
-  return new PrismaClient({ log: ["error"] });
+  return new PrismaClient({ log: ["error", "query"] });
 };
 
 declare global {

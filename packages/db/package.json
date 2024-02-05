@@ -16,30 +16,28 @@
     "format": "pnpm with-env prisma format",
     "studio": "pnpm with-env prisma studio",
     "with-env": "dotenv -e ../../.env --",
-    "seed": "bun run ./seed/locations.ts"
+    "seed": "bun  ./seed/seed.ts",
+    "lint": "eslint --ext .ts ."
   },
   "dependencies": {
     "@prisma/client": "5.8.0",
-    "@prisma/extension-accelerate": "^0.6.2",
-    "dotenv": "^16.4.1"
+    "@prisma/extension-accelerate": "^0.6.2"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
     "@acme/prettier-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
     "@acme/types": "workspace:*",
+    "@ts-safeql/eslint-plugin": "^2.0.3",
+    "@types/eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
+    "dotenv": "^16.4.1",
     "dotenv-cli": "^7.3.0",
     "eslint": "^8.56.0",
     "prettier": "^3.2.4",
     "prisma": "5.8.0",
     "tsup": "8.0.1",
     "typescript": "^5.3.3"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@acme/eslint-config/db-api"
-    ]
   },
   "prettier": "@acme/prettier-config"
 }
