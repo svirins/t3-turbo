@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { IoIosPeople } from "react-icons/io";
+import { useEffect, useRef, useState } from "react";
 import Map, {
   GeolocateControl,
   Marker,
@@ -9,40 +8,63 @@ import Map, {
   Popup,
 } from "react-map-gl";
 
-// import type { RouterOutputs } from "@acme/api";
 import type { Location } from "@acme/types";
+
+import { marker } from "~/app/components/icons";
+import { api } from "~/trpc/server";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 
 export function MapDisplay(props: { locations: Location[] }) {
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+
   const [selectedMarker, setSelectedMarker] = useState<Location | null>(null);
+  const [currentLocation, setCurrentLocation] = useState({
+    latitude: 53.8952733,
+    longitude: 27.5510122,
+  });
+
   const mapRef = useRef(null);
 
   const zoomToSelectedLoc = (
-    e: MouseEvent,
+    e: React.MouseEvent<HTMLElement>,
     location: Location,
-    index: number,
   ) => {
     e.stopPropagation();
-    setSelectedMarker({ location, index });
+    setSelectedMarker(location);
     mapRef.current.flyTo({
       center: [location.coords.longitude, location.coords.latitude],
       zoom: 10,
     });
   };
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setCurrentLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+      });
+    } else {
+      console.log(
+        "Geolocation is not supported by this browser. Seeting default location to Minsk, Belarus.",
+      );
+    }
+  }, []);
+  console.log("MapDisplay currentLocation: ", currentLocation);
   return (
     <Map
       ref={mapRef}
       mapboxAccessToken={mapboxToken}
       mapStyle="mapbox://styles/mapbox/streets-v12"
       initialViewState={{
-        latitude: 53.9045185,
-        longitude: 27.596258,
-        zoom: 10,
+        latitude: currentLocation.latitude,
+        longitude: currentLocation.longitude,
+        zoom: 12,
       }}
-      maxZoom={20}
-      minZoom={3}
+      maxZoom={17}
+      minZoom={6}
     >
       <GeolocateControl position="top-left" />
       <NavigationControl position="top-left" />
@@ -56,12 +78,12 @@ export function MapDisplay(props: { locations: Location[] }) {
             <button
               type="button"
               className="cursor-pointer"
-              onClick={(e) => zoomToSelectedLoc(e, location, index)}
+              onClick={(e) => zoomToSelectedLoc(e, location)}
             >
               <p className="font-meduim z-50 text-xl text-blue-700">
                 {location.name}
               </p>
-              {<IoIosPeople size={30} color="blue" />}
+              {marker}
             </button>
           </Marker>
         );
@@ -76,7 +98,7 @@ export function MapDisplay(props: { locations: Location[] }) {
           }}
           closeButton={false}
         >
-          <h3>{selectedMarker.name}</h3>
+          <p>{selectedMarker.name}</p>
         </Popup>
       ) : null}
     </Map>

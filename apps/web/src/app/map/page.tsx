@@ -4,10 +4,12 @@ import { api } from "~/trpc/server";
 // export const runtime = "edge";
 
 export default async function HomePage() {
-  // You can await this here if you don't want to show Suspense fallback below
+  // TODO: consider, how we can  get user location here and pass it to api call
+  // !! get it from localstore from localstore, if no data is stored - get it from navigator.geolocation
+
   const locations = await api.location.closest({
-    latitude: 53.9045185,
-    longitude: 27.596258,
+    latitude: 53.8952733,
+    longitude: 27.5510122,
   });
 
   return (
