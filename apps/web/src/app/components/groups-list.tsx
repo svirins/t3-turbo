@@ -1,6 +1,6 @@
 import type { RouterOutputs } from "@acme/api";
 
-import { GroupCard } from "~/components/group-card";
+import { GroupCard } from "~/app/components/group-card";
 
 export function GroupList(props: { groups: RouterOutputs["group"]["all"] }) {
   if (props.groups.length === 0) {

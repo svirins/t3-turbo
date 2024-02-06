@@ -1,7 +1,7 @@
 import type { RouterOutputs } from "@acme/api";
 
-import { Address } from "~/components/address";
-import { DaysList } from "~/components/days-list";
+import { Address } from "~/app/components/address";
+import { DaysList } from "~/app/components/days-list";
 
 export function GroupCard(props: {
   group: RouterOutputs["group"]["all"][number];

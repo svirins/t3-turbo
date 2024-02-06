@@ -1,4 +1,4 @@
-import { GroupList } from "~/components/groups-list";
+import { GroupList } from "~/app/components/groups-list";
 import { api } from "~/trpc/server";
 
 // export const runtime = "edge";

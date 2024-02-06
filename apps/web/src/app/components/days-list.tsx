@@ -1,6 +1,6 @@
 import type { RouterOutputs } from "@acme/api";
 
-import { DayCard } from "~/components/day-card";
+import { DayCard } from "~/app/components/day-card";
 
 export function DaysList(props: {
   days: RouterOutputs["group"]["all"][number]["days"];
