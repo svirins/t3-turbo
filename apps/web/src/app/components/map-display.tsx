@@ -15,7 +15,6 @@ import type { Location } from "@acme/types";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 export function MapDisplay(props: { locations: Location[] }) {
-  console.log("MapDisplay", props.locations);
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
   const [selectedMarker, setSelectedMarker] = useState<Location | null>(null);
   const mapRef = useRef(null);
@@ -49,7 +48,11 @@ export function MapDisplay(props: { locations: Location[] }) {
       <NavigationControl position="top-left" />
       {props.locations.map((location, index) => {
         return (
-          <Marker key={index} longitude={27.59} latitude={53.9}>
+          <Marker
+            key={index}
+            longitude={Number(location.coords.longitude)}
+            latitude={Number(location.coords.latitude)}
+          >
             <button
               type="button"
               className="cursor-pointer"
@@ -66,8 +69,8 @@ export function MapDisplay(props: { locations: Location[] }) {
       {selectedMarker ? (
         <Popup
           offset={25}
-          latitude={selectedMarker.coords.longitude}
-          longitude={selectedMarker.coords.latitude}
+          latitude={Number(selectedMarker.coords.latitude)}
+          longitude={Number(selectedMarker.coords.longitude)}
           onClose={() => {
             setSelectedMarker(null);
           }}

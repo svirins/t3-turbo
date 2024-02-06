@@ -1,13 +1,7 @@
 import type { Prisma } from "@prisma/client";
 import { PrismaClient } from "@prisma/client";
 
-
-
 import { States, Topics, WeekDays } from "@acme/types";
-
-
-
-
 
 type SeedLocationData = {
   id: string;
@@ -570,38 +564,38 @@ const groupsData = [
 ];
 // https://www.prisma.io/docs/orm/prisma-client/queries/raw-database-access/custom-and-type-safe-queries
 
-// const prisma = new PrismaClient({
-//   log: ["error", "query", "info", "warn"],
-// });
-
 const prisma = new PrismaClient({
   log: ["error", "query", "info", "warn"],
-}).$extends({
-  model: {
-    location: {
-      async create(data: {
-        id: string;
-        name: string;
-        latitude: number;
-        longitude: number;
-      }) {
-        const loc: Location = {
-          id: data.id,
-          name: data.name,
-          coords: {
-            latitude: data.latitude,
-            longitude: data.longitude,
-          },
-        };
-        const point = `POINT(${loc.coords.latitude} ${loc.coords.longitude})`;
-        await prisma.$queryRaw`
-          INSERT INTO "Location" (id, name, coords) VALUES (${loc.id}, ${loc.name}, ST_GeomFromText(${point}, 4326));
-        `;
-        return loc;
-      },
-    },
-  },
 });
+
+// const prisma = new PrismaClient({
+//   log: ["error", "query", "info", "warn"],
+// }).$extends({
+//   model: {
+//     location: {
+//       async create(data: {
+//         id: string;
+//         name: string;
+//         latitude: number;
+//         longitude: number;
+//       }) {
+//         const loc: Location = {
+//           id: data.id,
+//           name: data.name,
+//           coords: {
+//             latitude: data.latitude,
+//             longitude: data.longitude,
+//           },
+//         };
+//         const point = `POINT(${loc.coords.latitude} ${loc.coords.longitude})`;
+//         await prisma.$queryRaw`
+//           INSERT INTO "Location" (id, name, coords) VALUES (${loc.id}, ${loc.name}, ST_GeomFromText(${point}, 4326));
+//         `;
+//         return loc;
+//       },
+//     },
+//   },
+// });
 
 // import { groupsData } from "./data";
 
@@ -616,22 +610,26 @@ const prisma = new PrismaClient({
 //   }
 // }
 
-// async function createGroup(data: Prisma.GroupCreateInput) {
-//   return prisma.group.create({ data });
-// }
+async function createGroup(data: Prisma.GroupCreateInput) {
+  return prisma.group.create({ data });
+}
 
-// async function seedGroups(groupsData: Prisma.GroupCreateInput[]) {
-//   for (const seedElement of groupsData) {
-//     try {
-//       const result = await createGroup(seedElement);
-//       console.log("Created group: ", result);
-//     } catch (error) {
-//       console.error("Error creating group: ", error);
-//     }
-//   }
-// }
-
+async function seedGroups(groupsData: Prisma.GroupCreateInput[]) {
+  for (const seedElement of groupsData) {
+    try {
+      const result = await createGroup(seedElement);
+      console.log("Created group: ", result);
+    } catch (error) {
+      console.error("Error creating group: ", error);
+    }
+  }
+}
 (async () => {
   console.log("Seeding groups...");
   await seedGroups(groupsData);
 })();
+
+// (async () => {
+//   console.log("Seeding locations...");
+//   await seedLocation(locations);
+// })();
