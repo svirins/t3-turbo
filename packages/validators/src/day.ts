@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { WeekDays } from "@acme/types";
+import { WeekDays } from "@acme/utils";
 
 import { CreateMeetingsSchema } from "./meeting";
 

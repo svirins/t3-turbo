@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:*",
-    "@acme/types": "workspace:*",
+    "@acme/utils": "workspace:*",
     "@ts-safeql/eslint-plugin": "^2.0.3",
     "@types/eslint": "^8.56.0",
     "@types/node": "^20.11.13",

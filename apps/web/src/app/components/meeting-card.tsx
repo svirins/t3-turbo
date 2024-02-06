@@ -1,6 +1,5 @@
-import { format } from "date-fns";
-
 import type { RouterOutputs } from "@acme/api";
+import { format } from "@acme/utils";
 
 export function MeetingCard(props: {
   meeting: RouterOutputs["group"]["all"][number]["days"][number]["meetings"][number];

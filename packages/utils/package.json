@@ -1,5 +1,5 @@
 {
-  "name": "@acme/types",
+  "name": "@acme/utils",
   "version": "0.1.0",
   "private": true,
   "main": "./dist/index.js",
@@ -28,5 +28,8 @@
       "@acme/eslint-config/base"
     ]
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@acme/prettier-config",
+  "dependencies": {
+    "date-fns": "^3.3.1"
+  }
 }

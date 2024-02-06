@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-import { type Location } from "@acme/types";
+import { type Location } from "@acme/utils";
 
 // import { withAccelerate } from "@prisma/extension-accelerate";
 

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { Topics } from "@acme/types";
+import { Topics } from "@acme/utils";
 
 export const CreateMeetingsSchema = z.object({
   start: z.string().datetime(),

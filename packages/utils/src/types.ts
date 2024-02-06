@@ -24,6 +24,15 @@ export enum States {
   Mogilevskaya = "Mogilevskaya",
 }
 
+export enum Repeats {
+  Weekly = "Weekly",
+  First = "First",
+  Last = "Last",
+  Odd = "Odd",
+  Even = "Even",
+  Fourth = "Fourth",
+}
+
 export interface Location {
   id: string;
   name: string;

@@ -8,8 +8,7 @@ import Map, {
   Popup,
 } from "react-map-gl";
 
-import type { Location } from "@acme/types";
-
+import type { Location } from "../../../../../packages/utils/dist";
 import { marker } from "~/app/components/icons";
 import { api } from "~/trpc/server";
 

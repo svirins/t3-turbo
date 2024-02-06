@@ -1,7 +1,7 @@
 import type { Prisma } from "@prisma/client";
 import { PrismaClient } from "@prisma/client";
 
-import { States, Topics, WeekDays } from "@acme/types";
+import { States, Topics, WeekDays } from "@acme/utils";
 
 type SeedLocationData = {
   id: string;

@@ -4,5 +4,5 @@
 - Drizzle -> Prisma
 - serverless PlanetScale
 - edge -> node (Next.js pages)
-- @acme/types
+- @acme/utils
 - Mapbox

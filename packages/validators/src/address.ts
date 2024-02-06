@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { States } from "@acme/types";
+import { States } from "@acme/utils";
 
 import { CreateLocationSchema } from "./location";
 
