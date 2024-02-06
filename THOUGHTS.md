@@ -1,3 +1,3 @@
-- add 'repeat' to meeting model: first, last, even, odd, fourth
+- add 'repeat' to the meeting model: first, last, even, odd, fourth
 - list view - current day
 - group view - 4 weeks / month

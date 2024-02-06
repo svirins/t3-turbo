@@ -1,3 +1,5 @@
+import { getCurrentDayFilters } from "@acme/utils";
+
 import { GroupList } from "~/app/components/groups-list";
 import { api } from "~/trpc/server";
 
@@ -5,7 +7,9 @@ import { api } from "~/trpc/server";
 
 export default async function HomePage() {
   // You can await this here if you don't want to show Suspense fallback below
-  const groups = await api.group.all();
+  const { dayOfWeekFilter, repeatsFilter } = getCurrentDayFilters();
+
+  const groups = await api.group.allToday({ dayOfWeekFilter, repeatsFilter });
 
   return (
     <main className="container h-screen py-16">
