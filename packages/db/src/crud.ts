@@ -18,14 +18,26 @@ export const getGroupIds = async (): Promise<{ id: string }[] | null> => {
   }
 };
 
-export const getGroupById = async (): Promise<{ id: string }[] | null> => {
+export const getGroupById = async (id: string) => {
   try {
-    const groupIds = await prisma.group.findMany({
-      select: {
-        id: true,
+    const group = await prisma.group.findUnique({
+      where: {
+        id: id,
+      },
+      include: {
+        address: {
+          include: {
+            location: true,
+          },
+        },
+        days: {
+          include: {
+            meetings: true,
+          },
+        },
       },
     });
-    return groupIds;
+    return group;
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError) {
       console.error(`DB error: ${JSON.stringify(e)}`);
