@@ -1,7 +1,7 @@
 import type { Prisma } from "@prisma/client";
 import { PrismaClient } from "@prisma/client";
 
-import { States, Topics, WeekDays } from "@acme/utils";
+import { Repeats, States, Topics, WeekDays } from "@acme/utils";
 
 type SeedLocationData = {
   id: string;
@@ -18,14 +18,13 @@ type Location = {
     longitude: number;
   };
 };
-new Date(2024, 0, 0, 12, 0, 0, 0);
 
 const locations = [
   {
     id: "cls7u33m5000008l8dd9cf4oj",
     name: "10ka",
-    latitude: 53.89931965195655,
-    longitude: 27.602057599054742,
+    latitude: 53.89932147291448,
+    longitude: 27.60210846216916,
   },
   {
     id: "cls7u9fdq00000al480osaulw",
@@ -76,9 +75,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topic: Topics.DailyInventarization,
+                Repeats: Repeats.Weekly,
               },
             ],
           },
@@ -88,9 +88,16 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topic: [Topics.Steps],
+                Repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 20, 15, 0, 0),
+                end: new Date(2024, 0, 0, 21, 0, 0, 0),
+                topic: [Topics.Work],
+                Repeats: Repeats.Last,
               },
             ],
           },
@@ -100,9 +107,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topic: [Topics.SelfAnalysis],
+                Repeats: Repeats.Weekly,
               },
             ],
           },
@@ -112,9 +120,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topic: [Topics.Traditions],
+                Repeats: Repeats.Weekly,
               },
             ],
           },
@@ -124,9 +133,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topic: [Topics.DailyInventarization],
+                Repeats: Repeats.Weekly,
               },
             ],
           },
@@ -136,14 +146,16 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 10, 0, 0, 0),
+                end: new Date(2024, 0, 0, 11, 0, 0, 0),
+                topic: [Topics.WeeklyInventarization],
+                Repeats: Repeats.Weekly,
               },
               {
-                start: new Date(2024, 0, 0, 14, 0, 0, 0),
-                end: new Date(2024, 0, 0, 15, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 16, 0, 0, 0),
+                end: new Date(2024, 0, 0, 17, 0, 0, 0),
+                topic: [Topics.Sponsorship],
+                Repeats: Repeats.Weekly,
               },
             ],
           },
@@ -152,9 +164,10 @@ const groupsData = [
           name: WeekDays.Sunday,
           meetings: {
             create: {
-              start: new Date(2024, 0, 0, 12, 0, 0, 0),
-              end: new Date(2024, 0, 0, 13, 0, 0, 0),
-              topic: Topics.Steps,
+              start: new Date(2024, 0, 0, 16, 0, 0, 0),
+              end: new Date(2024, 0, 0, 17, 30, 0, 0),
+              topic: [Topics.Sponsorship, Topics.Open],
+              Repeats: Repeats.Weekly,
             },
           },
         },
@@ -183,9 +196,28 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 11, 30, 0, 0),
+                end: new Date(2024, 0, 0, 12, 30, 0, 0),
+                topic: [Topics.Sponsorship],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 20, 0, 0),
+                topic: [Topics.Sponsorship],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 21, 0, 0, 0),
+                end: new Date(2024, 0, 0, 22, 0, 0, 0),
+                topic: [Topics.Sponsorship],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 23, 0, 0, 0),
+                end: new Date(2024, 0, 0, 23, 59, 0, 0),
+                topic: [Topics.Sponsorship],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -195,9 +227,22 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 11, 30, 0, 0),
+                end: new Date(2024, 0, 0, 12, 30, 0, 0),
+                topic: [Topics.Service],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 20, 0, 0),
+                topic: [Topics.Service],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 21, 0, 0, 0),
+                end: new Date(2024, 0, 0, 22, 0, 0, 0),
+                topic: [Topics.Service],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -207,9 +252,28 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 11, 30, 0, 0),
+                end: new Date(2024, 0, 0, 12, 30, 0, 0),
+                topic: [Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 20, 0, 0),
+                topic: [Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 21, 0, 0, 0),
+                end: new Date(2024, 0, 0, 22, 0, 0, 0),
+                topic: [Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 23, 0, 0, 0),
+                end: new Date(2024, 0, 0, 23, 59, 0, 0),
+                topic: [Topics.Steps],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -219,9 +283,22 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 11, 30, 0, 0),
+                end: new Date(2024, 0, 0, 12, 30, 0, 0),
+                topic: [Topics.Relationships],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 20, 0, 0),
+                topic: [Topics.Relationships],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 21, 0, 0, 0),
+                end: new Date(2024, 0, 0, 22, 0, 0, 0),
+                topic: [Topics.Relationships],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -231,9 +308,90 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 11, 30, 0, 0),
+                end: new Date(2024, 0, 0, 12, 30, 0, 0),
+                topic: [Topics.Traditions],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 20, 0, 0),
+                topic: [Topics.Traditions],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 21, 0, 0, 0),
+                end: new Date(2024, 0, 0, 22, 0, 0, 0),
+                topic: [Topics.Traditions],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 23, 0, 0, 0),
+                end: new Date(2024, 0, 0, 23, 59, 0, 0),
+                topic: [Topics.Traditions],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          name: WeekDays.Saturday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 11, 30, 0, 0),
+                end: new Date(2024, 0, 0, 12, 50, 0, 0),
+                topic: [Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 20, 0, 0),
+                topic: [Topics.Speaker],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 21, 0, 0, 0),
+                end: new Date(2024, 0, 0, 22, 0, 0, 0),
+                topic: [Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 23, 0, 0, 0),
+                end: new Date(2024, 0, 0, 23, 59, 0, 0),
+                topic: [Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          name: WeekDays.Sunday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 11, 30, 0, 0),
+                end: new Date(2024, 0, 0, 12, 50, 0, 0),
+                topic: [Topics.Steps, Topics.Open],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 30, 0, 0),
+                topic: [Topics.Work],
+                repeats: Repeats.Last,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 20, 0, 0),
+                topic: [Topics.Defects],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 21, 0, 0, 0),
+                end: new Date(2024, 0, 0, 22, 0, 0),
+                topic: [Topics.Defects],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -263,9 +421,16 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topic: [Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 20, 15, 0, 0),
+                end: new Date(2024, 0, 0, 21, 0, 0, 0),
+                topic: [Topics.Work],
+                repeats: Repeats.Last,
               },
             ],
           },
@@ -275,21 +440,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
-              },
-            ],
-          },
-        },
-        {
-          name: WeekDays.Wednesday,
-          meetings: {
-            create: [
-              {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 20, 30, 0, 0),
+                end: new Date(2024, 0, 0, 21, 30, 0, 0),
+                topic: [Topics.Theme],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -299,9 +453,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 20, 30, 0, 0),
+                end: new Date(2024, 0, 0, 21, 30, 0, 0),
+                topic: [Topics.Traditions],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -311,9 +466,16 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 20, 0, 0, 0),
+                end: new Date(2024, 0, 0, 21, 15, 0, 0),
+                topic: [Topics.Theme],
+                repeats: Repeats.Even,
+              },
+              {
+                start: new Date(2024, 0, 0, 20, 0, 0, 0),
+                end: new Date(2024, 0, 0, 21, 15, 0, 0),
+                topic: [Topics.Theme, Topics.Open],
+                repeats: Repeats.Odd,
               },
             ],
           },
@@ -323,14 +485,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
-              },
-              {
-                start: new Date(2024, 0, 0, 14, 0, 0, 0),
-                end: new Date(2024, 0, 0, 15, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 16, 0, 0, 0),
+                end: new Date(2024, 0, 0, 17, 0, 0, 0),
+                topic: [Topics.Theme],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -339,9 +497,10 @@ const groupsData = [
           name: WeekDays.Sunday,
           meetings: {
             create: {
-              start: new Date(2024, 0, 0, 12, 0, 0, 0),
-              end: new Date(2024, 0, 0, 13, 0, 0, 0),
-              topic: Topics.Steps,
+              start: new Date(2024, 0, 0, 16, 0, 0, 0),
+              end: new Date(2024, 0, 0, 17, 0, 0, 0),
+              topic: [Topics.QA],
+              repeats: Repeats.Weekly,
             },
           },
         },
@@ -369,9 +528,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 10, 0, 0),
+                topic: [Topics.Service, Topics.Basics],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -381,9 +541,22 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 10, 0, 0),
+                topic: [Topics.Steps],
+                repeats: Repeats.Even,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 10, 0, 0),
+                topic: [Topics.Steps, Topics.Open],
+                repeats: Repeats.Odd,
+              },
+              {
+                start: new Date(2024, 0, 0, 20, 15, 0, 0),
+                end: new Date(2024, 0, 0, 21, 15, 0, 0),
+                topic: [Topics.Work],
+                repeats: Repeats.Last,
               },
             ],
           },
@@ -393,9 +566,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 10, 0, 0),
+                topic: [Topics.Traditions],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -405,9 +579,23 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 10, 0, 0),
+                topic: [Topics.Sponsorship],
+                repeats: Repeats.Odd,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 10, 0, 0),
+                topic: [Topics.Sponsorship],
+                repeats: Repeats.First,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 10, 0, 0),
+                topic: [Topics.Sponsorship, Topics.Open],
+                // !! Consider Fourth !== Last
+                repeats: Repeats.Last,
               },
             ],
           },
@@ -417,9 +605,16 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 10, 0, 0),
+                topic: [Topics.Relationships],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 22, 0, 0, 0),
+                end: new Date(2024, 0, 0, 23, 10, 0, 0),
+                topic: [Topics.Theme],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -429,14 +624,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
-              },
-              {
-                start: new Date(2024, 0, 0, 14, 0, 0, 0),
-                end: new Date(2024, 0, 0, 15, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 10, 0, 0),
+                topic: [Topics.QA],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -444,11 +635,27 @@ const groupsData = [
         {
           name: WeekDays.Sunday,
           meetings: {
-            create: {
-              start: new Date(2024, 0, 0, 12, 0, 0, 0),
-              end: new Date(2024, 0, 0, 13, 0, 0, 0),
-              topic: Topics.Steps,
-            },
+            create: [
+              {
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 10, 0, 0),
+                topic: [Topics.DailyMeditation, Topics.Open],
+                repeats: Repeats.First,
+              },
+              {
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 10, 0, 0),
+                topic: [Topics.DailyMeditation],
+                repeats: Repeats.Even,
+              },
+              {
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 10, 0, 0),
+                topic: [Topics.DailyMeditation],
+                // !! Consider Fourth !== Last
+                repeats: Repeats.Fourth,
+              },
+            ],
           },
         },
       ],
@@ -472,25 +679,14 @@ const groupsData = [
     days: {
       create: [
         {
-          name: WeekDays.Monday,
-          meetings: {
-            create: [
-              {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
-              },
-            ],
-          },
-        },
-        {
           name: WeekDays.Tuesday,
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 18, 15, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topic: [Topics.Steps, Topics.Service],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -500,9 +696,24 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 18, 15, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topic: [Topics.Open, Topics.Basics],
+                repeats: Repeats.Last,
+              },
+            ],
+          },
+        },
+        {
+          name: WeekDays.Wednesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 15, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topic: Topics.Basics,
+                repeats: Repeats.Last,
+                x,
               },
             ],
           },

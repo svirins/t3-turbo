@@ -27,7 +27,7 @@ export const groupRouter = createTRPCRouter({
     .input(
       z.object({
         dayOfWeekFilter: z.nativeEnum(WeekDays),
-        repeatsFilter: z.array(Repeats),
+        repeatsFilter: z.array(z.nativeEnum(Repeats)),
       }),
     )
     .query(async ({ ctx, input }) => {
@@ -41,16 +41,19 @@ export const groupRouter = createTRPCRouter({
           days: {
             where: {
               name: input.dayOfWeekFilter,
-              repeats: {
-                in: [input.repeatsFilter],
-              },
             },
             include: {
-              meetings: true,
+              meetings: {
+                where: {
+                  repeats: {
+                    in: input.repeatsFilter,
+                  },
+                },
+              },
             },
           },
         },
-        orderBy: [{ createdAt: "desc" }],
+        orderBy: [{ name: "desc" }],
       });
       return groups;
     }),

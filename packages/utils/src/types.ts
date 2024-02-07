@@ -3,6 +3,20 @@ export enum Topics {
   Traditions = "Traditions",
   Speaker = "Speaker",
   Free = "Free",
+  Open = "Open",
+  Work = "Work",
+  DailyInventarization = "DailyInventarization",
+  WeeklyInventarization = "WeeklyInventarization",
+  Service = "Service",
+  Sponsorship = "Sponsorship",
+  LivingClean = "LivingClean",
+  QA = "QA",
+  DailyMeditation = "DailyMeditation",
+  Relationships = "Relationships",
+  Theme = "Theme",
+  Defects = "Defects",
+  SelfAnalysis = "SelfAnalysis",
+  Basics = "Basics",
 }
 
 export enum WeekDays {
@@ -27,7 +41,9 @@ export enum States {
 export enum Repeats {
   Weekly = "Weekly",
   First = "First",
+  NotFirst = "NotFirst",
   Last = "Last",
+  NotLast = "NotLast",
   Odd = "Odd",
   Even = "Even",
   Fourth = "Fourth",

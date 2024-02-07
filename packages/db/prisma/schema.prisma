@@ -21,47 +21,51 @@ model Group {
 }
 
 model Address {
-  id       String    @id @default(cuid())
-  city     String
-  state    State
-  street   String
-  room     String?
-  comments String?   @default("")
-  location Location?
-  group    Group     @relation(fields: [groupId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  groupId  String    @unique
+  id        String    @id @default(cuid())
+  city      String
+  state     State
+  street    String
+  room      String?
+  comments  String?
+  transport String?
+  photoUrl  String?
+  location  Location?
+  groupId   String    @unique
+  group     Group     @relation(fields: [groupId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model Location {
   id        String                                @id @default(cuid())
   name      String
   coords    Unsupported("geography(Point, 4326)")
-  address   Address?                              @relation(fields: [addressId], references: [id], onDelete: SetNull, onUpdate: Cascade)
   addressId String?                               @unique
+  address   Address?                              @relation(fields: [addressId], references: [id], onDelete: SetNull, onUpdate: Cascade)
 }
 
 model Day {
-  id       String    @id @default(cuid())
-  repeats  Repeats   @default(Weekly)
-  name     WeekDay
-  meetings Meeting[]
-  group    Group     @relation(fields: [groupId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  groupId  String
+  id      String    @id @default(cuid())
+  name    WeekDay
+  Meeting Meeting[]
+  groupId String
+  group   Group     @relation(fields: [groupId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model Meeting {
-  id    String   @id @default(cuid())
-  start DateTime @db.Time()
-  end   DateTime @db.Time()
-  topic Topic
-  day   Day      @relation(fields: [dayId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  dayId String
+  id      String   @id @default(cuid())
+  start   DateTime @db.Time()
+  end     DateTime @db.Time()
+  topics  Topic[]
+  repeats Repeats  @default(Weekly)
+  dayId   String
+  day     Day      @relation(fields: [dayId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
 
 enum Repeats {
   Weekly
   First
+  NotFirst
   Last
+  NotLast
   Odd
   Even
   Fourth
@@ -79,9 +83,23 @@ enum WeekDay {
 
 enum Topic {
   Steps
+  Basics
   Traditions
   Speaker
   Free
+  Open
+  Work
+  DailyInventarization
+  WeeklyInventarization
+  Service
+  Sponsorship
+  LivingClean
+  QA
+  DailyMeditation
+  Relationships
+  Theme
+  Defects
+  SelfAnalysis
 }
 
 enum State {

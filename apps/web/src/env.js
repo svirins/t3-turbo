@@ -19,6 +19,7 @@ export const env = createEnv({
    */
   server: {
     DATABASE_URL: z.string(),
+    CLOUDINARY_URL: z.string(),
   },
   /**
    * Specify your client-side environment variables schema here.
@@ -39,6 +40,7 @@ export const env = createEnv({
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_MAPBOX_TOKEN: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
+    CLOUDINARY_URL: process.env.CLOUDINARY_URL,
   },
   skipValidation:
     !!process.env.CI ||
