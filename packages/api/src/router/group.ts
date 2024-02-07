@@ -55,6 +55,11 @@ export const groupRouter = createTRPCRouter({
           },
         },
         include: {
+          address: {
+            include: {
+              location: true,
+            },
+          },
           days: {
             where: {
               name: input.dayOfWeekFilter,
