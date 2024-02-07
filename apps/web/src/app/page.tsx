@@ -1,11 +1,11 @@
-import { getCurrentDayFilters } from "@acme/utils";
+import { getCurrentDayFilters, test } from "@acme/utils";
 
 import { GroupList } from "~/app/components/groups-list";
 import { api } from "~/trpc/server";
 
 export default async function HomePage() {
   const { dayOfWeekFilter, repeatsFilter } = getCurrentDayFilters();
-  console.log("Repeats filter:", repeatsFilter);
+  test();
   const groups = await api.group.allToday({ dayOfWeekFilter, repeatsFilter });
 
   return (
