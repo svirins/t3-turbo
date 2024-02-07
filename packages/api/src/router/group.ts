@@ -32,12 +32,21 @@ export const groupRouter = createTRPCRouter({
     )
     .query(async ({ ctx, input }) => {
       const groups = await ctx.prisma.group.findMany({
-        include: {
-          address: {
-            include: {
-              location: true,
+        where: {
+          days: {
+            some: {
+              name: input.dayOfWeekFilter,
+              meetings: {
+                some: {
+                  repeats: {
+                    in: input.repeatsFilter,
+                  },
+                },
+              },
             },
           },
+        },
+        include: {
           days: {
             where: {
               name: input.dayOfWeekFilter,

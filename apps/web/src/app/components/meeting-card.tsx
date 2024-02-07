@@ -5,6 +5,7 @@ export function MeetingCard(props: {
   meeting: RouterOutputs["group"]["all"][number]["days"][number]["meetings"][number];
 }) {
   // TODO: Implement 'This is my meeting' badge
+  // TODO: Implement 'passed' / 'incoming' badge
   const start = format(props.meeting?.start, "h:mm a");
   const end = format(props.meeting?.end, "h:mm a");
   return (
@@ -15,7 +16,7 @@ export function MeetingCard(props: {
           <span className="font-medium">{end}</span>
         </p>
         <p className="text-xl font-medium text-primary">
-          {props.meeting?.topic}
+          {props.meeting?.topics.join(", ")}
         </p>
       </div>
     </div>

@@ -3,6 +3,7 @@ import type { RouterOutputs } from "@acme/api";
 import { GroupCard } from "~/app/components/group-card";
 
 export function GroupList(props: { groups: RouterOutputs["group"]["all"] }) {
+
   if (props.groups.length === 0) {
     return (
       <div className="relative flex w-full">

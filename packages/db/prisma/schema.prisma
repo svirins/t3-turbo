@@ -68,7 +68,6 @@ enum Repeats {
   NotLast
   Odd
   Even
-  Fourth
 }
 
 enum WeekDay {

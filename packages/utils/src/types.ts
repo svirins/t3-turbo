@@ -46,7 +46,6 @@ export enum Repeats {
   NotLast = "NotLast",
   Odd = "Odd",
   Even = "Even",
-  Fourth = "Fourth",
 }
 
 export interface Location {

@@ -684,21 +684,14 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 18, 15, 0, 0),
                 end: new Date(2024, 0, 0, 19, 30, 0, 0),
-                topics: [Topics.Open, Topics.Basics],
-                repeats: Repeats.Last,
+                topics: [Topics.Basics],
+                repeats: Repeats.NotLast,
               },
-            ],
-          },
-        },
-        {
-          name: WeekDays.Wednesday,
-          meetings: {
-            create: [
               {
                 start: new Date(2024, 0, 0, 18, 15, 0, 0),
                 end: new Date(2024, 0, 0, 19, 30, 0, 0),
-                topics: [Topics.Basics],
-                repeats: Repeats.NotLast,
+                topics: [Topics.Open, Topics.Basics],
+                repeats: Repeats.Last,
               },
             ],
           },
@@ -758,43 +751,37 @@ const groupsData = [
     },
   },
 ];
+
 // https://www.prisma.io/docs/orm/prisma-client/queries/raw-database-access/custom-and-type-safe-queries
 
 // const prisma = new PrismaClient({
 //   log: ["error", "query", "info", "warn"],
+// }).$extends({
+//   model: {
+//     location: {
+//       async create(data: {
+//         id: string;
+//         name: string;
+//         latitude: number;
+//         longitude: number;
+//       }) {
+//         const loc: Location = {
+//           id: data.id,
+//           name: data.name,
+//           coords: {
+//             latitude: data.latitude,
+//             longitude: data.longitude,
+//           },
+//         };
+//         const point = `POINT(${loc.coords.latitude} ${loc.coords.longitude})`;
+//         await prisma.$queryRaw`
+//           INSERT INTO "Location" (id, name, coords) VALUES (${loc.id}, ${loc.name}, ST_GeomFromText(${point}, 4326));
+//         `;
+//         return loc;
+//       },
+//     },
+//   },
 // });
-
-const prisma = new PrismaClient({
-  log: ["error", "query", "info", "warn"],
-}).$extends({
-  model: {
-    location: {
-      async create(data: {
-        id: string;
-        name: string;
-        latitude: number;
-        longitude: number;
-      }) {
-        const loc: Location = {
-          id: data.id,
-          name: data.name,
-          coords: {
-            latitude: data.latitude,
-            longitude: data.longitude,
-          },
-        };
-        const point = `POINT(${loc.coords.latitude} ${loc.coords.longitude})`;
-        await prisma.$queryRaw`
-          INSERT INTO "Location" (id, name, coords) VALUES (${loc.id}, ${loc.name}, ST_GeomFromText(${point}, 4326));
-        `;
-        return loc;
-      },
-    },
-  },
-});
-
-// import { groupsData } from "./data";
-
 // async function seedLocation(locations: SeedLocationData[]) {
 //   for (const seedElement of locations) {
 //     try {
@@ -805,11 +792,17 @@ const prisma = new PrismaClient({
 //     }
 //   }
 // }
+// (async () => {
+//   console.log("Seeding locations...");
+//   await seedLocation(locations);
+// })();
 
+const prisma = new PrismaClient({
+  log: ["error", "query", "info", "warn"],
+});
 async function createGroup(data: Prisma.GroupCreateInput) {
   return prisma.group.create({ data });
 }
-
 async function seedGroups(groupsData: Prisma.GroupCreateInput[]) {
   for (const seedElement of groupsData) {
     try {
@@ -824,8 +817,3 @@ async function seedGroups(groupsData: Prisma.GroupCreateInput[]) {
   console.log("Seeding groups...");
   await seedGroups(groupsData);
 })();
-
-// (async () => {
-//   console.log("Seeding locations...");
-//   await seedLocation(locations);
-// })();
