@@ -29,6 +29,7 @@ export const env = createEnv({
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string(),
     NEXT_PUBLIC_SUPABASE_URL: z.string(),
     NEXT_PUBLIC_MAPBOX_TOKEN: z.string(),
+    NEXT_PUBLIC_URL: z.string(),
   },
   /**
    * Destructure all variables from `process.env` to make sure they aren't tree-shaken away.
@@ -41,6 +42,7 @@ export const env = createEnv({
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_MAPBOX_TOKEN: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
     CLOUDINARY_URL: process.env.CLOUDINARY_URL,
+    NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
   },
   skipValidation:
     !!process.env.CI ||

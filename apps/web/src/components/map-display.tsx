@@ -8,9 +8,9 @@ import Map, {
   Popup,
 } from "react-map-gl";
 
-import type { Location } from "../../../../../packages/utils/dist";
-import { marker } from "~/app/components/icons";
-import { api } from "~/trpc/server";
+import type { Location } from "@acme/utils";
+
+import { marker } from "~/components/icons";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 

@@ -23,6 +23,14 @@ export const groupRouter = createTRPCRouter({
     });
     return groups;
   }),
+  allIds: publicProcedure.query(async ({ ctx }) => {
+    const groupIds = await ctx.prisma.group.findMany({
+      select: {
+        id: true,
+      },
+    });
+    return groupIds;
+  }),
   allToday: publicProcedure
     .input(
       z.object({

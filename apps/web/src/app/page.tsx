@@ -1,6 +1,6 @@
 import { getCurrentDayFilters } from "@acme/utils";
 
-import { GroupList } from "~/app/components/groups-list";
+import { GroupList } from "~/components/groups-list";
 import { api } from "~/trpc/server";
 
 export default async function HomePage() {

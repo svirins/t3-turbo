@@ -1,6 +1,6 @@
 import type { RouterOutputs } from "@acme/api";
 
-import { MeetingCard } from "~/app/components/meeting-card";
+import { MeetingCard } from "~/components/meeting-card";
 
 export function DayCard(props: {
   day: RouterOutputs["group"]["all"][number]["days"][number];
