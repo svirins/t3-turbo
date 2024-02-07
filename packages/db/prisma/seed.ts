@@ -77,8 +77,8 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 0, 0, 0),
-                topic: Topics.DailyInventarization,
-                Repeats: Repeats.Weekly,
+                topics: [Topics.DailyInventarization],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -90,14 +90,14 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 0, 0, 0),
-                topic: [Topics.Steps],
-                Repeats: Repeats.Weekly,
+                topics: [Topics.Steps],
+                repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 20, 15, 0, 0),
                 end: new Date(2024, 0, 0, 21, 0, 0, 0),
-                topic: [Topics.Work],
-                Repeats: Repeats.Last,
+                topics: [Topics.Work],
+                repeats: Repeats.Last,
               },
             ],
           },
@@ -109,8 +109,8 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 0, 0, 0),
-                topic: [Topics.SelfAnalysis],
-                Repeats: Repeats.Weekly,
+                topics: [Topics.SelfAnalysis],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -122,8 +122,8 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 0, 0, 0),
-                topic: [Topics.Traditions],
-                Repeats: Repeats.Weekly,
+                topics: [Topics.Traditions],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -135,8 +135,8 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 0, 0, 0),
-                topic: [Topics.DailyInventarization],
-                Repeats: Repeats.Weekly,
+                topics: [Topics.DailyInventarization],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -148,14 +148,14 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 10, 0, 0, 0),
                 end: new Date(2024, 0, 0, 11, 0, 0, 0),
-                topic: [Topics.WeeklyInventarization],
-                Repeats: Repeats.Weekly,
+                topics: [Topics.WeeklyInventarization],
+                repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 16, 0, 0, 0),
                 end: new Date(2024, 0, 0, 17, 0, 0, 0),
-                topic: [Topics.Sponsorship],
-                Repeats: Repeats.Weekly,
+                topics: [Topics.Sponsorship],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -166,8 +166,8 @@ const groupsData = [
             create: {
               start: new Date(2024, 0, 0, 16, 0, 0, 0),
               end: new Date(2024, 0, 0, 17, 30, 0, 0),
-              topic: [Topics.Sponsorship, Topics.Open],
-              Repeats: Repeats.Weekly,
+              topics: [Topics.Sponsorship, Topics.Open],
+              repeats: Repeats.Weekly,
             },
           },
         },
@@ -198,25 +198,25 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 11, 30, 0, 0),
                 end: new Date(2024, 0, 0, 12, 30, 0, 0),
-                topic: [Topics.Sponsorship],
+                topics: [Topics.Sponsorship],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 20, 0, 0),
-                topic: [Topics.Sponsorship],
+                topics: [Topics.Sponsorship],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 21, 0, 0, 0),
                 end: new Date(2024, 0, 0, 22, 0, 0, 0),
-                topic: [Topics.Sponsorship],
+                topics: [Topics.Sponsorship],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 23, 0, 0, 0),
                 end: new Date(2024, 0, 0, 23, 59, 0, 0),
-                topic: [Topics.Sponsorship],
+                topics: [Topics.Sponsorship],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -229,19 +229,19 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 11, 30, 0, 0),
                 end: new Date(2024, 0, 0, 12, 30, 0, 0),
-                topic: [Topics.Service],
+                topics: [Topics.Service],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 20, 0, 0),
-                topic: [Topics.Service],
+                topics: [Topics.Service],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 21, 0, 0, 0),
                 end: new Date(2024, 0, 0, 22, 0, 0, 0),
-                topic: [Topics.Service],
+                topics: [Topics.Service],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -254,25 +254,25 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 11, 30, 0, 0),
                 end: new Date(2024, 0, 0, 12, 30, 0, 0),
-                topic: [Topics.Steps],
+                topics: [Topics.Steps],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 20, 0, 0),
-                topic: [Topics.Steps],
+                topics: [Topics.Steps],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 21, 0, 0, 0),
                 end: new Date(2024, 0, 0, 22, 0, 0, 0),
-                topic: [Topics.Steps],
+                topics: [Topics.Steps],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 23, 0, 0, 0),
                 end: new Date(2024, 0, 0, 23, 59, 0, 0),
-                topic: [Topics.Steps],
+                topics: [Topics.Steps],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -285,19 +285,19 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 11, 30, 0, 0),
                 end: new Date(2024, 0, 0, 12, 30, 0, 0),
-                topic: [Topics.Relationships],
+                topics: [Topics.Relationships],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 20, 0, 0),
-                topic: [Topics.Relationships],
+                topics: [Topics.Relationships],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 21, 0, 0, 0),
                 end: new Date(2024, 0, 0, 22, 0, 0, 0),
-                topic: [Topics.Relationships],
+                topics: [Topics.Relationships],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -310,25 +310,25 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 11, 30, 0, 0),
                 end: new Date(2024, 0, 0, 12, 30, 0, 0),
-                topic: [Topics.Traditions],
+                topics: [Topics.Traditions],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 20, 0, 0),
-                topic: [Topics.Traditions],
+                topics: [Topics.Traditions],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 21, 0, 0, 0),
                 end: new Date(2024, 0, 0, 22, 0, 0, 0),
-                topic: [Topics.Traditions],
+                topics: [Topics.Traditions],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 23, 0, 0, 0),
                 end: new Date(2024, 0, 0, 23, 59, 0, 0),
-                topic: [Topics.Traditions],
+                topics: [Topics.Traditions],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -341,25 +341,25 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 11, 30, 0, 0),
                 end: new Date(2024, 0, 0, 12, 50, 0, 0),
-                topic: [Topics.Steps],
+                topics: [Topics.Steps],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 20, 0, 0),
-                topic: [Topics.Speaker],
+                topics: [Topics.Speaker],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 21, 0, 0, 0),
                 end: new Date(2024, 0, 0, 22, 0, 0, 0),
-                topic: [Topics.Steps],
+                topics: [Topics.Steps],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 23, 0, 0, 0),
                 end: new Date(2024, 0, 0, 23, 59, 0, 0),
-                topic: [Topics.Steps],
+                topics: [Topics.Steps],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -372,25 +372,25 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 11, 30, 0, 0),
                 end: new Date(2024, 0, 0, 12, 50, 0, 0),
-                topic: [Topics.Steps, Topics.Open],
+                topics: [Topics.Steps, Topics.Open],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 17, 0, 0, 0),
                 end: new Date(2024, 0, 0, 18, 30, 0, 0),
-                topic: [Topics.Work],
+                topics: [Topics.Work],
                 repeats: Repeats.Last,
               },
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 20, 0, 0),
-                topic: [Topics.Defects],
+                topics: [Topics.Defects],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 21, 0, 0, 0),
                 end: new Date(2024, 0, 0, 22, 0, 0),
-                topic: [Topics.Defects],
+                topics: [Topics.Defects],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -423,13 +423,13 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 0, 0, 0),
-                topic: [Topics.Steps],
+                topics: [Topics.Steps],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 20, 15, 0, 0),
                 end: new Date(2024, 0, 0, 21, 0, 0, 0),
-                topic: [Topics.Work],
+                topics: [Topics.Work],
                 repeats: Repeats.Last,
               },
             ],
@@ -442,7 +442,7 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 20, 30, 0, 0),
                 end: new Date(2024, 0, 0, 21, 30, 0, 0),
-                topic: [Topics.Theme],
+                topics: [Topics.Theme],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -455,7 +455,7 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 20, 30, 0, 0),
                 end: new Date(2024, 0, 0, 21, 30, 0, 0),
-                topic: [Topics.Traditions],
+                topics: [Topics.Traditions],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -468,13 +468,13 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 20, 0, 0, 0),
                 end: new Date(2024, 0, 0, 21, 15, 0, 0),
-                topic: [Topics.Theme],
+                topics: [Topics.Theme],
                 repeats: Repeats.Even,
               },
               {
                 start: new Date(2024, 0, 0, 20, 0, 0, 0),
                 end: new Date(2024, 0, 0, 21, 15, 0, 0),
-                topic: [Topics.Theme, Topics.Open],
+                topics: [Topics.Theme, Topics.Open],
                 repeats: Repeats.Odd,
               },
             ],
@@ -487,7 +487,7 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 16, 0, 0, 0),
                 end: new Date(2024, 0, 0, 17, 0, 0, 0),
-                topic: [Topics.Theme],
+                topics: [Topics.Theme],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -499,7 +499,7 @@ const groupsData = [
             create: {
               start: new Date(2024, 0, 0, 16, 0, 0, 0),
               end: new Date(2024, 0, 0, 17, 0, 0, 0),
-              topic: [Topics.QA],
+              topics: [Topics.QA],
               repeats: Repeats.Weekly,
             },
           },
@@ -530,7 +530,7 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 10, 0, 0),
-                topic: [Topics.Service, Topics.Basics],
+                topics: [Topics.Service, Topics.Basics],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -543,19 +543,19 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 10, 0, 0),
-                topic: [Topics.Steps],
+                topics: [Topics.Steps],
                 repeats: Repeats.Even,
               },
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 10, 0, 0),
-                topic: [Topics.Steps, Topics.Open],
+                topics: [Topics.Steps, Topics.Open],
                 repeats: Repeats.Odd,
               },
               {
                 start: new Date(2024, 0, 0, 20, 15, 0, 0),
                 end: new Date(2024, 0, 0, 21, 15, 0, 0),
-                topic: [Topics.Work],
+                topics: [Topics.Work],
                 repeats: Repeats.Last,
               },
             ],
@@ -568,7 +568,7 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 10, 0, 0),
-                topic: [Topics.Traditions],
+                topics: [Topics.Traditions],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -581,20 +581,13 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 10, 0, 0),
-                topic: [Topics.Sponsorship],
-                repeats: Repeats.Odd,
+                topics: [Topics.Sponsorship],
+                repeats: Repeats.NotLast,
               },
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 10, 0, 0),
-                topic: [Topics.Sponsorship],
-                repeats: Repeats.First,
-              },
-              {
-                start: new Date(2024, 0, 0, 19, 0, 0, 0),
-                end: new Date(2024, 0, 0, 20, 10, 0, 0),
-                topic: [Topics.Sponsorship, Topics.Open],
-                // !! Consider Fourth !== Last
+                topics: [Topics.Sponsorship, Topics.Open],
                 repeats: Repeats.Last,
               },
             ],
@@ -607,13 +600,13 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 10, 0, 0),
-                topic: [Topics.Relationships],
+                topics: [Topics.Relationships],
                 repeats: Repeats.Weekly,
               },
               {
                 start: new Date(2024, 0, 0, 22, 0, 0, 0),
                 end: new Date(2024, 0, 0, 23, 10, 0, 0),
-                topic: [Topics.Theme],
+                topics: [Topics.Theme],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -626,7 +619,7 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 17, 0, 0, 0),
                 end: new Date(2024, 0, 0, 18, 10, 0, 0),
-                topic: [Topics.QA],
+                topics: [Topics.QA],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -639,21 +632,14 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 17, 0, 0, 0),
                 end: new Date(2024, 0, 0, 18, 10, 0, 0),
-                topic: [Topics.DailyMeditation, Topics.Open],
+                topics: [Topics.DailyInventarization, Topics.Speaker],
                 repeats: Repeats.First,
               },
               {
                 start: new Date(2024, 0, 0, 17, 0, 0, 0),
                 end: new Date(2024, 0, 0, 18, 10, 0, 0),
-                topic: [Topics.DailyMeditation],
-                repeats: Repeats.Even,
-              },
-              {
-                start: new Date(2024, 0, 0, 17, 0, 0, 0),
-                end: new Date(2024, 0, 0, 18, 10, 0, 0),
-                topic: [Topics.DailyMeditation],
-                // !! Consider Fourth !== Last
-                repeats: Repeats.Fourth,
+                topics: [Topics.DailyMeditation],
+                repeats: Repeats.NotFirst,
               },
             ],
           },
@@ -685,7 +671,7 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 18, 15, 0, 0),
                 end: new Date(2024, 0, 0, 19, 30, 0, 0),
-                topic: [Topics.Steps, Topics.Service],
+                topics: [Topics.Steps, Topics.Service],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -698,7 +684,7 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 18, 15, 0, 0),
                 end: new Date(2024, 0, 0, 19, 30, 0, 0),
-                topic: [Topics.Open, Topics.Basics],
+                topics: [Topics.Open, Topics.Basics],
                 repeats: Repeats.Last,
               },
             ],
@@ -711,9 +697,8 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 18, 15, 0, 0),
                 end: new Date(2024, 0, 0, 19, 30, 0, 0),
-                topic: Topics.Basics,
-                repeats: Repeats.Last,
-                x,
+                topics: [Topics.Basics],
+                repeats: Repeats.NotLast,
               },
             ],
           },
@@ -723,9 +708,16 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 18, 15, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topics: [Topics.Traditions],
+                repeats: Repeats.Even,
+              },
+              {
+                start: new Date(2024, 0, 0, 18, 15, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topics: [Topics.Speaker],
+                repeats: Repeats.Odd,
               },
             ],
           },
@@ -735,26 +727,10 @@ const groupsData = [
           meetings: {
             create: [
               {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
-              },
-            ],
-          },
-        },
-        {
-          name: WeekDays.Saturday,
-          meetings: {
-            create: [
-              {
-                start: new Date(2024, 0, 0, 12, 0, 0, 0),
-                end: new Date(2024, 0, 0, 13, 0, 0, 0),
-                topic: Topics.Steps,
-              },
-              {
-                start: new Date(2024, 0, 0, 14, 0, 0, 0),
-                end: new Date(2024, 0, 0, 15, 0, 0, 0),
-                topic: Topics.Steps,
+                start: new Date(2024, 0, 0, 18, 15, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topics: [Topics.Sponsorship],
+                repeats: Repeats.Weekly,
               },
             ],
           },
@@ -762,11 +738,20 @@ const groupsData = [
         {
           name: WeekDays.Sunday,
           meetings: {
-            create: {
-              start: new Date(2024, 0, 0, 12, 0, 0, 0),
-              end: new Date(2024, 0, 0, 13, 0, 0, 0),
-              topic: Topics.Steps,
-            },
+            create: [
+              {
+                start: new Date(2024, 0, 0, 11, 15, 0, 0),
+                end: new Date(2024, 0, 0, 12, 30, 0, 0),
+                topics: [Topics.LivingClean],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 12, 45, 0, 0),
+                end: new Date(2024, 0, 0, 14, 15, 0, 0),
+                topics: [Topics.Work],
+                repeats: Repeats.First,
+              },
+            ],
           },
         },
       ],
@@ -775,38 +760,38 @@ const groupsData = [
 ];
 // https://www.prisma.io/docs/orm/prisma-client/queries/raw-database-access/custom-and-type-safe-queries
 
-const prisma = new PrismaClient({
-  log: ["error", "query", "info", "warn"],
-});
-
 // const prisma = new PrismaClient({
 //   log: ["error", "query", "info", "warn"],
-// }).$extends({
-//   model: {
-//     location: {
-//       async create(data: {
-//         id: string;
-//         name: string;
-//         latitude: number;
-//         longitude: number;
-//       }) {
-//         const loc: Location = {
-//           id: data.id,
-//           name: data.name,
-//           coords: {
-//             latitude: data.latitude,
-//             longitude: data.longitude,
-//           },
-//         };
-//         const point = `POINT(${loc.coords.latitude} ${loc.coords.longitude})`;
-//         await prisma.$queryRaw`
-//           INSERT INTO "Location" (id, name, coords) VALUES (${loc.id}, ${loc.name}, ST_GeomFromText(${point}, 4326));
-//         `;
-//         return loc;
-//       },
-//     },
-//   },
 // });
+
+const prisma = new PrismaClient({
+  log: ["error", "query", "info", "warn"],
+}).$extends({
+  model: {
+    location: {
+      async create(data: {
+        id: string;
+        name: string;
+        latitude: number;
+        longitude: number;
+      }) {
+        const loc: Location = {
+          id: data.id,
+          name: data.name,
+          coords: {
+            latitude: data.latitude,
+            longitude: data.longitude,
+          },
+        };
+        const point = `POINT(${loc.coords.latitude} ${loc.coords.longitude})`;
+        await prisma.$queryRaw`
+          INSERT INTO "Location" (id, name, coords) VALUES (${loc.id}, ${loc.name}, ST_GeomFromText(${point}, 4326));
+        `;
+        return loc;
+      },
+    },
+  },
+});
 
 // import { groupsData } from "./data";
 
