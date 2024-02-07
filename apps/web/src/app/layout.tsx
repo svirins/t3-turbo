@@ -1,10 +1,8 @@
-import type { Metadata, Viewport } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { AxiomWebVitals } from "next-axiom";
 
-import { ThemeProvider, ThemeToggle } from "@acme/ui/theme";
-import { Toaster } from "@acme/ui/toast";
-
+import { Footer } from "~/components/footer";
 import { env } from "~/env";
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -14,12 +12,6 @@ const inter = Inter({
   subsets: ["latin", "cyrillic"],
   display: "swap",
   variable: "--font-inter",
-});
-
-const roboto_mono = Roboto_Mono({
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
-  variable: "--font-roboto-mono",
 });
 
 export const metadata: Metadata = {
@@ -43,29 +35,21 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-};
-
-export default function RootLayout(props: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${roboto_mono.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="ru" className={inter.variable} suppressHydrationWarning>
       <AxiomWebVitals />
-      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TRPCReactProvider>{props.children}</TRPCReactProvider>
-          <div className="absolute bottom-4 right-4">
-            <ThemeToggle />
-          </div>
-          <Toaster />
-        </ThemeProvider>
+      <body className="mx-auto min-h-screen max-w-2xl  font-sans antialiased">
+        <TRPCReactProvider>
+          <main className="flex h-dvh flex-col">
+            {children}
+            <Footer />
+          </main>
+        </TRPCReactProvider>
       </body>
     </html>
   );

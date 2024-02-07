@@ -1,18 +1,24 @@
 import type { Config } from "tailwindcss";
 
-import baseConfig from "@acme/tailwind-config";
-
 export default {
-  // We need to append the path to the UI package to the content array so that
-  // those classes are included correctly.
-  content: [...baseConfig.content, "../../packages/ui/**/*.{ts,tsx}"],
-  presets: [baseConfig],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
         sans: ["var(--font-inter)"],
-        mono: ["var(--font-roboto-mono)"],
       },
     },
+  },
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light"], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+    darkTheme: "light", // name of one of the included themes for dark mode
+    base: true, // applies background color and foreground color for root element by default
+    styled: true, // include daisyUI colors and design decisions for all components
+    utils: true, // adds responsive and modifier utility classes
+    prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+    logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
+    themeRoot: ":root", // The element that receives theme color CSS variables
   },
 } satisfies Config;

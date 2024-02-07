@@ -2,3 +2,4 @@
 - all groups + filters View
 - add/remove to fav
 - group View (month)
+- mobile only
