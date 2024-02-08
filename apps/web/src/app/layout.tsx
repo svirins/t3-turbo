@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import { AxiomWebVitals } from "next-axiom";
 
 import { Navbar } from "~/components/navbar";
@@ -13,6 +13,12 @@ const inter = Inter({
   subsets: ["latin", "cyrillic"],
   display: "swap",
   variable: "--font-inter",
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-roboto-mono",
 });
 
 export const metadata: Metadata = {
@@ -42,7 +48,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={inter.variable} suppressHydrationWarning>
+    <html
+      lang="ru"
+      className={`${inter.variable} ${robotoMono.variable}`}
+      suppressHydrationWarning
+    >
       <AxiomWebVitals />
       <body className="mx-auto h-dvh min-h-screen max-w-2xl  font-sans antialiased">
         <TRPCReactProvider>

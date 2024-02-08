@@ -1,20 +1,16 @@
 "use client";
 
-import Link from "next/navigation";
-
+// import Link from "next/navigation";
 import { getToday } from "@acme/utils";
 
 export function Navbar() {
   const { localizedToday } = getToday();
-  // {
-  //   `NA Belarus locator ${dayAndMonth} ~ ${weekNumber}/${totalWeeks} неделя месяца`;
-  // }
-
   return (
-    <div className="navbar bg-base-100 mx-auto max-w-2xl">
+    <div className="navbar bg-base-200">
       <div className="flex-1">
-        <p className="btn btn-ghost text-xl">Собрания</p>
+        <p>{localizedToday}</p>
       </div>
+      <div className="navbar-center"></div>
       <div className="flex-none">
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}

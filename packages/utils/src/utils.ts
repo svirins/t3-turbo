@@ -1,11 +1,10 @@
 import { format, getWeekOfMonth } from "date-fns";
+import { ru } from "date-fns/locale";
 
-import type { Topics } from "./types";
-import { StatesRU, TopicsRU, WeekDaysRU } from "./strings";
-import { Repeats, States, WeekDays } from "./types";
+import { Repeats, WeekDays } from "./types";
 
 export function getCurrentDayFilters() {
-  const today = new Date().toLocaleString("en-US", {
+  const today = new Date().toLocaleDateString("en-US", {
     timeZone: "Europe/Minsk",
   });
   const dayOfWeek = format(today, "EEEE");
@@ -41,15 +40,16 @@ export function getCurrentDayFilters() {
   };
 }
 
+export function getHoursFromDate(date: Date) {
+  return format(date, "H:mm");
+}
+
 export function getToday() {
-  const today = new Date().toLocaleString("en-US", {
+  const today = new Date().toLocaleDateString("en-US", {
     timeZone: "Europe/Minsk",
   });
-  const localizedToday = format(today, "dd MM EEEE");
+  const localizedToday = format(today, "EEEE, do MMMM", { locale: ru });
   return {
     localizedToday,
   };
 }
-// export function translateTopic(topic: string) {
-//   return TopicsRU.find((t) => t[topic])?.[topic];
-// }

@@ -1,5 +1,5 @@
 import type { RouterOutputs } from "@acme/api";
-import { format } from "@acme/utils";
+import { getHoursFromDate, TopicsRU } from "@acme/utils";
 
 export function Meetings({
   data,
@@ -23,18 +23,14 @@ function Meeting({
 }: {
   data: RouterOutputs["group"]["all"][number]["days"][number]["meetings"][number];
 }) {
-  const start = format(data.start, "H:mm");
-  const end = format(data.end, "H:mm");
+  const start = getHoursFromDate(data.start);
+  const end = getHoursFromDate(data.end);
   return (
     <div className="flex flex-row">
-      <p className="text-semibold font-mono">{`${start} -> ${end}`}</p>
-      {data.topics.map((topic, index) => {
-        return (
-          <div key={index} className="badge badge-outline">
-            {topic}
-          </div>
-        );
-      })}
+      <p className="text-bold font-mono">{`${start} -> ${end}`}</p>
+      <p className="text-semibold text-right">
+        {data.topics.map((t) => TopicsRU[t]).join(", ")}
+      </p>
     </div>
   );
 }

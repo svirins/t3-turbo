@@ -14,7 +14,7 @@ export default async function GroupPage({
 }) {
   const group = await getGroupById(params.id);
   if (!group) notFound();
-
+  // TODO: display map here
   return (
     <div className="mb-12 md:mb-24">
       <p>{group.name}</p>
