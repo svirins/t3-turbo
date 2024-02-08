@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AxiomWebVitals } from "next-axiom";
 
-import { Footer } from "~/components/footer";
+import { Navbar } from "~/components/navbar";
+// import { Footer } from "~/components/footer";
 import { env } from "~/env";
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -45,8 +46,9 @@ export default function RootLayout({
       <AxiomWebVitals />
       <body className="mx-auto h-dvh min-h-screen max-w-2xl  font-sans antialiased">
         <TRPCReactProvider>
+          <Navbar />
           <main className="flex  flex-col">{children}</main>
-          <Footer />
+          {/* <Footer /> */}
         </TRPCReactProvider>
       </body>
     </html>

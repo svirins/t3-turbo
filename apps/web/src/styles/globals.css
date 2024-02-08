@@ -58,11 +58,7 @@ li {
 }
 
 hr {
-  @apply my-4 border-b-[0px];
-}
-
-p {
-  @apply md:text-lg;
+  @apply my-2 border-b-[0px];
 }
 
 /* Overrides the original padding of the Popup component in the Map */

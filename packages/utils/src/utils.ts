@@ -1,6 +1,8 @@
 import { format, getWeekOfMonth } from "date-fns";
 
-import { Repeats, WeekDays } from "./types";
+import type { Topics } from "./types";
+import { StatesRU, TopicsRU, WeekDaysRU } from "./strings";
+import { Repeats, States, WeekDays } from "./types";
 
 export function getCurrentDayFilters() {
   const today = new Date().toLocaleString("en-US", {
@@ -9,7 +11,6 @@ export function getCurrentDayFilters() {
   const dayOfWeek = format(today, "EEEE");
   const weekNumber = getWeekOfMonth(today, { weekStartsOn: 1 });
   const totalWeeks = getWeekOfMonth(today, { weekStartsOn: 1 });
-  const dayAndMonth = format(today, "dd MM");
 
   // !! `FOURTH` case it wrong. we should use `LAST` instead
   // TODO: Handle 'State Holidays' case
@@ -37,8 +38,18 @@ export function getCurrentDayFilters() {
   return {
     dayOfWeekFilter: WeekDays[dayOfWeek as keyof typeof WeekDays],
     repeatsFilter,
-    weekNumber,
-    totalWeeks,
-    dayAndMonth,
   };
 }
+
+export function getToday() {
+  const today = new Date().toLocaleString("en-US", {
+    timeZone: "Europe/Minsk",
+  });
+  const localizedToday = format(today, "dd MM EEEE");
+  return {
+    localizedToday,
+  };
+}
+// export function translateTopic(topic: string) {
+//   return TopicsRU.find((t) => t[topic])?.[topic];
+// }

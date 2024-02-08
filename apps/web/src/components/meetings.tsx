@@ -17,21 +17,24 @@ export function Meetings({
     </div>
   );
 }
+// TODO: topic color Open, Work, Speaker - different colors
 function Meeting({
   data,
 }: {
   data: RouterOutputs["group"]["all"][number]["days"][number]["meetings"][number];
 }) {
-  const start = format(data.start, "h:mm a");
-  const end = format(data.end, "h:mm a");
+  const start = format(data.start, "H:mm");
+  const end = format(data.end, "H:mm");
   return (
-    <div className="flex flex-row  p-4">
-      <div className="">
-        <p>
-          <span className="">{start}</span>~<span className="">{end}</span>
-        </p>
-        <p className="">{data.topics.join(", ")}</p>
-      </div>
+    <div className="flex flex-row">
+      <p className="text-semibold font-mono">{`${start} -> ${end}`}</p>
+      {data.topics.map((topic, index) => {
+        return (
+          <div key={index} className="badge badge-outline">
+            {topic}
+          </div>
+        );
+      })}
     </div>
   );
 }
