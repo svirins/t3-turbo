@@ -1,7 +1,9 @@
+import { Suspense } from "react";
+
 import { getCurrentDayFilters } from "@acme/utils";
 
-import { Information } from "~/components/information";
-import { Meetings } from "~/components/meetings";
+import { GroupList } from "~/components/group-list";
+import { GroupSkeleton } from "~/components/group-skeleton";
 import { api } from "~/trpc/server";
 
 export default async function HomePage() {
@@ -13,28 +15,25 @@ export default async function HomePage() {
     dayAndMonth,
   } = getCurrentDayFilters();
   // console.log("🚀 ~ HomePage ~ repeatsFilter:", repeatsFilter);
-  const data = await api.group.allToday({ dayOfWeekFilter, repeatsFilter });
+  const data = api.group.allToday({ dayOfWeekFilter, repeatsFilter });
 
   return (
     <main className="container">
       <p className="text-primary">
         {`NA Belarus locator ${dayAndMonth} ~ ${weekNumber}/${totalWeeks} неделя месяца`}
       </p>
-      <div className="flex w-full flex-col gap-4">
-        {data && data.length > 0 ? (
-          data.map((group) => {
-            const { days, ...rest } = group;
-            return (
-              // TODO: IMPLEMENT Container
-              <div key={group.id}>
-                <Information data={rest} />
-                <Meetings data={days[0]!.meetings} />
-              </div>
-            );
-          })
-        ) : (
-          <p>No groups today</p>
-        )}
+      <div className="">
+        <Suspense
+          fallback={
+            <div className="flex w-full flex-col gap-4">
+              <GroupSkeleton />
+              <GroupSkeleton />
+              <GroupSkeleton />
+            </div>
+          }
+        >
+          <GroupList data={data} />
+        </Suspense>
       </div>
     </main>
   );
