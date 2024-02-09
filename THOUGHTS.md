@@ -1,5 +1,22 @@
-- today View
-- all groups + filters View
-- add/remove to fav
-- group View (month)
-- mobile only
+## Views (pages)
+
+- map
+- today
+- all groups (with filters)
+  -- group view (full schedules + map)
+- my schedule
+
+the default view is today
+my schedule - display an invitation to add groups if rejected - display today
+
+## Navbar:
+
+- today
+- my schedule
+- all groups
+- map
+
+...
+
+today
+switch

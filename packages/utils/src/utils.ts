@@ -48,8 +48,11 @@ export function getToday() {
   const today = new Date().toLocaleDateString("en-US", {
     timeZone: "Europe/Minsk",
   });
-  const localizedToday = format(today, "EEEE, do MMMM", { locale: ru });
+  const localizedTodayLong = format(today, "EEEE, do MMMM", { locale: ru });
+  const localizedTodayShort = format(today, "EE, do MM", { locale: ru });
+
   return {
-    localizedToday,
+    localizedTodayShort,
+    localizedTodayLong,
   };
 }

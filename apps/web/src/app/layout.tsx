@@ -9,6 +9,8 @@ import { TRPCReactProvider } from "~/trpc/react";
 
 import "~/styles/globals.css";
 
+import { Footer } from "~/components/footer";
+
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
   display: "swap",
@@ -57,8 +59,8 @@ export default function RootLayout({
       <body className="mx-auto h-dvh min-h-screen max-w-2xl  font-sans antialiased">
         <TRPCReactProvider>
           <Navbar />
-          <main className="flex  flex-col">{children}</main>
-          {/* <Footer /> */}
+          <main className="flex flex-col">{children}</main>
+          <Footer />
         </TRPCReactProvider>
       </body>
     </html>

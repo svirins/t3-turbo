@@ -11,7 +11,7 @@ export default async function HomePage() {
   const data = api.group.allToday({ dayOfWeekFilter, repeatsFilter });
 
   return (
-    <div className="container">
+    <div className="container pb-24">
       <Suspense
         fallback={
           <div className="flex w-full flex-col gap-4">
