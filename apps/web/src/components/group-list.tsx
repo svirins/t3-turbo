@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { RouterOutputs } from "@acme/api";
 
 import { GroupSkeleton } from "~/components/group-skeleton";
+import { HomeGroupBadge } from "~/components/home-group-badge";
 import { Meetings } from "~/components/meetings";
 
 export function GroupList({
@@ -33,15 +34,13 @@ export function GroupList({
             <div className="card-body">
               <h2 className="card-title">
                 {rest.name}
-                <div className="badge badge-secondary badge-outline">
-                  Домашняя
-                </div>
+                <HomeGroupBadge id={rest.id} />
               </h2>
               <div className="flex flex-row">
                 <p>{`${rest.address?.city}, ${rest.address?.street}`}</p>
                 <Link
                   href={`/groups/${rest.id}`}
-                  className="btn btn-xs btn-outline btn-circle"
+                  className="btn btn-sm btn-ghost btn-circle"
                   role="button"
                 >
                   <svg
@@ -50,12 +49,12 @@ export function GroupList({
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="h-4 w-4"
+                    className="h-5 w-5"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                      d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
                     />
                   </svg>
                 </Link>
