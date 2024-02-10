@@ -44,7 +44,7 @@ model Location {
 
 model Day {
   id       String    @id @default(cuid())
-  name     WeekDay
+  weekday  WeekDay
   meetings Meeting[]
   groupId  String
   group    Group     @relation(fields: [groupId], references: [id], onDelete: Cascade, onUpdate: Cascade)

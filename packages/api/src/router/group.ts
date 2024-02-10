@@ -43,7 +43,7 @@ export const groupRouter = createTRPCRouter({
         where: {
           days: {
             some: {
-              name: input.dayOfWeekFilter,
+              weekday: input.dayOfWeekFilter,
               meetings: {
                 some: {
                   repeats: {
@@ -62,7 +62,7 @@ export const groupRouter = createTRPCRouter({
           },
           days: {
             where: {
-              name: input.dayOfWeekFilter,
+              weekday: input.dayOfWeekFilter,
             },
             include: {
               meetings: {

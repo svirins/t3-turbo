@@ -31,6 +31,26 @@ const prismaClientSingleton = () => {
         `;
           return loc;
         },
+        async findById(data: { id: string }) {
+          const result = await prisma.$queryRaw<
+            {
+              id: string;
+              name: string;
+              st_x: number | null;
+              st_y: number | null;
+            }[]
+          >`SELECT id, name, ST_X(coords::geometry), ST_Y(coords::geometry)
+            FROM "Location"
+            WHERE id = ${data.id}`;
+          return {
+            id: result[0].id,
+            name: result[0].name,
+            coords: {
+              latitude: result[0].st_x,
+              longitude: result[0].st_y,
+            },
+          } as Location;
+        },
         async findClosestLocations({
           latitude,
           longitude,

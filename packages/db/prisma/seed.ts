@@ -71,7 +71,7 @@ const groupsData = [
     days: {
       create: [
         {
-          name: WeekDays.Monday,
+          weekday: WeekDays.Monday,
           meetings: {
             create: [
               {
@@ -84,7 +84,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Tuesday,
+          weekday: WeekDays.Tuesday,
           meetings: {
             create: [
               {
@@ -103,7 +103,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Wednesday,
+          weekday: WeekDays.Wednesday,
           meetings: {
             create: [
               {
@@ -116,7 +116,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Thursday,
+          weekday: WeekDays.Thursday,
           meetings: {
             create: [
               {
@@ -129,7 +129,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Friday,
+          weekday: WeekDays.Friday,
           meetings: {
             create: [
               {
@@ -142,7 +142,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Saturday,
+          weekday: WeekDays.Saturday,
           meetings: {
             create: [
               {
@@ -161,7 +161,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Sunday,
+          weekday: WeekDays.Sunday,
           meetings: {
             create: {
               start: new Date(2024, 0, 0, 16, 0, 0, 0),
@@ -192,7 +192,7 @@ const groupsData = [
     days: {
       create: [
         {
-          name: WeekDays.Monday,
+          weekday: WeekDays.Monday,
           meetings: {
             create: [
               {
@@ -223,7 +223,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Tuesday,
+          weekday: WeekDays.Tuesday,
           meetings: {
             create: [
               {
@@ -248,7 +248,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Wednesday,
+          weekday: WeekDays.Wednesday,
           meetings: {
             create: [
               {
@@ -279,7 +279,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Thursday,
+          weekday: WeekDays.Thursday,
           meetings: {
             create: [
               {
@@ -304,7 +304,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Friday,
+          weekday: WeekDays.Friday,
           meetings: {
             create: [
               {
@@ -335,7 +335,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Saturday,
+          weekday: WeekDays.Saturday,
           meetings: {
             create: [
               {
@@ -366,7 +366,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Sunday,
+          weekday: WeekDays.Sunday,
           meetings: {
             create: [
               {
@@ -417,7 +417,7 @@ const groupsData = [
     days: {
       create: [
         {
-          name: WeekDays.Monday,
+          weekday: WeekDays.Monday,
           meetings: {
             create: [
               {
@@ -436,7 +436,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Tuesday,
+          weekday: WeekDays.Tuesday,
           meetings: {
             create: [
               {
@@ -449,7 +449,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Thursday,
+          weekday: WeekDays.Thursday,
           meetings: {
             create: [
               {
@@ -462,7 +462,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Friday,
+          weekday: WeekDays.Friday,
           meetings: {
             create: [
               {
@@ -481,7 +481,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Saturday,
+          weekday: WeekDays.Saturday,
           meetings: {
             create: [
               {
@@ -494,7 +494,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Sunday,
+          weekday: WeekDays.Sunday,
           meetings: {
             create: {
               start: new Date(2024, 0, 0, 16, 0, 0, 0),
@@ -524,7 +524,7 @@ const groupsData = [
     days: {
       create: [
         {
-          name: WeekDays.Monday,
+          weekday: WeekDays.Monday,
           meetings: {
             create: [
               {
@@ -537,7 +537,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Tuesday,
+          weekday: WeekDays.Tuesday,
           meetings: {
             create: [
               {
@@ -562,7 +562,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Wednesday,
+          weekday: WeekDays.Wednesday,
           meetings: {
             create: [
               {
@@ -575,7 +575,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Thursday,
+          weekday: WeekDays.Thursday,
           meetings: {
             create: [
               {
@@ -594,7 +594,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Friday,
+          weekday: WeekDays.Friday,
           meetings: {
             create: [
               {
@@ -613,7 +613,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Saturday,
+          weekday: WeekDays.Saturday,
           meetings: {
             create: [
               {
@@ -626,7 +626,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Sunday,
+          weekday: WeekDays.Sunday,
           meetings: {
             create: [
               {
@@ -665,7 +665,7 @@ const groupsData = [
     days: {
       create: [
         {
-          name: WeekDays.Tuesday,
+          weekday: WeekDays.Tuesday,
           meetings: {
             create: [
               {
@@ -678,7 +678,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Wednesday,
+          weekday: WeekDays.Wednesday,
           meetings: {
             create: [
               {
@@ -697,7 +697,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Thursday,
+          weekday: WeekDays.Thursday,
           meetings: {
             create: [
               {
@@ -716,7 +716,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Friday,
+          weekday: WeekDays.Friday,
           meetings: {
             create: [
               {
@@ -729,7 +729,7 @@ const groupsData = [
           },
         },
         {
-          name: WeekDays.Sunday,
+          weekday: WeekDays.Sunday,
           meetings: {
             create: [
               {
