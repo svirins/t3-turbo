@@ -23,6 +23,35 @@ export const groupRouter = createTRPCRouter({
     });
     return groups;
   }),
+  allByCity: publicProcedure
+    .input(
+      z.object({
+        city: z.string(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const groups = await ctx.prisma.group.findMany({
+        where: {
+          address: {
+            city: input.city,
+          },
+        },
+        include: {
+          address: {
+            include: {
+              location: true,
+            },
+          },
+          days: {
+            include: {
+              meetings: true,
+            },
+          },
+        },
+        orderBy: [{ createdAt: "desc" }],
+      });
+      return groups;
+    }),
   allIds: publicProcedure.query(async ({ ctx }) => {
     const groupIds = await ctx.prisma.group.findMany({
       select: {
@@ -31,6 +60,7 @@ export const groupRouter = createTRPCRouter({
     });
     return groupIds;
   }),
+
   allToday: publicProcedure
     .input(
       z.object({

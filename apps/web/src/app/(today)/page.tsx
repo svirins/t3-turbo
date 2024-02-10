@@ -2,11 +2,11 @@ import { Suspense } from "react";
 
 import { getCurrentDayFilters } from "@acme/utils";
 
-import { GroupList } from "~/components/group-list";
 import { GroupSkeleton } from "~/components/group-skeleton";
+import { TodayGroupList } from "~/components/today-group-list";
 import { api } from "~/trpc/server";
 
-export default async function HomePage() {
+export default async function TodayGroupsPage() {
   const { dayOfWeekFilter, repeatsFilter } = getCurrentDayFilters();
   const data = api.group.allToday({ dayOfWeekFilter, repeatsFilter });
 
@@ -21,7 +21,7 @@ export default async function HomePage() {
           </div>
         }
       >
-        <GroupList data={data} />
+        <TodayGroupList data={data} />
       </Suspense>
     </div>
   );
