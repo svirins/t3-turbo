@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { getGroupIds } from "@acme/db";
 import { WeekDaysRU } from "@acme/utils";
 
-import { HomeGroupBadge } from "~/components/home-group-badge";
+// import { HomeGroupBadge } from "~/components/home-group-badge";
+import { HomeGroupButton } from "~/components/home-group-button";
 import { Meetings } from "~/components/meetings";
 import { ShowPhotoButton } from "~/components/show-photo-button";
 import { SingleGroupMap } from "~/components/single-group-map";
@@ -30,10 +31,16 @@ export default async function GroupPage({
         <div className="card-body">
           <h2 className="card-title">
             {group.name}
-            <HomeGroupBadge id={group.id} />
+            <HomeGroupButton id={group.id} />
           </h2>
           <div className="flex flex-row">
             <p>{`${group.address?.city}, ${group.address?.street}`}</p>
+            {group.address?.photoUrl && (
+              <ShowPhotoButton
+                imageSrc={group.address?.photoUrl}
+                alt={`Группа ${group.name}, ${group.address?.city}, ${group.address?.street}`}
+              />
+            )}
           </div>
           <p className="text-sm">
             {group.address?.comments && group.address?.comments}
@@ -41,15 +48,6 @@ export default async function GroupPage({
           <p className="text-sm">
             {group.address?.transport && group.address?.transport}
           </p>
-          {group.address?.photoUrl && (
-            <ShowPhotoButton
-              imageSrc={group.address?.photoUrl}
-              alt={`Группа ${group.name}, ${group.address?.city}, ${group.address?.street}`}
-            />
-          )}
-          <div className="h-96 w-full">
-            <SingleGroupMap name={group.name} location={location} />
-          </div>
           <hr />
           {group.days.map((day) => {
             return (
@@ -63,6 +61,10 @@ export default async function GroupPage({
               </div>
             );
           })}
+          <hr />
+          <div className="h-96 w-full">
+            <SingleGroupMap name={group.name} location={location} />
+          </div>
         </div>
       </div>
     </div>

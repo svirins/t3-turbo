@@ -3,22 +3,6 @@
 
 import { produce } from "immer";
 
-export const useHomeGroup = (value?: string) => {
-  if (typeof window === "undefined" || !window.localStorage) {
-    return null;
-  }
-  const storedValue = window.localStorage.getItem("homeGroupId");
-  return storedValue;
-  // if (value) {
-  //   if (storedValue === value) {
-  //     window.localStorage.removeItem("homeGroupId");
-  //     return undefined;
-  //   } else {
-  //     return storedValue;
-  //   }
-  // }
-};
-
 export const useMySchedule = (value?: string) => {
   if (typeof window === "undefined" || !window.localStorage) {
     return undefined;

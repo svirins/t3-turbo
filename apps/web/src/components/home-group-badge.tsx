@@ -1,9 +1,10 @@
 "use client";
 
-import { useHomeGroup } from "~/lib/hooks/useLocalStorage";
-
 export function HomeGroupBadge({ id }: { id: string }) {
-  const storedId = useHomeGroup();
+  if (typeof window === "undefined" || !window.localStorage) {
+    return null;
+  }
+  const storedId = window.localStorage.getItem("homeGroupId");
   return (
     id === storedId && (
       <div className="badge badge-secondary badge-outline">Домашняя</div>

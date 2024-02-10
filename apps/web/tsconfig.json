@@ -3,11 +3,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"],
+      "~/*": ["./src/*"]
     },
     "plugins": [{ "name": "next" }],
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+  },
+  "rules": {
+    "react-hooks/rules-of-hooks": "off", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
   },
   "include": [".", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }

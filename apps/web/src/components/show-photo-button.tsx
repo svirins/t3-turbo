@@ -23,9 +23,9 @@ export function ShowPhotoButton({
       <button
         type="button"
         onClick={openLightbox}
-        className="btn btn-outline btn-info"
+        className="btn btn-sm btn-ghost"
       >
-        Как нас найти?
+        см. фото
       </button>
       {renderLightbox({ slides })}
     </>
