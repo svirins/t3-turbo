@@ -25,7 +25,7 @@ export function GroupList({
       </div>
     );
   }
-  // TODO: Consider adding 'MyHomeGroup' badge to the group + retreive from localstorage ? or personal cabinet
+
   return (
     <div className="flex w-full flex-col gap-4">
       {initialData.map(({ days, ...rest }) => {

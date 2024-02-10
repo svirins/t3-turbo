@@ -25,6 +25,8 @@ export default async function GroupPage({
     id: group!.address!.location!.id,
   });
   if (!group) notFound();
+  // TODO: Implement share button + link + copy to clipboard
+
   return (
     <div className="container pb-24">
       <div className="card bg-base-100 shadow-xl">
@@ -48,11 +50,15 @@ export default async function GroupPage({
           <p className="text-sm">
             {group.address?.transport && group.address?.transport}
           </p>
-          <hr />
+          <div className="h-96 w-full">
+            <SingleGroupMap name={group.name} location={location} />
+          </div>
+
           {group.days.map((day) => {
             return (
               <div key={day.weekday} className="flex flex-col gap-4">
-                <h3>{WeekDaysRU[day.weekday]}</h3>
+                <hr />
+                <h2 className="text-xl">{WeekDaysRU[day.weekday]}</h2>
                 <div className="flex flex-col gap-4">
                   {day.meetings && day.meetings.length > 0 && (
                     <Meetings data={day.meetings} />
@@ -61,10 +67,6 @@ export default async function GroupPage({
               </div>
             );
           })}
-          <hr />
-          <div className="h-96 w-full">
-            <SingleGroupMap name={group.name} location={location} />
-          </div>
         </div>
       </div>
     </div>
