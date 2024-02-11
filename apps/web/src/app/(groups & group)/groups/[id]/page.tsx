@@ -37,12 +37,13 @@ export default async function GroupPage({
           </h2>
           <div className="flex flex-row">
             <p>{`${group.address?.city}, ${group.address?.street}`}</p>
-            {group.address?.photoUrl && (
-              <ShowPhotoButton
-                imageSrc={group.address?.photoUrl}
-                alt={`Группа ${group.name}, ${group.address?.city}, ${group.address?.street}`}
-              />
-            )}
+            {group.address?.photoUrls &&
+              group.address?.photoUrls.length > 0 && (
+                <ShowPhotoButton
+                  imageSrcs={group.address?.photoUrls}
+                  alt={`Группа ${group.name}, ${group.address?.city}, ${group.address?.street}`}
+                />
+              )}
           </div>
           <p className="text-sm">
             {group.address?.comments && group.address?.comments}

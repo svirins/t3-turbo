@@ -6,7 +6,7 @@ import { withAxiom } from "next-axiom";
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    domains: ["res.cloudinary.com"],
+    // domains: ["res.cloudinary.com"],
     formats: ["image/avif", "image/webp"],
   },
   reactStrictMode: true,

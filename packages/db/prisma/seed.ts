@@ -138,7 +138,7 @@ const groupsData = [
         city: "Минск",
         state: States.Minskaya,
         street: "ул. Долгобродская, 10 корпус 2",
-        comments: "подъезд №1, цокольный этаж",
+        comments: "Подъезд №1, цокольный этаж",
         location: {
           connect: {
             id: "cls7u33m5000008l8dd9cf4oj",
@@ -260,10 +260,7 @@ const groupsData = [
         state: States.Minskaya,
         street: " ул.В.Хоружей, 18/1",
         comments: "Вход с обратной стороны — второй этаж",
-        photoUrls: [
-          "na-locator/yn2b8q6gqvcmgzbtky8g",
-          "na-locator/fzmxybrc5zbont8ontov",
-        ],
+        photoUrls: ["vihod-1.jpeg", "vihod-2.jpeg"],
         location: {
           connect: {
             id: "cls7uacej00020al40f6hbbap",
@@ -488,7 +485,7 @@ const groupsData = [
         city: "Минск",
         state: States.Minskaya,
         street: "ул. Полевая, 26",
-        comments: "цокольный этаж, вход с торца",
+        comments: "Цокольный этаж, вход с торца",
         location: {
           connect: {
             id: "cls7u9fdq00000al480osaulw",
@@ -735,7 +732,7 @@ const groupsData = [
       create: {
         city: "Минск",
         state: States.Minskaya,
-        street: "ул Наполеона Орды 47а",
+        street: "ул. Наполеона Орды 47а",
         comments: "Социальный центр 2 этаж к. 208",
         location: {
           connect: {
@@ -839,8 +836,8 @@ const groupsData = [
         city: "Бобруйск",
         state: States.Mogilevskaya,
         street: "ул. Карла Либкнехта, 58",
-        comments: "центр социальной помощи",
-        photoUrls: ["na-locator/hhwc7ctneoqkhyoif238"],
+        comments: "Центр социальной помощи",
+        photoUrls: ["bobr.jpeg"],
         location: {
           connect: {
             id: "clshdclac000008kzcd559k7g",
@@ -905,11 +902,8 @@ const groupsData = [
         city: "Борисов",
         state: States.Minskaya,
         street: "ул. 50 лет БССР д.27а",
-        comments: "помещение ТЦСОН",
-        photoUrls: [
-          "na-locator/kzk0d35m74vr5rvi5zbf",
-          "na-locator/rztq6nlptxrxuiaw5m4p",
-        ],
+        comments: "Помещение ТЦСОН",
+        photoUrls: ["borisov-1.jpeg", "borisov-2.jpeg"],
 
         location: {
           connect: {
@@ -1033,8 +1027,8 @@ const groupsData = [
         city: "Брест",
         state: States.Brestskaya,
         street: "пр. Машерова, 80",
-        comments: "цокольный этаж",
-        photoUrls: ["na-locator/izsmi9p64x8afavtm2vh"],
+        comments: "Цокольный этаж",
+        photoUrls: ["brest_1.jpg"],
         location: {
           connect: {
             id: "clshden34000208kzh5zm0jrw",
@@ -1157,10 +1151,7 @@ const groupsData = [
         city: "Вилейка",
         state: States.Minskaya,
         street: "ул. Маркова 49",
-        photoUrls: [
-          "na-locator/n23iz7bsfhaouykhzghv",
-          "na-locator/ie2psyzufjaoqvmkocko",
-        ],
+        photoUrls: ["vileika1.jpeg", "vileika2.jpeg"],
         location: {
           connect: {
             id: "clshdetc0000308kz3r2la4nj",
@@ -1238,11 +1229,7 @@ const groupsData = [
         city: "Волковыск",
         state: States.Grodnenskaya,
         street: "ул. Ленина 14",
-        photoUrls: [
-          "na-locator/pwvfxxvn831fvvfo25da",
-          "na-locator/t7zmuldqp3fyjflose0b",
-          "na-locator/ggppqcfnfxpcg8pgxvh2",
-        ],
+        photoUrls: ["volkovisk-1.jpeg", "volkovisk-2.jpeg", "volkovisk-3.jpeg"],
         location: {
           connect: {
             id: "clshdf77t000508kzeesvf46g",
@@ -1430,7 +1417,7 @@ const groupsData = [
         state: States.Grodnenskaya,
         street: "ул. Зана, 12",
         comments:
-          "средний подъезд, цокольный этаж, группа проходит вживую и в Zoom https://us04web.zoom.us/j/9159154444",
+          "Средний подъезд, цокольный этаж, группа проходит вживую и в Zoom https://us04web.zoom.us/j/9159154444",
         location: {
           connect: {
             id: "clshdffqj000708kz1rhn6jwd",
@@ -1547,10 +1534,7 @@ const groupsData = [
         city: "Дзержинск",
         state: States.Minskaya,
         street: "ул. Якуба Коласа, дом 23 А",
-        photoUrls: [
-          "na-locator/s8l7b5esjbn7wrkpfr7w",
-          "na-locator/toyu0ctboq33l9mimplw",
-        ],
+        photoUrls: ["dzerginsk-1.jpeg", "dzerginsk-2.jpeg"],
         location: {
           connect: {
             id: "clshdffqj000708kz1rhn6j0d",
@@ -1654,14 +1638,7 @@ const groupsData = [
         city: "Могилев",
         state: States.Mogilevskaya,
         street: "ул. Первомайская, 75",
-        photoUrls: [
-          "na-locator/icdjmievmhjcfxa2tbuh",
-          "na-locator/oktelrmkh3vtyib7w5tg",
-          "na-locator/kk6e7fhoixw0flmwpttm",
-          "na-locator/gmkip8t2yezmbzdclyvl",
-          "na-locator/vgn9w27msiypmolm5dii",
-          "na-locator/i53quwxmd9v9e7g6nkye",
-        ],
+        photoUrls: ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg"],
         comments:
           "Здание часовни, 2-й этаж, актовый зал.Собрания проходят в часовне при Храме Трех святителей. Вход в пластиковую дверь под лестницей, затем деревянная дверь с кодом налево, воспользуйтесь звонком. 2-й этаж, актовый зал. Звоните предварительно, мы встретим Вас!",
         location: {
@@ -1782,10 +1759,10 @@ const groupsData = [
         street: "ул. Л. Комсомола, 74",
         comments: "4-й подъезд, цокольный этаж",
         photoUrls: [
-          "na-locator/ezaslwn6ljro1xhob3jn",
-          "na-locator/ohu4dl57qribblbtztki",
-          "na-locator/xb6iysfnq7ocj7lajoop",
-          "na-locator/fz82ovef3oqjlynplpqe",
+          "soligorsk_n_1.jpg",
+          "soligorsk_n_2.jpg",
+          "soligorsk_n_3.jpg",
+          "soligorsk_n_4.jpg",
         ],
         location: {
           connect: {

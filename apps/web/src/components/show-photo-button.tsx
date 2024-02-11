@@ -3,21 +3,24 @@
 import useLightbox from "~/lib/hooks/useLightbox";
 
 export function ShowPhotoButton({
-  imageSrc,
+  imageSrcs,
   alt,
 }: {
-  imageSrc: string;
+  imageSrcs: string[];
   alt: string;
 }) {
+  // TODO: get dimensions from cloudinary
   const { openLightbox, renderLightbox } = useLightbox();
-  const slides = [
-    {
-      src: imageSrc,
+  const slides = imageSrcs.map((src) => {
+    const image = {
+      src,
       alt,
       width: 640,
       height: 640,
-    },
-  ];
+    };
+    return image;
+  });
+
   return (
     <>
       <button
