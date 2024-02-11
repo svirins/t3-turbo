@@ -17,6 +17,11 @@ export enum Topics {
   Defects = "Defects",
   SelfAnalysis = "SelfAnalysis",
   Basics = "Basics",
+  Zoom = "Zoom",
+  Cards = "Cards",
+  ERKIP = "ERKIP",
+  MiniSpeaker = "MiniSpeaker",
+  Literature = "Literature",
 }
 
 export enum WeekDays {
@@ -46,6 +51,9 @@ export enum Repeats {
   NotLast = "NotLast",
   Odd = "Odd",
   Even = "Even",
+  Second = "Second",
+  NotSecond = "NotSecond",
+  NotFirstNotLast = "NotFirstNotLast",
 }
 
 export interface Location {

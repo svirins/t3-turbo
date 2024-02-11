@@ -50,6 +50,84 @@ const locations = [
     latitude: 53.91642094153588,
     longitude: 27.51224088204882,
   },
+  {
+    id: "clshdclac000008kzcd559k7g",
+    name: "Voshod",
+    latitude: 53.137948814158136,
+    longitude: 29.229177430894808,
+  },
+  {
+    id: "clshddh8s000108kz57fa2i7t",
+    name: "Joker",
+    latitude: 54.21481717762576,
+    longitude: 28.479890755987103,
+  },
+  {
+    id: "clshden34000208kzh5zm0jrw",
+    name: "Nachalo",
+    latitude: 52.088937731700156,
+    longitude: 23.70597009824327,
+  },
+  {
+    id: "clshdetc0000308kz3r2la4nj",
+    name: "Panacea",
+    latitude: 54.48485814692943,
+    longitude: 26.903816338123015,
+  },
+  {
+    id: "clshdeyd7000408kz6nn621o1",
+    name: "DenSurka",
+    latitude: 55.21061287422398,
+    longitude: 30.2235955359335,
+  },
+  {
+    id: "clshdf77t000508kzeesvf46g",
+    name: "Shans",
+    latitude: 53.162103385130614,
+    longitude: 24.45767623592146,
+  },
+  {
+    id: "clshdfb9s000608kzcwqr3jck",
+    name: "Dezhurka",
+    latitude: 52.454542156700164,
+    longitude: 30.99104561349477,
+  },
+  {
+    id: "clshdffqj000708kz1rhn6jwd",
+    name: "Preobbrazhenie",
+    latitude: 53.668413916007125,
+    longitude: 23.81590324062764,
+  },
+  {
+    id: "clshdffqj000708kz1rhn6j0d",
+    name: "Mayak",
+    latitude: 53.689392,
+    longitude: 27.129599,
+  },
+  {
+    id: "clshdfk6h000808kzaih3cyso",
+    name: "Locacia",
+    latitude: 54.10670965560797,
+    longitude: 28.30024428791941,
+  },
+  {
+    id: "clshdfou2000908kz67k6e2ft",
+    name: "Vzletka",
+    latitude: 53.91105511050978,
+    longitude: 30.341713155976347,
+  },
+  {
+    id: "clshdfswf000a08kz9q9tagv4",
+    name: "Catarsis",
+    latitude: 53.03134334085134,
+    longitude: 27.546143691110437,
+  },
+  {
+    id: "clshdfwos000b08kzbp7u4ub4",
+    name: "Nadezhda",
+    latitude: 52.79847182125294,
+    longitude: 27.540525199999998,
+  },
 ];
 
 const groupsData = [
@@ -182,6 +260,10 @@ const groupsData = [
         state: States.Minskaya,
         street: " ул.В.Хоружей, 18/1",
         comments: "Вход с обратной стороны — второй этаж",
+        photoUrls: [
+          "na-locator/yn2b8q6gqvcmgzbtky8g",
+          "na-locator/fzmxybrc5zbont8ontov",
+        ],
         location: {
           connect: {
             id: "cls7uacej00020al40f6hbbap",
@@ -743,6 +825,1076 @@ const groupsData = [
                 end: new Date(2024, 0, 0, 14, 15, 0, 0),
                 topics: [Topics.Work],
                 repeats: Repeats.First,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Восход",
+    address: {
+      create: {
+        city: "Бобруйск",
+        state: States.Mogilevskaya,
+        street: "ул. Карла Либкнехта, 58",
+        comments: "центр социальной помощи",
+        photoUrls: ["na-locator/hhwc7ctneoqkhyoif238"],
+        location: {
+          connect: {
+            id: "clshdclac000008kzcd559k7g",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Wednesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.Steps, Topics.Traditions],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Friday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 15, 0, 0),
+                end: new Date(2024, 0, 0, 20, 30, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Sunday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 13, 0, 0, 0),
+                end: new Date(2024, 0, 0, 14, 20, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 14, 30, 0, 0),
+                end: new Date(2024, 0, 0, 15, 30, 0, 0),
+                topics: [Topics.Work],
+                repeats: Repeats.Last,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Джокер",
+    address: {
+      create: {
+        city: "Борисов",
+        state: States.Minskaya,
+        street: "ул. 50 лет БССР д.27а",
+        comments: "помещение ТЦСОН",
+        photoUrls: [
+          "na-locator/kzk0d35m74vr5rvi5zbf",
+          "na-locator/rztq6nlptxrxuiaw5m4p",
+        ],
+
+        location: {
+          connect: {
+            id: "clshddh8s000108kz57fa2i7t",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Monday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topics: [Topics.Sponsorship],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Tuesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topics: [Topics.DailyInventarization],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Wednesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Thursday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topics: [Topics.Traditions],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Friday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topics: [Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 20, 0, 0, 0),
+                end: new Date(2024, 0, 0, 21, 0, 0, 0),
+                topics: [Topics.Work],
+                repeats: Repeats.First,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Saturday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 0, 0, 0),
+                topics: [Topics.Open],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 0, 0, 0),
+                topics: [Topics.Speaker],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Sunday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 0, 0, 0),
+                topics: [Topics.LivingClean],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "NAчало",
+    address: {
+      create: {
+        city: "Брест",
+        state: States.Brestskaya,
+        street: "пр. Машерова, 80",
+        comments: "цокольный этаж",
+        photoUrls: ["na-locator/izsmi9p64x8afavtm2vh"],
+        location: {
+          connect: {
+            id: "clshden34000208kzh5zm0jrw",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Monday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 30, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topics: [Topics.QA],
+                repeats: Repeats.NotSecond,
+              },
+              {
+                start: new Date(2024, 0, 0, 18, 30, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topics: [Topics.QA, Topics.Open],
+                repeats: Repeats.Second,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Tuesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 30, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topics: [Topics.LivingClean],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Wednesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 30, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topics: [Topics.ERKIP],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Thursday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 30, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topics: [Topics.Literature],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Friday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 30, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topics: [Topics.Cards],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Saturday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 0, 0, 0),
+                topics: [Topics.MiniSpeaker, Topics.Service],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 18, 5, 0, 0),
+                end: new Date(2024, 0, 0, 19, 5, 0, 0),
+                topics: [Topics.Work],
+                repeats: Repeats.Last,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Sunday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 14, 0, 0, 0),
+                end: new Date(2024, 0, 0, 15, 0, 0, 0),
+                topics: [Topics.Basics],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Панацея",
+    address: {
+      create: {
+        city: "Вилейка",
+        state: States.Minskaya,
+        street: "ул. Маркова 49",
+        photoUrls: [
+          "na-locator/n23iz7bsfhaouykhzghv",
+          "na-locator/ie2psyzufjaoqvmkocko",
+        ],
+        location: {
+          connect: {
+            id: "clshdetc0000308kz3r2la4nj",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Wednesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 0, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "День сурка",
+    address: {
+      create: {
+        city: "Витебск",
+        state: States.Vitebskaya,
+        street: "ул. Гагарина, 46а",
+        location: {
+          connect: {
+            id: "clshdeyd7000408kz6nn621o1",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Thursday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Sunday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 11, 0, 0, 0),
+                end: new Date(2024, 0, 0, 12, 0, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Шанс",
+    address: {
+      create: {
+        city: "Волковыск",
+        state: States.Grodnenskaya,
+        street: "ул. Ленина 14",
+        photoUrls: [
+          "na-locator/pwvfxxvn831fvvfo25da",
+          "na-locator/t7zmuldqp3fyjflose0b",
+          "na-locator/ggppqcfnfxpcg8pgxvh2",
+        ],
+        location: {
+          connect: {
+            id: "clshdf77t000508kzeesvf46g",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Monday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topics: [Topics.Theme, Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Tuesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topics: [Topics.Theme, Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 20, 0, 0, 0),
+                end: new Date(2024, 0, 0, 21, 0, 0, 0),
+                topics: [Topics.Work],
+                repeats: Repeats.Last,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Thursday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topics: [Topics.Theme, Topics.LivingClean],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Saturday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 0, 0, 0),
+                topics: [Topics.Theme, Topics.Sponsorship],
+                repeats: Repeats.NotFirstNotLast,
+              },
+              {
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 0, 0, 0),
+                topics: [Topics.Theme, Topics.Sponsorship, Topics.Open],
+                repeats: Repeats.First,
+              },
+              {
+                start: new Date(2024, 0, 0, 17, 0, 0, 0),
+                end: new Date(2024, 0, 0, 18, 0, 0, 0),
+                topics: [Topics.Sponsorship],
+                repeats: Repeats.Last,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Дежурка",
+    address: {
+      create: {
+        city: "Гомель",
+        state: States.Gomelskaya,
+        street: "ул. Советская, 146а",
+        comments: "Дом милосердия Св.Терезы",
+        location: {
+          connect: {
+            id: "clshdfb9s000608kzcwqr3jck",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Tuesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 0, 0, 0),
+                topics: [
+                  Topics.DailyMeditation,
+                  Topics.Steps,
+                  Topics.Sponsorship,
+                ],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Thursday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 0, 0, 0),
+                topics: [
+                  Topics.DailyMeditation,
+                  Topics.Service,
+                  Topics.Traditions,
+                ],
+                repeats: Repeats.NotFirst,
+              },
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 0, 0, 0),
+                topics: [
+                  Topics.DailyMeditation,
+                  Topics.Service,
+                  Topics.Traditions,
+                  Topics.Open,
+                ],
+                repeats: Repeats.First,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Saturday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 0, 0, 0),
+                topics: [Topics.Work],
+                repeats: Repeats.Last,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 0, 0, 0),
+                topics: [Topics.DailyMeditation, Topics.QA, Topics.LivingClean],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Sunday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 0, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Преображение",
+    address: {
+      create: {
+        city: "Гродно",
+        state: States.Grodnenskaya,
+        street: "ул. Зана, 12",
+        comments:
+          "средний подъезд, цокольный этаж, группа проходит вживую и в Zoom https://us04web.zoom.us/j/9159154444",
+        location: {
+          connect: {
+            id: "clshdffqj000708kz1rhn6jwd",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Monday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 15, 0, 0),
+                topics: [Topics.Theme, Topics.Zoom],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Tuesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 15, 0, 0),
+                topics: [Topics.Theme, Topics.Zoom],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Wednesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 15, 0, 0),
+                topics: [Topics.Theme, Topics.Zoom],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Thursday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 15, 0, 0),
+                topics: [Topics.Open, Topics.Zoom],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Friday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 15, 0, 0),
+                topics: [Topics.Theme, Topics.Zoom],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Saturday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 15, 0, 0),
+                topics: [Topics.Theme, Topics.Zoom],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Sunday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 11, 0, 0, 0),
+                end: new Date(2024, 0, 0, 12, 15, 0, 0),
+                topics: [Topics.Speaker],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 18, 0, 0, 0),
+                end: new Date(2024, 0, 0, 19, 15, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Маяк",
+    address: {
+      create: {
+        city: "Дзержинск",
+        state: States.Minskaya,
+        street: "ул. Якуба Коласа, дом 23 А",
+        photoUrls: [
+          "na-locator/s8l7b5esjbn7wrkpfr7w",
+          "na-locator/toyu0ctboq33l9mimplw",
+        ],
+        location: {
+          connect: {
+            id: "clshdffqj000708kz1rhn6j0d",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Monday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 15, 0, 0),
+                end: new Date(2024, 0, 0, 19, 15, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Wednesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 15, 0, 0),
+                end: new Date(2024, 0, 0, 19, 15, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 15, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.Work],
+                repeats: Repeats.Last,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Локация",
+    address: {
+      create: {
+        city: "Жодино",
+        state: States.Minskaya,
+        street: "проспект Венисье",
+        comments: "Костел Богоматери Фатимской",
+        location: {
+          connect: {
+            id: "clshdfk6h000808kzaih3cyso",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Wednesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 45, 0, 0),
+                end: new Date(2024, 0, 0, 19, 45, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Sunday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 30, 0, 0),
+                end: new Date(2024, 0, 0, 19, 30, 0, 0),
+                topics: [Topics.Open],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 30, 0, 0),
+                end: new Date(2024, 0, 0, 20, 30, 0, 0),
+                topics: [Topics.Work],
+                repeats: Repeats.Last,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Взлетка",
+    address: {
+      create: {
+        city: "Могилев",
+        state: States.Mogilevskaya,
+        street: "ул. Первомайская, 75",
+        photoUrls: [
+          "na-locator/icdjmievmhjcfxa2tbuh",
+          "na-locator/oktelrmkh3vtyib7w5tg",
+          "na-locator/kk6e7fhoixw0flmwpttm",
+          "na-locator/gmkip8t2yezmbzdclyvl",
+          "na-locator/vgn9w27msiypmolm5dii",
+          "na-locator/i53quwxmd9v9e7g6nkye",
+        ],
+        comments:
+          "Здание часовни, 2-й этаж, актовый зал.Собрания проходят в часовне при Храме Трех святителей. Вход в пластиковую дверь под лестницей, затем деревянная дверь с кодом налево, воспользуйтесь звонком. 2-й этаж, актовый зал. Звоните предварительно, мы встретим Вас!",
+        location: {
+          connect: {
+            id: "clshdfou2000908kz67k6e2ft",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Wednesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 30, 0, 0),
+                end: new Date(2024, 0, 0, 19, 45, 0, 0),
+                topics: [Topics.Free],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Friday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 18, 30, 0, 0),
+                end: new Date(2024, 0, 0, 19, 45, 0, 0),
+                topics: [Topics.Free],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Sunday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 16, 30, 0, 0),
+                end: new Date(2024, 0, 0, 17, 45, 0, 0),
+                topics: [Topics.Speaker, Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Катарсис",
+    address: {
+      create: {
+        city: "Слуцк",
+        state: States.Minskaya,
+        street: "ул. Монахова, 23",
+        comments: "Вход правее главного входа в здание. Отдельная дверь",
+        location: {
+          connect: {
+            id: "clshdfswf000a08kz9q9tagv4",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Monday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Friday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.Theme],
+                repeats: Repeats.NotFirst,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.Theme, Topics.Open],
+                repeats: Repeats.First,
+              },
+              {
+                start: new Date(2024, 0, 0, 20, 30, 0, 0),
+                end: new Date(2024, 0, 0, 21, 30, 0, 0),
+                topics: [Topics.Work],
+                repeats: Repeats.Last,
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Надежда",
+    address: {
+      create: {
+        city: "Солигорск",
+        state: States.Minskaya,
+        street: "ул. Л. Комсомола, 74",
+        comments: "4-й подъезд, цокольный этаж",
+        photoUrls: [
+          "na-locator/ezaslwn6ljro1xhob3jn",
+          "na-locator/ohu4dl57qribblbtztki",
+          "na-locator/xb6iysfnq7ocj7lajoop",
+          "na-locator/fz82ovef3oqjlynplpqe",
+        ],
+        location: {
+          connect: {
+            id: "clshdfwos000b08kzbp7u4ub4",
+          },
+        },
+      },
+    },
+    days: {
+      create: [
+        {
+          weekday: WeekDays.Monday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.Steps],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Tuesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.Service],
+                repeats: Repeats.Weekly,
+              },
+              {
+                start: new Date(2024, 0, 0, 20, 0, 0, 0),
+                end: new Date(2024, 0, 0, 21, 0, 0, 0),
+                topics: [Topics.Work],
+                repeats: Repeats.Odd,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Wednesday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.Traditions],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Thursday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.LivingClean],
+                repeats: Repeats.Even,
+              },
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.LivingClean, Topics.Open],
+                repeats: Repeats.Odd,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Friday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.Sponsorship],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Saturday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.Speaker],
+                repeats: Repeats.Weekly,
+              },
+            ],
+          },
+        },
+        {
+          weekday: WeekDays.Sunday,
+          meetings: {
+            create: [
+              {
+                start: new Date(2024, 0, 0, 19, 0, 0, 0),
+                end: new Date(2024, 0, 0, 20, 15, 0, 0),
+                topics: [Topics.QA],
+                repeats: Repeats.Weekly,
               },
             ],
           },

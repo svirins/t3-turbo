@@ -42,4 +42,9 @@ export const TopicsRU: ITopicsRU = {
   Defects: "Дефекты характера",
   SelfAnalysis: "Самоанализ",
   Basics: "Базовый текст",
+  Zoom: "Zoom",
+  Cards: "Карточки АН",
+  ERKIP: "ЭРКиП",
+  MiniSpeaker: "Мини-спикерская",
+  Literature: "Литературный вечер",
 };

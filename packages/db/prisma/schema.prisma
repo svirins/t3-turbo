@@ -28,7 +28,7 @@ model Address {
   room      String?
   comments  String?
   transport String?
-  photoUrl  String?
+  photoUrls String[]
   location  Location?
   groupId   String    @unique
   group     Group     @relation(fields: [groupId], references: [id], onDelete: Cascade, onUpdate: Cascade)
@@ -68,6 +68,9 @@ enum Repeats {
   NotLast
   Odd
   Even
+  Second
+  NotSecond
+  NotFirstNotLast
 }
 
 enum WeekDay {
@@ -99,6 +102,11 @@ enum Topic {
   Theme
   Defects
   SelfAnalysis
+  Zoom
+  Cards
+  ERKIP
+  MiniSpeaker
+  Literature
 }
 
 enum State {

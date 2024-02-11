@@ -5,11 +5,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 export function Filters({ cities }: { cities: string[] }) {
   const searchParams = useSearchParams();
   const selectedCity = searchParams.get("city")?.toString() ?? "Все";
-
   const pathname = usePathname();
   const { replace } = useRouter();
+
   const options = cities.sort((a, b) => a.localeCompare(b));
-  options.unshift("Все");
 
   function handleSearch(city: string) {
     const params = new URLSearchParams(searchParams);
@@ -32,6 +31,9 @@ export function Filters({ cities }: { cities: string[] }) {
       >
         <option disabled selected>
           Выберите город
+        </option>
+        <option value="Все" selected={selectedCity === "Все"}>
+          Все
         </option>
         {options.map((option) => (
           <option

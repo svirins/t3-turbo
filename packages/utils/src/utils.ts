@@ -13,6 +13,7 @@ export function getCurrentDayFilters() {
 
   // !! `FOURTH` case it wrong. we should use `LAST` instead
   // TODO: Handle 'State Holidays' case
+  // !! TODO: Handle NotFirstNotLast case
   // default
   let repeatsFilter = [Repeats.Weekly];
   // handle first week
@@ -26,6 +27,12 @@ export function getCurrentDayFilters() {
     repeatsFilter.push(Repeats.Even);
   } else {
     repeatsFilter.push(Repeats.Odd);
+  }
+  // handle second week
+  if (weekNumber === 2) {
+    repeatsFilter.push(Repeats.Second);
+  } else {
+    repeatsFilter.push(Repeats.NotSecond);
   }
   // handle last week
   if ((weekNumber === 4 && totalWeeks === 4) || weekNumber === 5) {
