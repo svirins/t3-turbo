@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import { AxiomWebVitals } from "next-axiom";
+import { Toaster } from "react-hot-toast";
 
 import { Navbar } from "~/components/navbar";
 // import { Footer } from "~/components/footer";
@@ -58,6 +59,7 @@ export default function RootLayout({
       <AxiomWebVitals />
       <body className="mx-auto h-dvh min-h-screen max-w-2xl  font-sans antialiased">
         <TRPCReactProvider>
+          <Toaster position="bottom-center" to />
           <Navbar />
           <main className="flex flex-col">{children}</main>
           <Footer />

@@ -40,7 +40,7 @@ export function TodayGroupList({
                 <p>{`${rest.address?.city}, ${rest.address?.street}`}</p>
                 <Link
                   href={`/groups/${rest.id}`}
-                  className="btn btn-sm btn-ghost btn-circle"
+                  className="btn btn-xs btn-ghost btn-circle text-secondary"
                   role="button"
                 >
                   <svg
@@ -59,9 +59,9 @@ export function TodayGroupList({
                   </svg>
                 </Link>
               </div>
-              <p className="text-sm">
+              {/* <p className="text-sm">
                 {rest.address?.comments && rest.address?.comments}
-              </p>
+              </p> */}
               <hr />
               <Meetings data={days[0]!.meetings} />
             </div>

@@ -33,7 +33,7 @@ export function MapDisplay(props: { locations: Location[] }) {
     setSelectedMarker(location);
     mapRef.current.flyTo({
       center: [location.coords.longitude, location.coords.latitude],
-      zoom: 10,
+      zoom: 12,
     });
   };
 
@@ -60,10 +60,10 @@ export function MapDisplay(props: { locations: Location[] }) {
       initialViewState={{
         latitude: currentLocation.latitude,
         longitude: currentLocation.longitude,
-        zoom: 12,
+        zoom: 5,
       }}
       maxZoom={17}
-      minZoom={6}
+      minZoom={5}
     >
       <GeolocateControl position="top-left" />
       <NavigationControl position="top-left" />
@@ -79,9 +79,9 @@ export function MapDisplay(props: { locations: Location[] }) {
               className="cursor-pointer"
               onClick={(e) => zoomToSelectedLoc(e, location)}
             >
-              <p className="font-meduim z-50 text-xl text-blue-700">
+              {/* <p className="font-meduim z-50 text-xl text-blue-700">
                 {location.name}
-              </p>
+              </p> */}
               {marker}
             </button>
           </Marker>

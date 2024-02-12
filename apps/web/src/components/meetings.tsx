@@ -1,14 +1,15 @@
-import type { RouterOutputs } from "@acme/api";
-import { getHoursFromDate, TopicsRU } from "@acme/utils";
+import clsx from "clsx";
 
-import { MyScheduleButton } from "~/components/my-schedule-button";
+import type { RouterOutputs } from "@acme/api";
+import { getHoursAndStatus, TopicsRU } from "@acme/utils";
+
+import { ScheduleButton } from "~/components/my-schedule";
 
 export function Meetings({
   data,
 }: {
   data: RouterOutputs["group"]["all"][number]["days"][number]["meetings"];
 }) {
-  // TODO: Implement 'passed' / 'incoming' badge
   return (
     <div className="flex flex-col gap-4">
       {data.map((meeting) => (
@@ -23,13 +24,24 @@ function Meeting({
 }: {
   data: RouterOutputs["group"]["all"][number]["days"][number]["meetings"][number];
 }) {
-  const start = getHoursFromDate(data.start);
-  const end = getHoursFromDate(data.end);
+  const { start, end, isPassed } = getHoursAndStatus(data.start, data.end);
   return (
     <div className="flex flex-row">
-      <p className="text-bold font-mono">{`${start} -> ${end}`}</p>
-      <MyScheduleButton id={data.id} />
-      <p className="text-semibold text-right">
+      <p className="mr-1 h-6 w-6 flex-none">
+        <ScheduleButton id={data.id} />
+      </p>
+      <p
+        className={clsx(
+          "w-36 flex-none font-mono font-medium",
+          isPassed && "text-gray-400",
+        )}
+      >{`${start} -> ${end}`}</p>
+      <p
+        className={clsx(
+          "text-semibold min-w-72 flex-1 text-right",
+          isPassed && "text-gray-400",
+        )}
+      >
         {data.topics.map((t) => TopicsRU[t]).join(", ")}
       </p>
     </div>

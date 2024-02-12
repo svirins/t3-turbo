@@ -47,8 +47,21 @@ export function getCurrentDayFilters() {
   };
 }
 
-export function getHoursFromDate(date: Date) {
-  return format(date, "H:mm");
+export function getHoursAndStatus(dateStart: Date, dateEnd: Date) {
+  const now = Number(
+    new Date().toLocaleTimeString("en-US", {
+      timeZone: "Europe/Minsk",
+      hour: "numeric",
+      hour12: false,
+    }),
+  );
+  const endNumeric = Number(format(dateEnd, "H"));
+
+  return {
+    start: format(dateStart, "H:mm"),
+    end: format(dateEnd, "H:mm"),
+    isPassed: now >= endNumeric,
+  };
 }
 
 export function getToday() {
@@ -61,5 +74,16 @@ export function getToday() {
   return {
     localizedTodayShort,
     localizedTodayLong,
+  };
+}
+
+export function getTime() {
+  const today = new Date().toLocaleDateString("en-US", {
+    timeZone: "Europe/Minsk",
+  });
+  const localizedTime = format(today, "h:mm", { locale: ru });
+
+  return {
+    localizedTime,
   };
 }

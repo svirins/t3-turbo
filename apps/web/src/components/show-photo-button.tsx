@@ -13,10 +13,8 @@ export function ShowPhotoButton({
   const { openLightbox, renderLightbox } = useLightbox();
   const slides = imageSrcs.map((src) => {
     const image = {
-      src,
+      src: `/assets/${src}`,
       alt,
-      width: 640,
-      height: 640,
     };
     return image;
   });

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import clsx from "clsx";
+import { toast } from "react-hot-toast";
 
-export function MyScheduleButton({ id }: { id: string }) {
+export function ScheduleButton({ id }: { id: string }) {
   if (typeof window === "undefined" || !window.localStorage) {
     return;
   }
@@ -15,7 +17,6 @@ export function MyScheduleButton({ id }: { id: string }) {
     !!parsedValues?.find((meetingId) => id === meetingId),
   );
 
-  // handle click
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     if (scheduled) {
@@ -23,18 +24,23 @@ export function MyScheduleButton({ id }: { id: string }) {
       parsedValues?.splice(index, 1);
       const newStringifiedValues = JSON.stringify(parsedValues);
       window.localStorage.setItem("myGroupsSchedule", newStringifiedValues);
+      toast("Убрано из моего расписания", { icon: "👎" });
       setScheduled(false);
     } else {
       parsedValues?.push(id);
       const newStringifiedValues = JSON.stringify(parsedValues);
       window.localStorage.setItem("myGroupsSchedule", newStringifiedValues);
+      toast("Добавлено в мое расписание", { icon: "👍" });
       setScheduled(true);
     }
   };
 
   return (
     <button
-      className="btn btn-sm btn-secondary btn-outline "
+      className={clsx(
+        "btn btn-xs btn-ghost btn-circle",
+        scheduled && "text-secondary",
+      )}
       onClick={(e) => handleClick(e)}
     >
       {scheduled ? (
@@ -49,7 +55,7 @@ export function MyScheduleButton({ id }: { id: string }) {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
           />
         </svg>
       ) : (
@@ -64,11 +70,10 @@ export function MyScheduleButton({ id }: { id: string }) {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            d="M12 4.5v15m7.5-7.5h-15"
           />
         </svg>
       )}
-      {scheduled ? "хожу" : "не хожу"}
     </button>
   );
 }
