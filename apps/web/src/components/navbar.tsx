@@ -3,11 +3,11 @@
 import { getToday } from "@acme/utils";
 
 export function Navbar() {
-  const { localizedTodayLong } = getToday();
+  const { localizedToday } = getToday();
   return (
     <div className="navbar bg-base-100 px-2">
       <div className="navbar-start">
-        <p className="text-bold ">{localizedTodayLong}</p>
+        <p className="text-bold ">{localizedToday}</p>
       </div>
 
       <div className="navbar-end">

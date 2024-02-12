@@ -26,7 +26,7 @@ export default async function GroupPage({
   });
   if (!group) notFound();
   // TODO: Implement share button + link + copy to clipboard
-
+  // TODO: Implement: full-month schedule
   return (
     <div className="container pb-24">
       <div className="card bg-base-100 shadow-xl">

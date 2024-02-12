@@ -2,9 +2,9 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export function Filters({ cities }: { cities: string[] }) {
+export function CityFilter({ cities }: { cities: string[] }) {
   const searchParams = useSearchParams();
-  const selectedCity = searchParams.get("city")?.toString() ?? "Все";
+  const selectedCity = searchParams.get("city")?.toString() ?? "Вся Беларусь";
   const pathname = usePathname();
   const { replace } = useRouter();
 
@@ -12,7 +12,7 @@ export function Filters({ cities }: { cities: string[] }) {
 
   function handleSearch(city: string) {
     const params = new URLSearchParams(searchParams);
-    if (city && city !== "Все") {
+    if (city && city !== "Вся Беларусь") {
       params.set("city", city);
     } else {
       params.delete("city");
@@ -21,9 +21,9 @@ export function Filters({ cities }: { cities: string[] }) {
   }
 
   return (
-    <form className="flex w-full">
+    <form className="">
       <select
-        className="select select-bordered"
+        className="select select-sm max-w-xs"
         name="citySelector"
         onChange={(e) => {
           handleSearch(e.target.value);
@@ -32,8 +32,8 @@ export function Filters({ cities }: { cities: string[] }) {
         <option disabled selected>
           Выберите город
         </option>
-        <option value="Все" selected={selectedCity === "Все"}>
-          Все
+        <option value="Все" selected={selectedCity === "Вся Беларусь"}>
+          Вся Беларусь
         </option>
         {options.map((option) => (
           <option

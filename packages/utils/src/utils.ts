@@ -60,7 +60,7 @@ export function getHoursAndStatus(dateStart: Date, dateEnd: Date) {
   return {
     start: format(dateStart, "H:mm"),
     end: format(dateEnd, "H:mm"),
-    isPassed: now >= endNumeric,
+    isPassed: now > endNumeric,
   };
 }
 
@@ -68,12 +68,12 @@ export function getToday() {
   const today = new Date().toLocaleDateString("en-US", {
     timeZone: "Europe/Minsk",
   });
-  const localizedTodayLong = format(today, "EEEE, do MMMM", { locale: ru });
-  const localizedTodayShort = format(today, "EE, do MM", { locale: ru });
+  const localizedToday = format(today, "EEEE, do MMMM", { locale: ru });
+  const localizedWeekday = format(today, "EEEE", { locale: ru });
 
   return {
-    localizedTodayShort,
-    localizedTodayLong,
+    localizedToday,
+    localizedWeekday,
   };
 }
 

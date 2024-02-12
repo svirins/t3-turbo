@@ -9,8 +9,10 @@ import { Meetings } from "~/components/meetings";
 
 export function GroupList({
   data,
+  isToday,
 }: {
   data: Promise<RouterOutputs["group"]["all"]>;
+  isToday: boolean;
 }) {
   const initialData = use(data);
 
@@ -21,7 +23,9 @@ export function GroupList({
         <GroupSkeleton />
         <GroupSkeleton />
         <GroupSkeleton />
-        <p>No meetings today</p>
+        <p>
+          По такому запросу группы не найдены. <em>Пока</em> не найдены ...
+        </p>
       </div>
     );
   }
@@ -59,11 +63,8 @@ export function GroupList({
                   </svg>
                 </Link>
               </div>
-              <p className="text-sm">
-                {rest.address?.comments && rest.address?.comments}
-              </p>
               <hr />
-              <Meetings data={days[0]!.meetings} />
+              <Meetings data={days[0]!.meetings} isToday={isToday} />
             </div>
           </div>
         );

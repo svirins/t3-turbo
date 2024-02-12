@@ -40,7 +40,7 @@ export function TodayGroupList({
                 <p>{`${rest.address?.city}, ${rest.address?.street}`}</p>
                 <Link
                   href={`/groups/${rest.id}`}
-                  className="btn btn-xs btn-ghost btn-circle text-secondary"
+                  className="btn btn-sm btn-ghost btn-circle"
                   role="button"
                 >
                   <svg
@@ -63,7 +63,7 @@ export function TodayGroupList({
                 {rest.address?.comments && rest.address?.comments}
               </p> */}
               <hr />
-              <Meetings data={days[0]!.meetings} />
+              <Meetings data={days[0]!.meetings} isToday={true} />
             </div>
           </div>
         );

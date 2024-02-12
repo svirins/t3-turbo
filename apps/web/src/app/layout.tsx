@@ -57,11 +57,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <AxiomWebVitals />
-      <body className="mx-auto h-dvh min-h-screen max-w-2xl  font-sans antialiased">
+      <body className="mx-auto h-dvh min-h-screen max-w-2xl font-sans antialiased">
         <TRPCReactProvider>
-          <Toaster position="bottom-center" to />
+          <Toaster position="bottom-center" />
           <Navbar />
-          <main className="flex flex-col">{children}</main>
+          <main className="mx-4 flex flex-col">{children}</main>
           <Footer />
         </TRPCReactProvider>
       </body>
