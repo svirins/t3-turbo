@@ -18,7 +18,7 @@ export function WeekdayFilter({ today }: { today: string }) {
   }
   // TODO: Add fullmonth schedule is available at group pager
   return (
-    <form className="text-right">
+    <form className="basis-1/2 text-right">
       <select
         className="select select-sm max-w-xs"
         name="weekDaySelector"
@@ -28,7 +28,7 @@ export function WeekdayFilter({ today }: { today: string }) {
       >
         {options.map((option) => (
           <option key={option} value={option} selected={option === selectedDay}>
-            {option === today ? `${option} - сегодня` : option}
+            {option === today ? `Cегодня ~ ${option}` : option}
           </option>
         ))}
       </select>

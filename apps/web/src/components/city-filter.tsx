@@ -21,7 +21,7 @@ export function CityFilter({ cities }: { cities: string[] }) {
   }
 
   return (
-    <form className="">
+    <form className="basis-1/2">
       <select
         className="select select-sm max-w-xs"
         name="citySelector"
@@ -32,7 +32,7 @@ export function CityFilter({ cities }: { cities: string[] }) {
         <option disabled selected>
           Выберите город
         </option>
-        <option value="Все" selected={selectedCity === "Вся Беларусь"}>
+        <option value="Вся Беларусь" selected={selectedCity === "Вся Беларусь"}>
           Вся Беларусь
         </option>
         {options.map((option) => (

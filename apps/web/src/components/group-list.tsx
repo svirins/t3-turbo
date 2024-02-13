@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import type { RouterOutputs } from "@acme/api";
 
-import { GroupSkeleton } from "~/components/group-skeleton";
 import { HomeGroupBadge } from "~/components/home-group-badge";
 import { Meetings } from "~/components/meetings";
 
@@ -20,9 +19,6 @@ export function GroupList({
   if (initialData.length === 0) {
     return (
       <div className="flex w-full flex-col gap-4">
-        <GroupSkeleton />
-        <GroupSkeleton />
-        <GroupSkeleton />
         <p>
           По такому запросу группы не найдены. <em>Пока</em> не найдены ...
         </p>

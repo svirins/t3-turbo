@@ -23,18 +23,40 @@ export const groupRouter = createTRPCRouter({
     });
     return groups;
   }),
-  allByCity: publicProcedure
+  byCitiesAndByWeekday: publicProcedure
     .input(
       z.object({
-        city: z.string(),
+        cities: z.array(z.string()),
+        dayOfWeekFilter: z.nativeEnum(WeekDays),
+        repeatsFilter: z.array(z.nativeEnum(Repeats)),
       }),
     )
     .query(async ({ ctx, input }) => {
       const groups = await ctx.prisma.group.findMany({
         where: {
-          address: {
-            city: input.city,
-          },
+          AND: [
+            {
+              address: {
+                city: {
+                  in: input.cities,
+                },
+              },
+            },
+            {
+              days: {
+                some: {
+                  weekday: input.dayOfWeekFilter,
+                  meetings: {
+                    some: {
+                      repeats: {
+                        in: input.repeatsFilter,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          ],
         },
         include: {
           address: {
@@ -43,8 +65,17 @@ export const groupRouter = createTRPCRouter({
             },
           },
           days: {
+            where: {
+              weekday: input.dayOfWeekFilter,
+            },
             include: {
-              meetings: true,
+              meetings: {
+                where: {
+                  repeats: {
+                    in: input.repeatsFilter,
+                  },
+                },
+              },
             },
           },
         },
@@ -52,15 +83,6 @@ export const groupRouter = createTRPCRouter({
       });
       return groups;
     }),
-  allIds: publicProcedure.query(async ({ ctx }) => {
-    const groupIds = await ctx.prisma.group.findMany({
-      select: {
-        id: true,
-      },
-    });
-    return groupIds;
-  }),
-
   allToday: publicProcedure
     .input(
       z.object({
