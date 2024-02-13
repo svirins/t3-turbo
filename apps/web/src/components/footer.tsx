@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
 
 import { isActiveLink } from "~/lib/isActiveLink";
 
@@ -12,10 +11,7 @@ export function Footer() {
   return (
     <div className="w-full bg-blue-200">
       <div className="btm-nav mx-auto max-w-2xl">
-        <Link
-          href="/groups"
-          className={clsx(isActiveLink("/groups", pathname), "active")}
-        >
+        <Link href="/groups" className={isActiveLink("/groups", pathname)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -32,10 +28,7 @@ export function Footer() {
           </svg>
           <span className="btm-nav-label">Все группы</span>
         </Link>
-        <Link
-          href="/map"
-          className={clsx(isActiveLink("/map", pathname), "active")}
-        >
+        <Link href="/map" className={isActiveLink("/map", pathname)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -53,10 +46,7 @@ export function Footer() {
 
           <span className="btm-nav-label">На карте</span>
         </Link>
-        <Link
-          href="/schedule"
-          className={clsx(isActiveLink("/schedule", pathname), "active")}
-        >
+        <Link href="/schedule" className={isActiveLink("/schedule", pathname)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

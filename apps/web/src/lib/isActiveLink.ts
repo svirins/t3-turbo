@@ -1,9 +1,6 @@
-export function isActiveLink(href: string, currentPath: string): boolean {
+export function isActiveLink(href: string, currentPath: string): string {
   if (href === currentPath) {
-    return true;
+    return "active";
   }
-  // if (href === "/groups" && currentPath.search("groups") > 0) {
-  //   return true;
-  // }
-  return false;
+  return "";
 }

@@ -32,7 +32,8 @@ export default async function AllGroupsPage({
 
   const weekdayToSearch = searchParams?.weekday
     ? (Object.keys(WeekDaysRU).find(
-        (key: any) => WeekDaysRU[key] === searchParams?.weekday,
+        (key) =>
+          WeekDaysRU[key as keyof typeof WeekDaysRU] === searchParams?.weekday,
       ) as WeekDays)
     : dayOfWeekFilter;
 
@@ -41,6 +42,7 @@ export default async function AllGroupsPage({
       ? [...uniqueCities]
       : [searchParams?.city];
 
+  // TODO: consider sort criteria
   const data = api.group.byCitiesAndByWeekday({
     cities: citiesFilter,
     dayOfWeekFilter: weekdayToSearch,
