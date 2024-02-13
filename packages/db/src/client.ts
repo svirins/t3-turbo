@@ -31,7 +31,7 @@ const prismaClientSingleton = () => {
         `;
           return loc;
         },
-        async findById(data: { id: string }) {
+        async findById(data: { id: string }): Promise<Location | null> {
           const result = await prisma.$queryRaw<
             {
               id: string;
@@ -68,7 +68,7 @@ const prismaClientSingleton = () => {
             }[]
           >`SELECT id, name, ST_X(coords::geometry), ST_Y(coords::geometry)
             FROM "Location"
-            ORDER BY ST_DistanceSphere(coords::geometry, ST_MakePoint(${latitude}, ${longitude})) DESC`;
+            ORDER BY ST_DistanceSphere(coords::geometry, ST_MakePoint(${latitude}, ${longitude})) ASC`;
 
           // Transform to our custom type
           const locations: Location[] = result.map((data) => {
@@ -85,6 +85,27 @@ const prismaClientSingleton = () => {
 
           // Return data
           return locations;
+        },
+        async findClosestLocationsWithRelated({
+          latitude,
+          longitude,
+        }: {
+          latitude: number;
+          longitude: number;
+        }) {
+          // Query for clostest locations
+          const result = await prisma.$queryRaw<
+            {
+              st_x: number | null;
+              st_y: number | null;
+              groupId: string;
+            }[]
+          >`SELECT ST_X(coords::geometry), ST_Y(coords::geometry), "Address"."groupId"
+            FROM "Location"
+            INNER JOIN "Address" ON "Location"."addressId" = "Address"."id"
+            ORDER BY ST_DistanceSphere(coords::geometry, ST_MakePoint(${latitude}, ${longitude})) ASC`;
+          // Return data
+          return result;
         },
       },
     },

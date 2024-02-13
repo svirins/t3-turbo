@@ -42,13 +42,21 @@ export default async function AllGroupsPage({
       ? [...uniqueCities]
       : [searchParams?.city];
 
-  // TODO: consider sort criteria
   const data = api.group.byCitiesAndByWeekday({
     cities: citiesFilter,
     dayOfWeekFilter: weekdayToSearch,
     repeatsFilter: repeatsFilter,
   });
 
+  // TODO: sort by distance based on user location
+
+  const point = {
+    latitude: 52.12943112425682,
+    longitude: 23.82905921152103,
+  };
+  const sortedByDistanceIds = api.location.closestGroups(point);
+
+  // TODO: sort by groups by array of sorted locations
   return (
     <div className="container pb-24">
       <Suspense
@@ -66,6 +74,7 @@ export default async function AllGroupsPage({
         </div>
         <GroupList
           data={data}
+          sortedByDistanceIds={sortedByDistanceIds}
           isToday={
             !searchParams?.weekday || searchParams?.weekday === currentWeekday
           }

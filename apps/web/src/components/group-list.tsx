@@ -5,15 +5,21 @@ import type { RouterOutputs } from "@acme/api";
 
 import { HomeGroupBadge } from "~/components/home-group-badge";
 import { Meetings } from "~/components/meetings";
+import { mapOrder } from "~/lib/mapOrder";
 
 export function GroupList({
   data,
+  sortedByDistanceIds,
   isToday,
 }: {
-  data: Promise<RouterOutputs["group"]["all"]>;
+  data: Promise<RouterOutputs["group"]["byCitiesAndByWeekday"]>;
+  sortedByDistanceIds: Promise<RouterOutputs["location"]["closestGroups"]>;
   isToday: boolean;
 }) {
   const initialData = use(data);
+  const initialSortedByDistanceIds = use(sortedByDistanceIds).map(
+    (item) => item.groupId,
+  );
 
   // TODO: Consider using `useSuspenseQuery` here
   if (initialData.length === 0) {
@@ -25,10 +31,11 @@ export function GroupList({
       </div>
     );
   }
+  const sortedData = mapOrder(initialData, initialSortedByDistanceIds, "id");
 
   return (
     <div className="flex w-full flex-col gap-4">
-      {initialData.map(({ days, ...rest }) => {
+      {sortedData.map(({ days, ...rest }) => {
         return (
           <div key={rest.id} className="card bg-base-100 shadow-xl">
             <div className="card-body">
