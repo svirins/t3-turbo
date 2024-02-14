@@ -1,3 +1,5 @@
+"use client";
+
 import { use } from "react";
 import Link from "next/link";
 
@@ -6,6 +8,7 @@ import { WeekDaysRU } from "@acme/utils";
 
 import { HomeGroupBadge } from "~/components/home-group-badge";
 import { Meetings } from "~/components/meetings";
+import { api } from "~/trpc/react";
 
 export function ScheduledGroupList({
   data,
@@ -13,10 +16,13 @@ export function ScheduledGroupList({
   data: Promise<RouterOutputs["group"]["byScheduledMeetings"]>;
 }) {
   const initialData = use(data);
+  const { data: groups } = api.group.byScheduledMeetings.useQuery(undefined, {
+    initialData,
+  });
   // const { localizedWeekday } = getToday();
   // const currentWeekday = `${localizedWeekday.charAt(0).toUpperCase()}${localizedWeekday.slice(1)}`;
 
-  if (initialData.length === 0) {
+  if (groups.length === 0) {
     return (
       <div className="flex flex-col items-center pt-32 ">
         <h2>В твоем расписании нет собраний </h2>
@@ -37,7 +43,7 @@ export function ScheduledGroupList({
 
   return (
     <div className="flex w-full flex-col gap-4">
-      {initialData.map(({ days, ...rest }) => {
+      {groups.map(({ days, ...rest }) => {
         return (
           <div key={rest.id} className="card bg-base-100 shadow-xl">
             <div className="card-body">

@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+// import { Suspense } from "react";
 
 import { GroupSkeleton } from "~/components/group-skeleton";
 import { ScheduledGroupList } from "~/components/scheduled-group-list";
