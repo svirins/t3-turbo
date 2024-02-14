@@ -6,7 +6,7 @@ export const locationRouter = createTRPCRouter({
   closest: publicProcedure
     .input(z.object({ latitude: z.number(), longitude: z.number() }))
     .query(async ({ ctx, input }) => {
-      const locations = await ctx.prisma.location.findClosestLocations({
+      const locations = await ctx.prisma.location.findClosestGroupLocations({
         latitude: input.latitude,
         longitude: input.longitude,
       });
@@ -15,7 +15,7 @@ export const locationRouter = createTRPCRouter({
   closestGroups: publicProcedure
     .input(z.object({ latitude: z.number(), longitude: z.number() }))
     .query(async ({ ctx, input }) => {
-      const groups = await ctx.prisma.location.findClosestLocationsWithRelated({
+      const groups = await ctx.prisma.location.findClosestGroupIds({
         latitude: input.latitude,
         longitude: input.longitude,
       });

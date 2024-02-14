@@ -65,6 +65,45 @@ export const groupRouter = createTRPCRouter({
       });
       return groups;
     }),
+  byScheduledMeetings: publicProcedure
+    .input(
+      z.object({
+        scheduledMeetingIds: z.array(z.string()),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const groups = await ctx.prisma.group.findMany({
+        where: {
+          days: {
+            some: {
+              meetings: {
+                some: {
+                  id: {
+                    in: input.scheduledMeetingIds,
+                  },
+                },
+              },
+            },
+          },
+        },
+        include: {
+          address: true,
+          days: {
+            include: {
+              meetings: {
+                where: {
+                  id: {
+                    in: input.scheduledMeetingIds,
+                  },
+                },
+              },
+            },
+          },
+        },
+        orderBy: [{ name: "desc" }],
+      });
+      return groups;
+    }),
   byId: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(async ({ ctx, input }) => {

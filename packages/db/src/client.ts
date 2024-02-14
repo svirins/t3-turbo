@@ -51,7 +51,7 @@ const prismaClientSingleton = () => {
             },
           } as Location;
         },
-        async findClosestLocations({
+        async findClosestGroupLocations({
           latitude,
           longitude,
         }: {
@@ -61,32 +61,33 @@ const prismaClientSingleton = () => {
           // Query for clostest locations
           const result = await prisma.$queryRaw<
             {
-              id: string;
+              groupId: string;
               name: string;
               st_x: number | null;
               st_y: number | null;
             }[]
-          >`SELECT id, name, ST_X(coords::geometry), ST_Y(coords::geometry)
+          >`SELECT ST_X(coords::geometry), ST_Y(coords::geometry), "Address"."groupId", "Group"."name"
             FROM "Location"
+            INNER JOIN "Address" ON "Location"."addressId" = "Address"."id"
+            INNER JOIN "Group" ON "Address"."groupId" = "Group"."id"
             ORDER BY ST_DistanceSphere(coords::geometry, ST_MakePoint(${latitude}, ${longitude})) ASC`;
 
           // Transform to our custom type
           const locations: Location[] = result.map((data) => {
             return {
-              id: data.id,
+              id: data.groupId,
               name: data.name,
               coords: {
                 latitude: data.st_x || 0,
                 longitude: data.st_y || 0,
               },
-              // addressId: data.addressId,
             };
           });
 
           // Return data
           return locations;
         },
-        async findClosestLocationsWithRelated({
+        async findClosestGroupIds({
           latitude,
           longitude,
         }: {
@@ -105,7 +106,7 @@ const prismaClientSingleton = () => {
             INNER JOIN "Address" ON "Location"."addressId" = "Address"."id"
             ORDER BY ST_DistanceSphere(coords::geometry, ST_MakePoint(${latitude}, ${longitude})) ASC`;
           // Return data
-          return result;
+          return result as { groupId: string }[];
         },
       },
     },

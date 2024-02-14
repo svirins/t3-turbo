@@ -9,13 +9,9 @@ export default async function HomePage() {
   // TODO: implement useSearchparams and pass it to marker
 
   const point = {
-    latitude: 52.12943112425682,
-    longitude: 23.82905921152103,
+    latitude: 53.8952733,
+    longitude: 27.5510122,
   };
-  // const point = {
-  //   latitude: 53.8952733,
-  //   longitude: 27.5510122,
-  // }
 
   const locations = await api.location.closest(point);
 

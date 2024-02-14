@@ -21,12 +21,13 @@ export function GroupList({
     (item) => item.groupId,
   );
 
-  // TODO: Consider using `useSuspenseQuery` here
+  // consider more
   if (initialData.length === 0) {
     return (
-      <div className="flex w-full flex-col gap-4">
+      <div className="flex h-screen items-center justify-center">
+        <h2>По такому запросу группы не найдены.</h2>
         <p>
-          По такому запросу группы не найдены. <em>Пока</em> не найдены ...
+          <em>Пока</em> не найдены ...
         </p>
       </div>
     );

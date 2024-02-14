@@ -16,7 +16,7 @@ export function WeekdayFilter({ today }: { today: string }) {
     params.set("weekday", day);
     replace(`${pathname}?${params.toString()}`);
   }
-  // TODO: Add fullmonth schedule is available at group pager
+  // TODO: Add fullmonth schedule is available at group page
   return (
     <form className="basis-1/2 text-right">
       <select
@@ -28,7 +28,7 @@ export function WeekdayFilter({ today }: { today: string }) {
       >
         {options.map((option) => (
           <option key={option} value={option} selected={option === selectedDay}>
-            {option === today ? `Cегодня ~ ${option}` : option}
+            {option === today ? `${option} (сегодня)` : option}
           </option>
         ))}
       </select>

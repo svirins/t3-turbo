@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import Map, {
   GeolocateControl,
   Marker,
@@ -98,6 +99,7 @@ export function MapDisplay(props: { locations: Location[] }) {
           closeButton={false}
         >
           <p>{selectedMarker.name}</p>
+          <Link href={`/groups/${selectedMarker.id}`}>Информация</Link>
         </Popup>
       ) : null}
     </Map>

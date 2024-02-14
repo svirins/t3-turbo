@@ -5,6 +5,7 @@ import { prisma } from "@acme/db";
 import { getCurrentDayFilters, getToday, WeekDaysRU } from "@acme/utils";
 
 import { CityFilter } from "~/components/city-filter";
+import { GetMyLocationButton } from "~/components/get-my-location-button";
 import { GroupList } from "~/components/group-list";
 import { GroupSkeleton } from "~/components/group-skeleton";
 import { WeekdayFilter } from "~/components/weekday-filter";
@@ -13,7 +14,12 @@ import { api } from "~/trpc/server";
 export default async function AllGroupsPage({
   searchParams,
 }: {
-  searchParams?: { city?: string; weekday?: string };
+  searchParams?: {
+    city?: string;
+    weekday?: string;
+    latitude?: string;
+    longitude?: string;
+  };
 }) {
   const { dayOfWeekFilter, repeatsFilter } = getCurrentDayFilters();
   const { localizedWeekday } = getToday();
@@ -48,15 +54,22 @@ export default async function AllGroupsPage({
     repeatsFilter: repeatsFilter,
   });
 
-  // TODO: sort by distance based on user location
+  // TODO: consider alt mode, when we sort groups alphabetically
 
-  const point = {
-    latitude: 52.12943112425682,
-    longitude: 23.82905921152103,
-  };
-  const sortedByDistanceIds = api.location.closestGroups(point);
+  const currentLocation =
+    searchParams?.latitude && searchParams?.longitude
+      ? {
+          latitude: parseFloat(searchParams.latitude),
+          longitude: parseFloat(searchParams.longitude),
+        }
+      : {
+          latitude: 53.8952733,
+          longitude: 27.5510122,
+        };
 
-  // TODO: sort by groups by array of sorted locations
+  // Sort groups by array of sorted group locations
+  const sortedByDistanceIds = api.location.closestGroups(currentLocation);
+
   return (
     <div className="container pb-24">
       <Suspense
@@ -70,6 +83,7 @@ export default async function AllGroupsPage({
       >
         <div className="flex flex-row justify-between pb-4">
           <CityFilter cities={uniqueCities} />
+          <GetMyLocationButton />
           <WeekdayFilter today={currentWeekday} />
         </div>
         <GroupList
