@@ -2,41 +2,42 @@ import { use } from "react";
 import Link from "next/link";
 
 import type { RouterOutputs } from "@acme/api";
+import { WeekDaysRU } from "@acme/utils";
 
 import { HomeGroupBadge } from "~/components/home-group-badge";
 import { Meetings } from "~/components/meetings";
-import { mapOrder } from "~/lib/mapOrder";
 
-export function GroupList({
+export function ScheduledGroupList({
   data,
-  sortedByDistanceIds,
-  isToday,
 }: {
-  data: Promise<RouterOutputs["group"]["byCitiesAndByWeekday"]>;
-  sortedByDistanceIds: Promise<RouterOutputs["location"]["closestGroups"]>;
-  isToday: boolean;
+  data: Promise<RouterOutputs["group"]["byScheduledMeetings"]>;
 }) {
   const initialData = use(data);
-  const initialSortedByDistanceIds = use(sortedByDistanceIds).map(
-    (item) => item.groupId,
-  );
+  // const { localizedWeekday } = getToday();
+  // const currentWeekday = `${localizedWeekday.charAt(0).toUpperCase()}${localizedWeekday.slice(1)}`;
 
-  // consider more
   if (initialData.length === 0) {
     return (
       <div className="flex flex-col items-center pt-32 ">
-        <h2>По такому запросу группы не найдены.</h2>
+        <h2>В твоем расписании нет собраний </h2>
         <p>
-          <em>Пока</em> не найдены ...
+          Возможно, сейчас самое время найти новую группу и добавить ее в
+          расписание?
         </p>
+        <Link
+          href="/groups"
+          className="btn btn-sm btn-secondary btn-outline"
+          role="button"
+        >
+          Список групп
+        </Link>
       </div>
     );
   }
-  const sortedData = mapOrder(initialData, initialSortedByDistanceIds, "id");
 
   return (
     <div className="flex w-full flex-col gap-4">
-      {sortedData.map(({ days, ...rest }) => {
+      {initialData.map(({ days, ...rest }) => {
         return (
           <div key={rest.id} className="card bg-base-100 shadow-xl">
             <div className="card-body">
@@ -68,7 +69,22 @@ export function GroupList({
                 </Link>
               </div>
               <hr />
-              <Meetings data={days[0]!.meetings} isToday={isToday} />
+              {days.map((day) => {
+                return (
+                  day.meetings &&
+                  day.meetings.length > 0 && (
+                    <div key={day.weekday} className="flex flex-col gap-4">
+                      <h2 className="text-xl">{WeekDaysRU[day.weekday]}</h2>
+                      <div className="flex flex-col gap-4">
+                        {day.meetings && day.meetings.length > 0 && (
+                          <Meetings data={day.meetings} />
+                        )}
+                      </div>
+                    </div>
+                  )
+                );
+              })}
+              {/* <Meetings data={days[0]!.meetings} isToday={isToday} /> */}
             </div>
           </div>
         );

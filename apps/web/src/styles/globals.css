@@ -42,6 +42,10 @@ h1 {
   @apply capsize mb-4 text-3xl font-bold tracking-tight md:text-5xl;
 }
 h4 {
+  @apply mt-4 text-2xl font-normal tracking-tight  md:text-3xl;
+}
+
+h4 {
   @apply mt-4 text-xl font-normal tracking-tight  md:text-2xl;
 }
 

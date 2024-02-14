@@ -57,15 +57,18 @@ export default async function GroupPage({
 
           {group.days.map((day) => {
             return (
-              <div key={day.weekday} className="flex flex-col gap-4">
-                <hr />
-                <h2 className="text-xl">{WeekDaysRU[day.weekday]}</h2>
-                <div className="flex flex-col gap-4">
-                  {day.meetings && day.meetings.length > 0 && (
-                    <Meetings data={day.meetings} />
-                  )}
+              day.meetings &&
+              day.meetings.length > 0 && (
+                <div key={day.weekday} className="flex flex-col gap-4">
+                  <hr />
+                  <h2 className="text-xl">{WeekDaysRU[day.weekday]}</h2>
+                  <div className="flex flex-col gap-4">
+                    {day.meetings && day.meetings.length > 0 && (
+                      <Meetings data={day.meetings} />
+                    )}
+                  </div>
                 </div>
-              </div>
+              )
             );
           })}
         </div>
