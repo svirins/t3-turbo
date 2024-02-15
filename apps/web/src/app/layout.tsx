@@ -31,6 +31,7 @@ export const metadata: Metadata = {
       "Простое приложение для поиска групп и собраний в Беларуси 🙋‍♂️🙋‍♀️",
     url: "https://na-locator.vercel.app/",
     siteName: "Локатор групп Беларуси",
+    images: ["/og.png"],
   },
   robots: {
     index: true,
@@ -58,11 +59,11 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable}`} suppressHydrationWarning>
       <AxiomWebVitals />
-      <body className="mx-auto h-dvh min-h-screen max-w-2xl font-sans antialiased ">
+      <body className="container mx-auto h-dvh min-h-screen w-full  max-w-2xl font-sans antialiased">
         <TRPCReactProvider>
-          <Toaster position="bottom-center" />
+          <Toaster position="top-center" />
           <Navbar />
-          <main className="mx-4 flex flex-col">{children}</main>
+          <main className="flex flex-col">{children}</main>
           <Footer />
         </TRPCReactProvider>
       </body>

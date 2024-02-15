@@ -52,12 +52,12 @@ export default function MySchedulePage() {
     );
   }
   return (
-    <div className="container pb-24">
+    <div className="container px-4 pb-24">
       <div className="flex w-full flex-col gap-4">
         {data?.map(({ days, ...rest }) => {
           return (
             <div key={rest.id} className="card bg-base-200 shadow-xl">
-              <div className="card-body">
+              <div className="card-body p-6">
                 <h2 className="card-title text-2xl">
                   {rest.name}
                   <HomeGroupBadge id={rest.id} />

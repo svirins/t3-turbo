@@ -7,7 +7,7 @@ export function HomeGroupBadge({ id }: { id: string }) {
   const storedId = window.localStorage.getItem("homeGroupId");
   return (
     id === storedId && (
-      <div className="badge badge-primary badge-outline">Домашняя</div>
+      <div className="badge badge-secondary badge-outline">Домашняя</div>
     )
   );
 }

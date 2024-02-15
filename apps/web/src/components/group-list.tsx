@@ -47,7 +47,7 @@ export function GroupList({
       {sortedData.map(({ days, ...rest }) => {
         return (
           <div key={rest.id} className="card bg-base-200 shadow-xl">
-            <div className="card-body">
+            <div className="card-body p-6">
               <h2 className="card-title text-2xl">
                 {rest.name}
                 <HomeGroupBadge id={rest.id} />

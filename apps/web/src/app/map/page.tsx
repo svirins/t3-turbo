@@ -17,7 +17,9 @@ export default async function HomePage() {
 
   return (
     <main className="container h-screen">
-      <MapDisplay locations={locations} />
+      <div className="h-screen w-full">
+        <MapDisplay locations={locations} />
+      </div>
     </main>
   );
 }

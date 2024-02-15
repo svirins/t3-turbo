@@ -28,9 +28,9 @@ export default async function GroupPage({
   // TODO: Implement share button + link + copy to clipboard
   // TODO: Implement: full-month schedule
   return (
-    <div className="container pb-24">
+    <div className="container px-4 pb-24">
       <div className="card bg-base-200 shadow-xl">
-        <div className="card-body">
+        <div className="card-body p-6">
           <h2 className="card-title text-2xl">
             {group.name}
             <HomeGroupButton id={group.id} />
