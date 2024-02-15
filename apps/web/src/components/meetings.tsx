@@ -9,7 +9,7 @@ export function Meetings({
   data,
   isToday,
 }: {
-  data: RouterOutputs["group"]["all"][number]["days"][number]["meetings"];
+  data: RouterOutputs["group"]["byCitiesAndByWeekday"][number]["days"][number]["meetings"];
   isToday?: boolean;
 }) {
   return (
