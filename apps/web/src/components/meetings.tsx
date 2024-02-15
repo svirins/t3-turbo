@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import type { RouterOutputs } from "@acme/api";
-import { getHoursAndStatus, Topics, TopicsRU } from "@acme/utils";
+import { getHoursAndStatus, TopicsRU } from "@acme/utils";
 
 import { ScheduleButton } from "~/components/my-schedule";
 
@@ -39,11 +39,7 @@ export function Meetings({
               {meeting.topics.map((t, index) => (
                 <span
                   key={index}
-                  className={clsx(
-                    "badge badge-outline badge-neutral ml-1",
-                    t === Topics.Open && "badge-info",
-                    t === Topics.Work && "badge-secondary",
-                  )}
+                  className={clsx("badge badge-outline  mb-1 ml-1")}
                 >
                   {TopicsRU[t]}
                 </span>

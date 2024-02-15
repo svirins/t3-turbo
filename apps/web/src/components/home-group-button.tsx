@@ -27,7 +27,7 @@ export function HomeGroupButton({ id }: { id: string }) {
     <button
       onClick={(e) => handleClick(e)}
       disabled={!!(storedId && storedId !== id)}
-      className="btn btn-sm btn-accent btn-outline"
+      className="btn btn-sm btn-primary btn-outline"
     >
       {home ? "Убрать из домашней" : "Сделать домашней"}
     </button>

@@ -29,9 +29,9 @@ export default async function GroupPage({
   // TODO: Implement: full-month schedule
   return (
     <div className="container pb-24">
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-200 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title">
+          <h2 className="card-title text-2xl">
             {group.name}
             <HomeGroupButton id={group.id} />
           </h2>
@@ -61,7 +61,9 @@ export default async function GroupPage({
               day.meetings.length > 0 && (
                 <div key={day.weekday} className="flex flex-col gap-4">
                   <hr />
-                  <h2 className="text-xl">{WeekDaysRU[day.weekday]}</h2>
+                  <h2 className="text-lg font-medium">
+                    {WeekDaysRU[day.weekday]}
+                  </h2>
                   <div className="flex flex-col gap-4">
                     {day.meetings && day.meetings.length > 0 && (
                       <Meetings data={day.meetings} />

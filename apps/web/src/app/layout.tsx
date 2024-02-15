@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { AxiomWebVitals } from "next-axiom";
 import { Toaster } from "react-hot-toast";
 
@@ -18,26 +18,20 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-// const robotoMono = Roboto_Mono({
-//   subsets: ["latin", "cyrillic"],
-//   display: "swap",
-//   variable: "--font-roboto-mono",
-// });
-
 export const metadata: Metadata = {
   metadataBase: new URL(
     env.VERCEL_ENV === "production"
       ? "https://na-locator.vercel.app/"
       : "http://localhost:3000",
   ),
-  title: "Локатор 😉 в Беларуси",
+  title: "Локатор групп 🙋‍♂️🙋‍♀️",
   description: "Простое приложение для поиска групп и собраний в Беларуси 🙋‍♂️🙋‍♀️",
   openGraph: {
-    title: "NA Belarus Locator",
+    title: "Локатор групп Беларуси",
     description:
       "Простое приложение для поиска групп и собраний в Беларуси 🙋‍♂️🙋‍♀️",
     url: "https://na-locator.vercel.app/",
-    siteName: "Локатор 😉 в Беларуси",
+    siteName: "Локатор групп Беларуси",
   },
   robots: {
     index: true,
@@ -70,7 +64,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <AxiomWebVitals />
-      <body className="mx-auto h-dvh min-h-screen max-w-2xl font-sans antialiased">
+      <body className="mx-auto h-dvh min-h-screen max-w-2xl font-sans antialiased ">
         <TRPCReactProvider>
           <Toaster position="bottom-center" />
           <Navbar />

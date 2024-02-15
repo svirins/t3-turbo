@@ -23,7 +23,7 @@ export function CityFilter({ cities }: { cities: string[] }) {
   return (
     <form className="basis-1/2">
       <select
-        className="select select-sm max-w-xs"
+        className="select select-sm select-bordered max-w-xs"
         name="citySelector"
         onChange={(e) => {
           handleSearch(e.target.value);

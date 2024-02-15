@@ -24,7 +24,9 @@ export function GetMyLocationButton() {
 
   return (
     <button
-      className={clsx("btn btn-square btn-ghost btn-sm")}
+      className={clsx(
+        "btn btn-square btn-ghost btn-sm border-1 border-gray-300",
+      )}
       onClick={() => handleClick()}
     >
       <div className="tooltip" data-tip="Ближайшие к моей геолокации">
