@@ -99,7 +99,7 @@ export function MapDisplay(props: { locations: Location[] }) {
           closeButton={false}
         >
           <p>{selectedMarker.name}</p>
-          <Link href={`/groups/${selectedMarker.id}`}>Информация</Link>
+          <Link href={`/group/${selectedMarker.id}`}>Информация</Link>
         </Popup>
       ) : null}
     </Map>

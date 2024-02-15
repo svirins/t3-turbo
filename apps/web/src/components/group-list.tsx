@@ -54,7 +54,7 @@ export function GroupList({
               <div className="flex flex-row">
                 <p>{`${rest.address?.city}, ${rest.address?.street}`}</p>
                 <Link
-                  href={`/groups/${rest.id}`}
+                  href={`/group/${rest.id}`}
                   className="btn btn-sm btn-ghost btn-circle"
                   role="button"
                 >

@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <div className="w-full bg-blue-200">
       <div className="btm-nav mx-auto max-w-2xl">
-        <Link href="/groups" className={isActiveLink("/groups", pathname)}>
+        <Link href="/" className={isActiveLink("/", pathname)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

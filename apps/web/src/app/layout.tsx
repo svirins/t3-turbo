@@ -18,11 +18,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const robotoMono = Roboto_Mono({
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
-  variable: "--font-roboto-mono",
-});
+// const robotoMono = Roboto_Mono({
+//   subsets: ["latin", "cyrillic"],
+//   display: "swap",
+//   variable: "--font-roboto-mono",
+// });
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -30,18 +30,30 @@ export const metadata: Metadata = {
       ? "https://na-locator.vercel.app/"
       : "http://localhost:3000",
   ),
-  title: "NA Belarus Locator",
-  description: "Simple app to locate NA meetings in Belarus",
+  title: "Локатор 😉 в Беларуси",
+  description: "Простое приложение для поиска групп и собраний в Беларуси 🙋‍♂️🙋‍♀️",
   openGraph: {
     title: "NA Belarus Locator",
-    description: "Simple app to locate NA meetings in Belarus",
+    description:
+      "Простое приложение для поиска групп и собраний в Беларуси 🙋‍♂️🙋‍♀️",
     url: "https://na-locator.vercel.app/",
-    siteName: "NA Belarus Locator",
+    siteName: "Локатор 😉 в Беларуси",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   twitter: {
     card: "summary_large_image",
-    site: "@svirins",
-    creator: "@svirins",
+    site: "@anonymous",
+    creator: "@anonymous",
   },
 };
 
@@ -53,7 +65,8 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${inter.variable} ${robotoMono.variable}`}
+      // className={`${inter.variable} ${robotoMono.variable}`}
+      className={`${inter.variable}`}
       suppressHydrationWarning
     >
       <AxiomWebVitals />
