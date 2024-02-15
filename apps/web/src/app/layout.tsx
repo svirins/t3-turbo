@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { AxiomWebVitals } from "next-axiom";
 import { Toaster } from "react-hot-toast";
@@ -51,6 +51,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -59,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable}`} suppressHydrationWarning>
       <AxiomWebVitals />
-      <body className="container mx-auto h-dvh min-h-screen w-full  max-w-2xl font-sans antialiased">
+      <body className="mx-auto min-h-screen  max-w-2xl font-sans antialiased">
         <TRPCReactProvider>
           <Toaster position="top-center" />
           <Navbar />
