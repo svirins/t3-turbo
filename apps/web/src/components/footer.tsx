@@ -61,7 +61,7 @@ export function Footer() {
           />
         </svg>
 
-        <span className="btm-nav-label">Мое расписание</span>
+        <span className="btm-nav-label">Мои собрания</span>
       </Link>
     </div>
   );

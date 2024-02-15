@@ -4,7 +4,6 @@ import { AxiomWebVitals } from "next-axiom";
 import { Toaster } from "react-hot-toast";
 
 import { Navbar } from "~/components/navbar";
-// import { Footer } from "~/components/footer";
 import { env } from "~/env";
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -57,12 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="ru"
-      // className={`${inter.variable} ${robotoMono.variable}`}
-      className={`${inter.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="ru" className={`${inter.variable}`} suppressHydrationWarning>
       <AxiomWebVitals />
       <body className="mx-auto h-dvh min-h-screen max-w-2xl font-sans antialiased ">
         <TRPCReactProvider>

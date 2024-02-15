@@ -21,7 +21,6 @@ export function GroupList({
     (item) => item.groupId,
   );
 
-  // consider more
   if (initialData.length === 0) {
     return (
       <div className="hero bg-base-200 min-h-screen">
@@ -53,7 +52,7 @@ export function GroupList({
                 {rest.name}
                 <HomeGroupBadge id={rest.id} />
               </h2>
-              <div className="flex flex-row">
+              <div className="flex flex-row items-baseline">
                 <p>{`${rest.address?.city}, ${rest.address?.street}`}</p>
                 <div className="tooltip" data-tip="Подробнее">
                   <Link

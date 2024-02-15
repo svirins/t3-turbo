@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { WeekDaysRU } from "@acme/utils";
 
+import { GroupSkeleton } from "~/components/group-skeleton";
 import { HomeGroupBadge } from "~/components/home-group-badge";
 import { Meetings } from "~/components/meetings";
 import { api } from "~/trpc/react";
@@ -22,8 +23,10 @@ export default function MySchedulePage() {
 
   if (!data) {
     return (
-      <div className="container pb-24">
-        <span className="loading loading-infinity loading-lg"></span>
+      <div className="flex w-full flex-col gap-4">
+        <GroupSkeleton />
+        <GroupSkeleton />
+        <GroupSkeleton />
       </div>
     );
   }
@@ -59,7 +62,7 @@ export default function MySchedulePage() {
                   {rest.name}
                   <HomeGroupBadge id={rest.id} />
                 </h2>
-                <div className="flex flex-row">
+                <div className="flex flex-row items-baseline">
                   <p>{`${rest.address?.city}, ${rest.address?.street}`}</p>
                   <div className="tooltip" data-tip="Подробнее">
                     <Link
