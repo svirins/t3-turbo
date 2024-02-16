@@ -5,6 +5,24 @@ import { Repeats, WeekDays } from "@acme/utils";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const groupRouter = createTRPCRouter({
+  all: publicProcedure.query(async ({ ctx }) => {
+    const groups = await ctx.prisma.group.findMany({
+      include: {
+        address: {
+          include: {
+            location: true,
+          },
+        },
+        days: {
+          include: {
+            meetings: true,
+          },
+        },
+      },
+    });
+    return groups;
+  }),
+
   byCitiesAndByWeekday: publicProcedure
     .input(
       z.object({

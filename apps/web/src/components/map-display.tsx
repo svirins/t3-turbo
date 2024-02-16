@@ -91,6 +91,7 @@ export function MapDisplay(props: { locations: Location[] }) {
       {selectedMarker ? (
         <Popup
           offset={25}
+          className="rounded-lg"
           latitude={Number(selectedMarker.coords.latitude)}
           longitude={Number(selectedMarker.coords.longitude)}
           onClose={() => {
@@ -98,8 +99,12 @@ export function MapDisplay(props: { locations: Location[] }) {
           }}
           closeButton={false}
         >
-          <p>{selectedMarker.name}</p>
-          <Link href={`/group/${selectedMarker.id}`}>Информация</Link>
+          <Link
+            className="px-4 py-2 text-lg font-medium text-blue-700"
+            href={`/group/${selectedMarker.id}`}
+          >
+            {selectedMarker.name}
+          </Link>
         </Popup>
       ) : null}
     </Map>

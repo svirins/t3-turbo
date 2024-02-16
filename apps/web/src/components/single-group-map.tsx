@@ -37,7 +37,9 @@ export function SingleGroupMap({
         longitude={Number(location.coords.longitude)}
         latitude={Number(location.coords.latitude)}
       >
-        <p className="font-meduim z-50 text-xl text-blue-700">{name}</p>
+        {/* <p className="font-meduim z-50 font-sans text-lg font-medium text-blue-700">
+          {name}
+        </p> */}
         {marker}
       </Marker>
     </Map>

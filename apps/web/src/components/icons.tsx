@@ -1,6 +1,6 @@
 const svgMarkerProps = {
   className:
-    "w-[24px] h-[24px] lg:w-[32px] md:h-[32px] transform duration-150 ease-in-out hover:scale-110",
+    "w-[24px] h-[24px] lg:w-[32px] md:h-[32px] transform duration-150 ease-in-out hover:scale-125",
   fill: "currentColor",
   stroke: "currentColor",
   strokeWidth: "0",
