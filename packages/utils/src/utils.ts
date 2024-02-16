@@ -11,9 +11,7 @@ export function getCurrentDayFilters() {
   const weekNumber = getWeekOfMonth(today, { weekStartsOn: 1 });
   const totalWeeks = getWeekOfMonth(today, { weekStartsOn: 1 });
 
-  // !! `FOURTH` case it wrong. we should use `LAST` instead
-  // TODO: Handle 'State Holidays' case
-  // !! TODO: Handle NotFirstNotLast case
+  // TODO: Consider handling 'State Holidays' case
   // default
   let repeatsFilter = [Repeats.Weekly];
   // handle first week
@@ -77,7 +75,7 @@ export function getToday() {
   };
 }
 
-export function getTime() {
+export function getLocalizedTime() {
   const today = new Date().toLocaleDateString("en-US", {
     timeZone: "Europe/Minsk",
   });

@@ -1,9 +1,28 @@
+"use client";
+
 import clsx from "clsx";
 
 import type { RouterOutputs } from "@acme/api";
-import { getHoursAndStatus, TopicsRU } from "@acme/utils";
+import { format, TopicsRU } from "@acme/utils";
 
 import { ScheduleButton } from "~/components/my-schedule";
+
+function getHoursAndStatus(dateStart: Date, dateEnd: Date) {
+  const now = Number(
+    new Date().toLocaleTimeString("en-US", {
+      timeZone: "Europe/Minsk",
+      hour: "numeric",
+      hour12: false,
+    }),
+  );
+  const endNumeric = Number(format(dateEnd, "H"));
+
+  return {
+    start: format(dateStart, "H:mm"),
+    end: format(dateEnd, "H:mm"),
+    isPassed: now > endNumeric,
+  };
+}
 
 export function Meetings({
   data,

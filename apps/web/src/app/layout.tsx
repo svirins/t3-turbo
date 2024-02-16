@@ -66,11 +66,11 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable}`} suppressHydrationWarning>
       <AxiomWebVitals />
-      <body className="mx-auto min-h-screen  max-w-2xl font-sans antialiased">
+      <body className="mx-auto min-h-lvh   max-w-2xl font-sans antialiased">
         <TRPCReactProvider>
           <Toaster position="top-center" />
           <Navbar />
-          <main className="flex flex-col">{children}</main>
+          <main>{children}</main>
           <Footer />
         </TRPCReactProvider>
       </body>
