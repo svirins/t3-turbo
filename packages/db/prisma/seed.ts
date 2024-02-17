@@ -23,8 +23,8 @@ const locations = [
   {
     id: "cls7u33m5000008l8dd9cf4oj",
     name: "10ka",
-    latitude: 53.89932147291448,
-    longitude: 27.60210846216916,
+    latitude: 53.89934922790105,
+    longitude: 27.60199485065702,
   },
   {
     id: "cls7u9fdq00000al480osaulw",
@@ -187,7 +187,7 @@ const groupsData = [
               {
                 start: new Date(2024, 0, 0, 19, 0, 0, 0),
                 end: new Date(2024, 0, 0, 20, 0, 0, 0),
-                topics: [Topics.SelfAnalysis],
+                topics: [Topics.DailyInventarization],
                 repeats: Repeats.Weekly,
               },
             ],
@@ -244,7 +244,7 @@ const groupsData = [
             create: {
               start: new Date(2024, 0, 0, 16, 0, 0, 0),
               end: new Date(2024, 0, 0, 17, 30, 0, 0),
-              topics: [Topics.Sponsorship, Topics.Open],
+              topics: [Topics.Speaker, Topics.Open],
               repeats: Repeats.Weekly,
             },
           },

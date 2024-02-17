@@ -13,8 +13,9 @@ export default function About() {
     return null; // return this null to avoid hydration errors
   }
   return (
-    <div className="hero bg-base-200 h-auto pb-24 pt-12">
-      <div className="hero-content ">
+    <div className="container px-4">
+    <div className="card bg-base-200 shadow-2xl">
+      <div className="card-body p-12  pt-24">
         <div className="max-w-md">
           <h1 className="pb-4 text-7xl font-bold">🧑‍💻</h1>
           <h1 className="pb-4 text-5xl font-bold">Инфа</h1>
@@ -68,6 +69,7 @@ export default function About() {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+      </div>
   );
 }

@@ -23,19 +23,22 @@ export function GroupList({
 
   if (initialData.length === 0) {
     return (
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content text-center">
+    <div className="container px-4">
+    <div className="card bg-base-200 shadow-2xl">
+      <div className="card-body p-12  pt-24">
           <div className="max-w-md">
             <h1 className="pb-4 text-7xl font-bold">🙅‍♀️</h1>
             <h1 className="text-5xl font-bold">Группы не найдены</h1>
             <p className="py-6">
-              Пока не найдены. Попробуй изменить фильтры поиска. Или, возможно,
+              Попробуй изменить фильтры поиска. Или, возможно,
               ты сможешь внести свой вклад и такая группа появится.
             </p>
             <Link href="/" className="btn btn-primary">
               Все группы
             </Link>
-          </div>
+            </div>
+                      </div>
+
         </div>
       </div>
     );

@@ -33,21 +33,23 @@ export default function MySchedulePage() {
 
   if (data?.length === 0) {
     return (
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content text-center">
+    <div className="container px-4">
+    <div className="card bg-base-200 shadow-2xl">
+      <div className="card-body p-12  pt-24">
           <div className="max-w-md">
             <h1 className="pb-4 text-7xl font-bold">🙅</h1>
             <h1 className="text-5xl font-bold">Пусто ...</h1>
             <p className="py-6">
               В твоем расписании нет ни одного собрания, которое ты посещаешь
-              постоянно. Попробуй перейти к списку групп и добавить такие
+              постоянно. Попробуй перейти к <Link className="font-medium text-primary" href="/">списку групп</Link> и добавить такие
               собрания (используй ➕ для этого).
             </p>
             <Link href="/" className="btn btn-primary">
               Все группы
             </Link>
           </div>
-        </div>
+          </div>
+          </div>
       </div>
     );
   }
