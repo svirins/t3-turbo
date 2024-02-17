@@ -1,9 +1,10 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 import type { RouterOutputs } from "@acme/api";
-import { format, TopicsRU } from "@acme/utils";
+import { format, RepeatsDigits, TopicsRU } from "@acme/utils";
 
 import { ScheduleButton } from "~/components/my-schedule";
 
@@ -31,6 +32,9 @@ export function Meetings({
   data: RouterOutputs["group"]["all"][number]["days"][number]["meetings"];
   isToday?: boolean;
 }) {
+  // get current pathname
+  const pathname = usePathname();
+  const isGroupPage = pathname.includes("/group/");
   return (
     <div className="flex flex-col gap-4">
       {data.map((meeting, index) => {
@@ -40,9 +44,18 @@ export function Meetings({
         );
         return (
           <div key={index} className="flex flex-row">
+            {/* If it's a group page - display weeks - explanation */}
+            {isGroupPage && (
+              <span className="tooltip text-left" data-tip="Номера недель">
+                <p className="inline-block w-12 flex-none align-middle font-mono text-xs text-gray-500">
+                  {`${RepeatsDigits[meeting.repeats]}`}
+                </p>
+              </span>
+            )}
+
             <p
               className={clsx(
-                "w-36 flex-none font-mono font-medium",
+                "inline-block w-36 flex-none align-middle font-mono font-medium",
                 isToday && isPassed && "text-gray-400",
               )}
             >{`${start} -> ${end}`}</p>

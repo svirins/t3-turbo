@@ -56,19 +56,20 @@ export default function MySchedulePage() {
       <div className="flex w-full flex-col gap-4">
         {data?.map(({ days, ...rest }) => {
           return (
-            <Link
-              key={rest.id}
-              className="card bg-base-200 hover:bg-base-300 transform shadow-xl duration-100 ease-in-out hover:shadow-2xl "
-              href={`/group/${rest.id}`}
-            >
+            <div key={rest.id} className="card bg-base-200 shadow-2xl ">
               <div className="card-body p-6">
-                <h2 className="card-title text-2xl">
-                  {rest.name}
-                  <HomeGroupBadge id={rest.id} />
-                </h2>
-                <div className="flex flex-row items-baseline">
-                  <p>{`${rest.address?.city}, ${rest.address?.street}`}</p>
-                </div>
+                <Link
+                  href={`/group/${rest.id}`}
+                  className=" transform  duration-100 ease-in-out hover:text-secondary"
+                >
+                  <h2 className="card-title text-2xl">
+                    {rest.name}
+                    <HomeGroupBadge id={rest.id} />
+                  </h2>
+                  <div className="flex flex-row items-baseline">
+                    <p>{`${rest.address?.city}, ${rest.address?.street}`}</p>
+                  </div>
+                </Link>
                 {days.map((day) => {
                   return (
                     day.meetings &&
@@ -88,7 +89,7 @@ export default function MySchedulePage() {
                   );
                 })}
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>

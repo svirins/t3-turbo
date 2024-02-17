@@ -48,3 +48,16 @@ export const TopicsRU: ITopicsRU = {
   MiniSpeaker: "Мини-спикерская",
   Literature: "Литературный вечер",
 };
+
+export const RepeatsDigits = {
+  Weekly: "1234",
+  First: "1---",
+  NotFirst: "-234",
+  Last: "---4",
+  NotLast: "123-",
+  Odd: "1-3-",
+  Even: "-2-4",
+  Second: "-2--",
+  NotSecond: "1-34",
+  NotFirstNotLast: "-23-",
+};

@@ -29,12 +29,12 @@ export default async function GroupPage({
   // TODO: Implement: full-month schedule
   return (
     <div className="container px-4 pb-24">
-      <div className="card bg-base-200 shadow-xl">
+      <div className="card bg-base-200 shadow-2xl">
         <div className="card-body p-6">
-          <h2 className="card-title text-2xl">
-            {group.name}
+          <div className="flex flex-row align-middle">
+            <h2 className="card-title text-2xl">{group.name}</h2>
             <HomeGroupButton id={group.id} />
-          </h2>
+          </div>
           <div className="flex flex-row">
             <p>{`${group.address?.city}, ${group.address?.street}`}</p>
             {group.address?.photoUrls &&

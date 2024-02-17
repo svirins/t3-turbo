@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 import { toast } from "react-hot-toast";
 
@@ -8,6 +9,8 @@ export function ScheduleButton({ id }: { id: string }) {
   if (typeof window === "undefined" || !window.localStorage) {
     return;
   }
+  const router = useRouter();
+  const pathname = usePathname();
   const storedValues = window.localStorage.getItem("myGroupsSchedule");
   const parsedValues = storedValues
     ? (JSON.parse(storedValues) as string[])
@@ -33,6 +36,10 @@ export function ScheduleButton({ id }: { id: string }) {
       window.localStorage.setItem("myGroupsSchedule", newStringifiedValues);
       toast("Добавлено в мое расписание", { icon: "👍" });
       setScheduled(true);
+    }
+    console.log("pathname: ", pathname);
+    if (pathname === "/schedule") {
+      router.refresh();
     }
   };
 
