@@ -16,8 +16,8 @@ export default async function HomePage() {
   const locations = await api.location.closest(point);
 
   return (
-    <main className="container h-screen">
-      <div className="h-screen w-full">
+    <main className="">
+      <div className="h-screen mx">
         <MapDisplay locations={locations} />
       </div>
     </main>

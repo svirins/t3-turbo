@@ -23,6 +23,7 @@
     "@trpc/client": "11.0.0-next-beta.264",
     "@trpc/react-query": "11.0.0-next-beta.264",
     "@trpc/server": "11.0.0-next-beta.264",
+    "@vercel/analytics": "^1.2.0",
     "clsx": "^2.1.0",
     "mapbox-gl": "^3.1.2",
     "next": "^14.1.0",

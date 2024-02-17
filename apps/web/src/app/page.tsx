@@ -71,7 +71,7 @@ export default async function AllGroupsPage({
   const sortedByDistanceIds = api.location.closestGroups(currentLocation);
 
   return (
-    <div className="container px-4 pb-24">
+    <div className="pb-24">
       <Suspense
         fallback={
           <div className="flex w-full flex-col gap-4">

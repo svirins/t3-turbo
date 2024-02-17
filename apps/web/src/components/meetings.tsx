@@ -34,7 +34,7 @@ export function Meetings({
 }) {
   // get current pathname
   const pathname = usePathname();
-  const isGroupPage = pathname.includes("/group/");
+  const isGroupOrSchedule = pathname.includes("/group/") || pathname.includes("/schedule");
   return (
     <div className="flex flex-col gap-4">
       {data.map((meeting, index) => {
@@ -45,9 +45,9 @@ export function Meetings({
         return (
           <div key={index} className="flex flex-row">
             {/* If it's a group page - display weeks - explanation */}
-            {isGroupPage && (
-              <span className="tooltip text-left" data-tip="Номера недель">
-                <p className="inline-block w-12 flex-none align-middle font-mono text-xs text-gray-500">
+            {isGroupOrSchedule && (
+              <span className="tooltip tooltip-right" data-tip="Номера недель">
+                <p className="inline-block w-[36px] flex-none align-middle font-mono text-xs text-gray-500">
                   {`${RepeatsDigits[meeting.repeats]}`}
                 </p>
               </span>
@@ -55,10 +55,10 @@ export function Meetings({
 
             <p
               className={clsx(
-                "inline-block w-36 flex-none align-middle font-mono font-medium",
+                "inline-block w-[128px]  align-middle font-mono font-medium ",
                 isToday && isPassed && "text-gray-400",
               )}
-            >{`${start} -> ${end}`}</p>
+            >{`${start}..${end}`}</p>
             <p className="h-6 w-6 flex-none">
               <ScheduleButton id={meeting.id} />
             </p>
@@ -71,7 +71,7 @@ export function Meetings({
               {meeting.topics.map((t, index) => (
                 <span
                   key={index}
-                  className={clsx("badge badge-outline  mb-1 ml-1")}
+                  className={clsx("badge badge-outline  mb-1 ml-1 tracking-tighter")}
                 >
                   {TopicsRU[t]}
                 </span>

@@ -13,9 +13,9 @@ export default function About() {
     return null; // return this null to avoid hydration errors
   }
   return (
-    <div className="container px-4">
+    <div className="pb-24">
     <div className="card bg-base-200 shadow-2xl">
-      <div className="card-body p-12  pt-24">
+      <div className="card-body p-12  pt-18">
         <div className="max-w-md">
           <h1 className="pb-4 text-7xl font-bold">🧑‍💻</h1>
           <h1 className="pb-4 text-5xl font-bold">Инфа</h1>
@@ -29,7 +29,7 @@ export default function About() {
             Исходный код доступен{" "}
             <a
               className="font-medium text-primary"
-              href="https://emojipedia.org/technologist"
+              href="https://github.com/shuubniguratt/locator"
             >
               тут
             </a>

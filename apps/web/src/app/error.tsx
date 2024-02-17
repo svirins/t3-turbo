@@ -15,9 +15,9 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="container px-4">
+    <div className="pb-24">
     <div className="card bg-base-200 shadow-2xl">
-      <div className="card-body p-12  pt-24">
+      <div className="card-body p-12  pt-18">
         <div className="max-w-md">
           <h1 className="pb-4 text-7xl font-bold">🤷‍♀️</h1>
           <h1 className="text-5xl font-bold">Какая-то ошибка</h1>

@@ -1,6 +1,6 @@
 export function GroupSkeleton() {
   return (
-    <div className="card bg-base-200 p-8 shadow-xl">
+    <div className="card bg-base-200 p-4 shadow-2xl">
       <div className=" flex flex-col gap-4">
         <div className="skeleton h-4 w-20"></div>
         <div className="skeleton h-4 w-28"></div>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { AxiomWebVitals } from "next-axiom";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from '@vercel/analytics/react';
 
 import { Navbar } from "~/components/navbar";
 import { env } from "~/env";
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
       "Простое приложение для поиска групп и собраний в Беларуси 🙋‍♂️🙋‍♀️",
     url: "https://na-locator.vercel.app/",
     siteName: "Локатор групп Беларуси",
-    images: ["/og.png"],
+    // images: ["/og.png"],
   },
   robots: {
     index: true,
@@ -39,9 +40,6 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
     },
   },
   twitter: {
@@ -70,10 +68,13 @@ export default function RootLayout({
         <TRPCReactProvider>
           <Toaster position="top-center" />
           <Navbar />
-          <main>{children}</main>
+          <main className="px-2">{children}</main>
           <Footer />
+          <Analytics />
         </TRPCReactProvider>
       </body>
     </html>
   );
 }
+
+

@@ -21,7 +21,7 @@ export function CityFilter({ cities }: { cities: string[] }) {
   }
 
   return (
-    <form className="basis-1/2">
+    <form className="">
       <select
         className="select select-sm select-bordered max-w-xs"
         name="citySelector"

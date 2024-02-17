@@ -9,7 +9,7 @@ export function Footer() {
   const pathname = usePathname();
 
   return (
-    <div className="btm-nav z-50 mx-auto max-w-2xl ">
+    <div className="btm-nav z-50 mx-auto max-w-2xl">
       <Link href="/" className={isActiveLink("/", pathname)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

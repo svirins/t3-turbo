@@ -23,9 +23,9 @@ export function GroupList({
 
   if (initialData.length === 0) {
     return (
-    <div className="container px-4">
+    <div className="pb-24">
     <div className="card bg-base-200 shadow-2xl">
-      <div className="card-body p-12  pt-24">
+      <div className="card-body p-12  pt-18">
           <div className="max-w-md">
             <h1 className="pb-4 text-7xl font-bold">🙅‍♀️</h1>
             <h1 className="text-5xl font-bold">Группы не найдены</h1>
@@ -50,10 +50,10 @@ export function GroupList({
       {sortedData.map(({ days, ...rest }) => {
         return (
           <div key={rest.id} className="card bg-base-200  shadow-2xl ">
-            <div className="card-body p-6">
+            <div className="card-body p-4">
               <Link
                 href={`/group/${rest.id}`}
-                className=" transform  duration-100 ease-in-out hover:text-secondary"
+                className=" transform  duration-100 ease-in-out hover:text-primary"
               >
                 <h2 className="card-title text-2xl">
                   {rest.name}

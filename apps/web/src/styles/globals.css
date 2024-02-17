@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  min-width: 480px;
+  min-width: 360px;
   scroll-behavior: smooth;
 }
 
@@ -26,14 +26,6 @@ body {
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
-}
-html {
-  min-width: 480px;
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
 }
 
 /* Typography non-prose*/
