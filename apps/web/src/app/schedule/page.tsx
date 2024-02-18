@@ -8,17 +8,12 @@ import { GroupSkeleton } from "~/components/group-skeleton";
 import { HomeGroupBadge } from "~/components/home-group-badge";
 import { Meetings } from "~/components/meetings";
 import { api } from "~/trpc/react";
+import { useScheduledMeetings } from "~/lib/hooks/useStorage";
 
 export default function MySchedulePage() {
-  if (typeof window === "undefined" || !window.localStorage) {
-    return;
-  }
-
-  const storedValues = window.localStorage.getItem("myGroupsSchedule");
-  const meetings = storedValues ? (JSON.parse(storedValues) as string[]) : [];
-
+  const { meetingIds } = useScheduledMeetings();
   const { data } = api.group.byScheduledMeetings.useQuery({
-    scheduledMeetingIds: meetings,
+    scheduledMeetingIds: meetingIds,
   });
 
   if (!data) {

@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { getGroupIds } from "@acme/db";
 import { WeekDaysRU } from "@acme/utils";
 
-// import { HomeGroupBadge } from "~/components/home-group-badge";
 import { HomeGroupButton } from "~/components/home-group-button";
 import { Meetings } from "~/components/meetings";
 import { ShowPhotoButton } from "~/components/show-photo-button";

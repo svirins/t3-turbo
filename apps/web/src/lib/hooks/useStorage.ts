@@ -2,8 +2,8 @@ import { useAtom } from 'jotai'
 import { atomWithStorage, RESET } from 'jotai/utils'
 
 
-  const storedHomeGroupId = atomWithStorage("homeGroupId", "")
-  const storedScheduledMeetingIds = atomWithStorage("myGroupsSchedule", [])
+const storedHomeGroupId = atomWithStorage("homeGroupId", "")
+const storedScheduledMeetingIds = atomWithStorage("myGroupsSchedule", [])
 
 
 export function useHomeGroup() {
@@ -14,5 +14,5 @@ export function useHomeGroup() {
 
 export function useScheduledMeetings() {
   const [meetingIds, setMeetingIds] = useAtom(storedScheduledMeetingIds)
-  return { meetingIds, setMeetingIds, RESET }
+  return { meetingIds, setMeetingIds, isScheduled: (id: string) => meetingIds.includes(id) }
 }

@@ -1,0 +1,3 @@
+- consider adding Forismatic API
+- consider adding Clerk Auth
+- consider adding account page & counter
