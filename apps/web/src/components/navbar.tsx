@@ -257,7 +257,7 @@ const infoIcon = (
 export function Navbar() {
   const { localizedToday } = getToday();
   return (
-    <div className="navbar px-4">
+    <div className="navbar">
       <div className=" flex-1">
         <Link href="/">{locatorIcon}</Link>
         <p className="pl-2 font-semibold">{localizedToday}</p>

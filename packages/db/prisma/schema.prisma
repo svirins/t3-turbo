@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
   provider   = "postgresql"
-  url        = "postgres://postgres.lfmcfcklamzobgtfuogs:6gFhdGc9ecXR2YV3aTm4@aws-0-eu-west-1.pooler.supabase.com:5432/postgres"
+  url        = env("DATABASE_URL")
   extensions = [postgis]
 }
 
