@@ -11,6 +11,7 @@ export function ScheduleButton({ id }: { id: string }) {
   }
   const router = useRouter();
   const pathname = usePathname();
+
   const storedValues = window.localStorage.getItem("myGroupsSchedule");
   const parsedValues = storedValues
     ? (JSON.parse(storedValues) as string[])

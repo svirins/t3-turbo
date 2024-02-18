@@ -24,7 +24,7 @@ export default function Error({
           <p className="py-6">
             Это пройдет. Попробуй обновить страницу или вернуться позже.
           </p>
-          <button onClick={reset}>обновить</button>
+          <button className="btn btn-primary" onClick={reset}>обновить</button>
         </div>
       </div>
     </div>

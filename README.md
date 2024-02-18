@@ -7,6 +7,7 @@
 - Deployment: Vercel
 - Styling: Tailwind CSS + Daisy UI
 - Maps: Mapbox
+- State: Jotai
 
 This application requires Node.js v18.17+.
 

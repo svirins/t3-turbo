@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from "~/components/navbar";
 import { env } from "~/env";
 import { TRPCReactProvider } from "~/trpc/react";
-
+import Providers from '~/app/providers'
 import "~/styles/globals.css";
 
 import { Footer } from "~/components/footer";
@@ -66,11 +66,13 @@ export default function RootLayout({
       <AxiomWebVitals />
       <body className="mx-auto min-h-lvh   max-w-2xl font-sans antialiased">
         <TRPCReactProvider>
-          <Toaster position="top-center" />
-          <Navbar />
-          <main className="px-2">{children}</main>
-          <Footer />
-          <Analytics />
+          <Providers>
+            <Toaster position="top-center" />
+            <Navbar />
+            <main className="px-2">{children}</main>
+            <Footer />
+            <Analytics />
+          </Providers>
         </TRPCReactProvider>
       </body>
     </html>

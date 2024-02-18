@@ -1,12 +1,12 @@
 "use client";
 
+import { useHomeGroup } from "~/lib/hooks/useStorage";
+
 export function HomeGroupBadge({ id }: { id: string }) {
-  if (typeof window === "undefined" || !window.localStorage) {
-    return null;
-  }
-  const storedId = window.localStorage.getItem("homeGroupId");
+  const { homeGroupId } = useHomeGroup();
+
   return (
-    id === storedId && (
+    id === homeGroupId && (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

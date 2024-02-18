@@ -5,7 +5,7 @@ import type { RouterOutputs } from "@acme/api";
 
 import { HomeGroupBadge } from "~/components/home-group-badge";
 import { Meetings } from "~/components/meetings";
-import { mapOrder } from "~/lib/mapOrder";
+import { mapOrder } from "~/lib/utils/mapOrder";
 
 export function GroupList({
   data,
