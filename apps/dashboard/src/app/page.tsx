@@ -1,7 +1,7 @@
-export default async function Index() {
+export default async function Page() {
   return (
     <div>
-      <h1>Welcome to dashboard!</h1>
+      <h1>Dashboard</h1>
     </div>
-  )
+  );
 }
