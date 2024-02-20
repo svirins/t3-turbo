@@ -4,13 +4,13 @@ import { AxiomWebVitals } from "next-axiom";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from '@vercel/analytics/react';
 
-import { Navbar } from "~/components/navbar";
-import { env } from "~/env";
-import { TRPCReactProvider } from "~/trpc/react";
-import Providers from '~/app/providers'
-import "~/styles/globals.css";
+import { Navbar } from "@/components/navbar";
+import { env } from "@/env";
+import { TRPCReactProvider } from "@/trpc/react";
+import Providers from '@/app/providers'
+import "@/styles/globals.css";
 
-import { Footer } from "~/components/footer";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],

@@ -1,14 +1,13 @@
 import type { Viewport } from "next";
 import { Inter } from "next/font/google";
-import { Toaster } from "react-hot-toast";
+import { cn } from "@/lib/utils"
 
-import { TRPCReactProvider } from "~/trpc/react";
-import "~/styles/globals.css";
+import { TRPCReactProvider } from "@/trpc/react";
+import "@/styles/globals.css";
 
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
-  display: "swap",
   variable: "--font-inter",
 });
 
@@ -27,10 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={`${inter.variable}`} suppressHydrationWarning>
-      <body className="mx-auto min-h-lvh   max-w-2xl font-sans antialiased">
+    <html lang="ru"  className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          inter.variable
+        )} suppressHydrationWarning>
+      <body>
         <TRPCReactProvider>
-            <Toaster position="top-center" />
             <main className="">{children}</main>
         </TRPCReactProvider>
       </body>

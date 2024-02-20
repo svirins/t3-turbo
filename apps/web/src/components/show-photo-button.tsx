@@ -1,6 +1,6 @@
 "use client";
 
-import useLightbox from "~/lib/hooks/useLightbox";
+import useLightbox from "@/lib/hooks/useLightbox";
 
 export function ShowPhotoButton({
   imageSrcs,

@@ -1,7 +1,9 @@
-export default async function Page() {
+"use client"
+import { DataTableDemo } from "@/components/table/data-table-demo"
+export default function Dashboard() {
   return (
-    <div>
-      <h1>Dashboard</h1>
-    </div>
-  );
+    <section className="container mx-auto">
+      <DataTableDemo />
+    </section>
+  )
 }

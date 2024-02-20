@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 import { toast } from "react-hot-toast";
-import { useScheduledMeetings } from "~/lib/hooks/useStorage";
+import { useScheduledMeetings } from "@/lib/hooks/useStorage";
 export function ScheduleButton({ id }: { id: string }) {
   const router = useRouter();
   const pathname = usePathname();

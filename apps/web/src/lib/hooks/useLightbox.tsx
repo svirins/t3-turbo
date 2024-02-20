@@ -4,7 +4,7 @@ import type { LightboxExternalProps } from "yet-another-react-lightbox";
 import * as React from "react";
 import dynamic from "next/dynamic";
 
-const Lightbox = dynamic(() => import("~/components/lightbox"));
+const Lightbox = dynamic(() => import("@/components/lightbox"));
 
 export default function useLightbox() {
   const [open, setOpen] = React.useState(false);

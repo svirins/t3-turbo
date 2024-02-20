@@ -11,7 +11,7 @@ import Map, {
 
 import type { Location } from "@acme/utils";
 
-import { marker } from "~/components/icons";
+import { marker } from "@/components/icons";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 

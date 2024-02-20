@@ -3,9 +3,9 @@ import Link from "next/link";
 
 import type { RouterOutputs } from "@acme/api";
 
-import { HomeGroupBadge } from "~/components/home-group-badge";
-import { Meetings } from "~/components/meetings";
-import { mapOrder } from "~/lib/utils/mapOrder";
+import { HomeGroupBadge } from "@/components/home-group-badge";
+import { Meetings } from "@/components/meetings";
+import { mapOrder } from "@/lib/utils/mapOrder";
 
 export function GroupList({
   data,

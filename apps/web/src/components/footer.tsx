@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { isActiveLink } from "~/lib/utils/isActiveLink";
+import { isActiveLink } from "@/lib/utils/isActiveLink";
 
 export function Footer() {
   const pathname = usePathname();

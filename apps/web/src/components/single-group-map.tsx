@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Map, { GeolocateControl, Marker, NavigationControl } from "react-map-gl";
 
-import { marker } from "~/components/icons";
+import { marker } from "@/components/icons";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 

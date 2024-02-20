@@ -4,11 +4,11 @@ import Link from "next/link";
 
 import { WeekDaysRU } from "@acme/utils";
 
-import { GroupSkeleton } from "~/components/group-skeleton";
-import { HomeGroupBadge } from "~/components/home-group-badge";
-import { Meetings } from "~/components/meetings";
-import { api } from "~/trpc/react";
-import { useScheduledMeetings } from "~/lib/hooks/useStorage";
+import { GroupSkeleton } from "@/components/group-skeleton";
+import { HomeGroupBadge } from "@/components/home-group-badge";
+import { Meetings } from "@/components/meetings";
+import { api } from "@/trpc/react";
+import { useScheduledMeetings } from "@/lib/hooks/useStorage";
 
 export default function MySchedulePage() {
   const { meetingIds } = useScheduledMeetings();

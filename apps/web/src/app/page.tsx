@@ -4,12 +4,12 @@ import type { WeekDays } from "@acme/utils";
 import { prisma } from "@acme/db";
 import { getCurrentDayFilters, getToday, WeekDaysRU } from "@acme/utils";
 
-import { CityFilter } from "~/components/city-filter";
-import { GetMyLocationButton } from "~/components/get-my-location-button";
-import { GroupList } from "~/components/group-list";
-import { GroupSkeleton } from "~/components/group-skeleton";
-import { WeekdayFilter } from "~/components/weekday-filter";
-import { api } from "~/trpc/server";
+import { CityFilter } from "@/components/city-filter";
+import { GetMyLocationButton } from "@/components/get-my-location-button";
+import { GroupList } from "@/components/group-list";
+import { GroupSkeleton } from "@/components/group-skeleton";
+import { WeekdayFilter } from "@/components/weekday-filter";
+import { api } from "@/trpc/server";
 
 export default async function AllGroupsPage({
   searchParams,

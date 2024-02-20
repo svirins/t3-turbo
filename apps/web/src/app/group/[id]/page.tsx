@@ -3,11 +3,11 @@ import { notFound } from "next/navigation";
 import { getGroupIds } from "@acme/db";
 import { WeekDaysRU } from "@acme/utils";
 
-import { HomeGroupButton } from "~/components/home-group-button";
-import { Meetings } from "~/components/meetings";
-import { ShowPhotoButton } from "~/components/show-photo-button";
-import { SingleGroupMap } from "~/components/single-group-map";
-import { api } from "~/trpc/server";
+import { HomeGroupButton } from "@/components/home-group-button";
+import { Meetings } from "@/components/meetings";
+import { ShowPhotoButton } from "@/components/show-photo-button";
+import { SingleGroupMap } from "@/components/single-group-map";
+import { api } from "@/trpc/server";
 
 export async function generateStaticParams() {
   const ids = (await getGroupIds()) ?? [];

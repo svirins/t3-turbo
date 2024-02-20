@@ -1,5 +1,5 @@
-import { MapDisplay } from "~/components/map-display";
-import { api } from "~/trpc/server";
+import { MapDisplay } from "@/components/map-display";
+import { api } from "@/trpc/server";
 
 // export const runtime = "edge";
 

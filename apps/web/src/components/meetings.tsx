@@ -6,7 +6,7 @@ import clsx from "clsx";
 import type { RouterOutputs } from "@acme/api";
 import { format, RepeatsDigits, TopicsRU } from "@acme/utils";
 
-import { ScheduleButton } from "~/components/my-schedule";
+import { ScheduleButton } from "@/components/my-schedule";
 
 function getHoursAndStatus(dateStart: Date, dateEnd: Date) {
   const now = Number(

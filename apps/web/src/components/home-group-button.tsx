@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useHomeGroup } from "~/lib/hooks/useStorage";
+import { useHomeGroup } from "@/lib/hooks/useStorage";
 
 export function HomeGroupButton({ id }: { id: string }) {
   const { homeGroupId, setHomeGroupId, RESET } = useHomeGroup();

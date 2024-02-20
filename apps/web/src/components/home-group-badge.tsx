@@ -1,6 +1,6 @@
 "use client";
 
-import { useHomeGroup } from "~/lib/hooks/useStorage";
+import { useHomeGroup } from "@/lib/hooks/useStorage";
 
 export function HomeGroupBadge({ id }: { id: string }) {
   const { homeGroupId } = useHomeGroup();
