@@ -1,6 +1,19 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// Importing env files here to validate on build
+import "./src/env.js"
+
+/** @type {import("next").NextConfig} */
+const config = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   reactStrictMode: true,
+
+  /** Enables hot reloading for local packages without a build step */
+  transpilePackages: ["@acme/api", "@acme/ui", "@acme/validators"],
+
+  /** We already do linting and typechecking as separate tasks in CI */
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
 }
 
-export default nextConfig
+export default config
