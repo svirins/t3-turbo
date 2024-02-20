@@ -1,23 +1,68 @@
 "use client"
-import { Form } from '@/components/ui/form'
+
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+
 import { SubmitHandler, useForm } from 'react-hook-form'
-import Link from "next/link"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod";
 
 import { use } from "react"
-import * as React from "react"
 import type { RouterOutputs } from "@acme/api"
-import { deleteGroup, updateGroup } from "@/lib/actions"
-import { CreateGroupSchema } from "@acme/validators"
-
-function deleteGroupHandler(e: React.MouseEvent<HTMLElement>, id: number) {
-  e.stopPropagation()
-  deleteGroup({ id })
-}
+import { groupSchema } from "@/lib/validators"
 
 export function SingleGroup({ data }: { data: Promise<RouterOutputs["group"]["byId"]> }) {
-  const groupData = use(data)
-  return (
-    <p>G</p>
-  )
+  const initial = use(data)
+  const form = useForm<z.infer<typeof groupSchema>>({
+    resolver: zodResolver(groupSchema),
+    defaultValues: {
+      name: initial!.name,
+      // city: initial!.address?.city,
+      // state: initial!.address?.state,
+      // street: initial!.address?.street,
+      // comments: initial!.address?.comments,
+      // photoUrls: initial!.address?.photoUrls,
+      // !! TODO: Consider querying/updating lattiude and longitude
+      // !! TODO: also displaying in a simple mapbox component
+    },
+  })
+  function onSubmit(values: z.infer<typeof groupSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values)
+  }
 
- }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Название группы</FormLabel>
+              <FormControl>
+                <Input placeholder="shadcn" {...field} />
+              </FormControl>
+              <FormDescription>
+                This is your public display name.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  )
+}

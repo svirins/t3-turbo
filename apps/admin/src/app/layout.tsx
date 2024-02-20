@@ -5,9 +5,9 @@ import { Inter as FontSans } from "next/font/google"
 import { TRPCReactProvider } from "@/trpc/react"
 
 import { cn } from "@/lib/utils"
-import { SiteHeader } from "@/components/table/site-header"
-import { TailwindIndicator } from "@/components/table/tailwind-indicator"
-import { ThemeProvider } from "@/components/table/theme-provider"
+import { SiteHeader } from "@/components/elements/site-header"
+import { TailwindIndicator } from "@/components/elements/tailwind-indicator"
+import { ThemeProvider } from "@/components/elements/theme-provider"
 
 const fontSans = FontSans({
   subsets: ["latin"],

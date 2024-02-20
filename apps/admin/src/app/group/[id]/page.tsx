@@ -4,7 +4,7 @@ import { getGroupIds } from "@acme/db";
 
 import { api } from "@/trpc/server";
 import { Suspense } from "react";
-import { SingleGroup } from "@/components/table/single-group";
+import { SingleGroup } from "@/components/sections/single-group";
 
 export async function generateStaticParams() {
   const ids = (await getGroupIds()) ?? [];

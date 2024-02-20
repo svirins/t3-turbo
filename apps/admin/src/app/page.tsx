@@ -1,6 +1,6 @@
 import { Suspense } from "react"
 import { api } from "@/trpc/server"
-import { GroupsTable } from "@/components/table/groups-table"
+import { GroupsTable } from "@/components/sections/groups-table"
 
 export default async function IndexPage() {
   const data = api.group.allGroups()

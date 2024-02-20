@@ -3,8 +3,7 @@ import Link from "next/link"
 
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/table/icons"
+import { Icons } from "@/components/elements/icons"
 
 interface MainNavProps {
   items?: NavItem[]

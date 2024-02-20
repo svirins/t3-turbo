@@ -1,0 +1,32 @@
+{
+  "folders": [
+    {
+      "name": "admin",
+      "path": "apps/admin",
+    },
+    {
+      "name": "web",
+      "path": "apps/web",
+    },
+    {
+      "name": "api",
+      "path": "packages/api",
+    },
+    {
+      "name": "db",
+      "path": "packages/db",
+    },
+    {
+      "name": "utils",
+      "path": "packages/utils",
+    },
+    {
+      "name": "validators",
+      "path": "packages/validators",
+    },
+    {
+      "name": "tooling",
+      "path": "tooling",
+    },
+  ],
+}
