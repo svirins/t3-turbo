@@ -5,9 +5,9 @@ import { Inter as FontSans } from "next/font/google"
 import { TRPCReactProvider } from "@/trpc/react"
 
 import { cn } from "@/lib/utils"
-import { SiteHeader } from "@/components/ui/site-header"
-import { TailwindIndicator } from "@/components/ui/tailwind-indicator"
-import { ThemeProvider } from "@/components/ui/theme-provider"
+import { SiteHeader } from "@/components/table/site-header"
+import { TailwindIndicator } from "@/components/table/tailwind-indicator"
+import { ThemeProvider } from "@/components/table/theme-provider"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -29,13 +29,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "min-h-screen bg-background font-sans antialiased ",
             fontSans.variable
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <TRPCReactProvider>
-              <div className="relative flex min-h-screen flex-col">
+              <div className="relative flex flex-col min-h-screen">
                 <SiteHeader />
                 <div className="flex-1">{children}</div>
               </div>

@@ -13,20 +13,9 @@ export const groupRouter = createTRPCRouter({
         address: {
           select: {
             city: true,
-            state: true,
           },
         },
-        days: {
-          select: {
-            meetings: {
-              select: {
-                id: true,
-
-              },
-              }
-            }
-          },
-        },
+        }
     });
     return groups;
   }),

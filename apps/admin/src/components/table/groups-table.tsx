@@ -3,7 +3,7 @@
 import { use } from "react"
 import * as React from "react"
 import type { RouterOutputs } from "@acme/api"
-import { CaretSortIcon, DotsHorizontalIcon } from "@radix-ui/react-icons"
+import { CaretSortIcon } from "@radix-ui/react-icons"
 import type {
   ColumnDef,
   ColumnFiltersState,
@@ -19,16 +19,9 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+
 import { Input } from "@/components/ui/input"
 import {
   Table,
@@ -38,37 +31,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import Link from "next/link"
+import { deleteGroup } from "@/lib/actions/delete-group"
+
+function deleteGroupHandler(e: React.MouseEvent<HTMLElement>, id: number) {
+  e.stopPropagation()
+  deleteGroup({ id })
+}
 
 export const columns: ColumnDef<RouterOutputs["group"]["allGroups"]>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "id",
-    header: "Идентификатор",
-    cell: ({ row }) => (
-      <div className="lowercase">{row.getValue("id")}</div>
-    ),
-  },
   {
     accessorKey: "name",
     header: ({ column }) => {
@@ -83,11 +54,11 @@ export const columns: ColumnDef<RouterOutputs["group"]["allGroups"]>[] = [
       )
     },
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("name")}</div>
+      <div className="pl-4 font-medium capitalize">{row.getValue("name")}</div>
     ),
   },
   {
-    accessorKey: "address, city",
+    accessorKey: "address",
     header: ({ column }) => {
       return (
         <Button
@@ -99,53 +70,30 @@ export const columns: ColumnDef<RouterOutputs["group"]["allGroups"]>[] = [
         </Button>
       )
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("address, city")}</div>,
+    cell: ({ row }) => <div className="pl-4 Capitalize">{(row.getValue("address") as { city: string }).city}</div>,
   },
-  // {
-  //   accessorKey: "state",
-  //   header: ({ column }) => {
-  //     return (
-  //       <Button
-  //         variant="ghost"
-  //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-  //       >
-  //         Область
-  //         <CaretSortIcon className="ml-2 size-4" />
-  //       </Button>
-  //     )
-  //   },
-  //   cell: ({ row }) => <div className="lowercase">{row.getValue("address")}</div>,
-  // },
-  //   {
-  //     accessorKey: "meetings",
-  //     header: "Собраний /  месяц",
-  //   cell: ({ row }) => <div className="lowercase">{row.getValue("address.days")}</div>,
-  // },
   {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
       const group = row.original
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="size-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <DotsHorizontalIcon className="size-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Действия</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(group.id)}
-            >
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Редактировать</DropdownMenuItem>
-            <DropdownMenuItem>Удалить</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+      <div className="flex gap-4">
+        <Link
+          href={`/group/${group.id}`}
+          target="_blank"
+          rel="noreferrer"
+          className={buttonVariants({ variant: "default", size: "sm" })}
+        >
+          Редактировать
+        </Link>
+        <button
+            className={buttonVariants({ variant: "destructive", size: "sm" })}
+            onClick={(e) => deleteGroupHandler(e, group.id)}
+        >
+          Удалить
+          </button>
+          </div>
       )
     },
   },
@@ -157,13 +105,11 @@ export function GroupsTable({
   groups: Promise<RouterOutputs["group"]["allGroups"]>
   }) {
   const data = use(groups)
-
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   )
   React.useState<VisibilityState>({})
-  const [rowSelection, setRowSelection] = React.useState({})
 
   const table = useReactTable({
     data,
@@ -171,16 +117,12 @@ export function GroupsTable({
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    onRowSelectionChange: setRowSelection,
     state: {
       sorting,
       columnFilters,
-      rowSelection,
     },
-    pageSize: 50
   })
 
   return (
@@ -195,7 +137,7 @@ export function GroupsTable({
           className="max-w-sm"
         />
       </div>
-      <div className="rounded-md border">
+      <div className="border rounded-md">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -220,7 +162,6 @@ export function GroupsTable({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -244,12 +185,6 @@ export function GroupsTable({
             )}
           </TableBody>
         </Table>
-      </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} из{" "}
-          {table.getFilteredRowModel().rows.length} элемент(ов) выбрано.
-        </div>
       </div>
     </div>
   )
