@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-export const CreateLocationSchema = z.object({
-  coords: z.any(),
+export const LocationSchema = z.object({
+  lattitude: z.string(),
+  longitude: z.string(),
   name: z.string(),
-  addressId: z.string(),
 });

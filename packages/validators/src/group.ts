@@ -1,13 +1,13 @@
 import { z } from "zod";
 
-import { CreateAddressSchema } from "./address";
-import { CreateDaySchema } from "./day";
+import { AddressSchema } from "./address";
+import { DaySchema } from "./day";
 
-export const CreateGroupSchema = z.object({
+export const GroupSchema = z.object({
   name: z.string().min(3),
   established: z.date().optional(),
-  phone: z.string().min(10),
+  phone: z.string().optional(),
   email: z.string().email().optional(),
-  address: CreateAddressSchema.optional(),
-  days: z.array(CreateDaySchema),
+  address: AddressSchema.optional(),
+  days: z.array(DaySchema),
 });

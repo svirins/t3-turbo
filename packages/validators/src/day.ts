@@ -2,10 +2,10 @@ import { z } from "zod";
 
 import { WeekDays } from "@acme/utils";
 
-import { CreateMeetingsSchema } from "./meeting";
+import { MeetingsSchema } from "./meeting";
 
-export const CreateDaySchema = z.object({
+export const DaySchema = z.object({
   name: z.nativeEnum(WeekDays),
-  meetings: z.array(CreateMeetingsSchema),
+  meetings: z.array(MeetingsSchema),
   groupId: z.string(),
 });
