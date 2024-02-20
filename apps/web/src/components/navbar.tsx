@@ -12,7 +12,7 @@ const locatorIcon = (
     x="0px"
     y="0px"
     width="100%"
-    className="h-6 w-6"
+    className="size-6"
     viewBox="0 0 512 512"
   >
     <path
@@ -244,7 +244,7 @@ const infoIcon = (
     viewBox="0 0 24 24"
     strokeWidth={2}
     stroke="currentColor"
-    className="hover: translate h-6 w-6 origin-center delay-150 hover:rotate-180	"
+    className="hover: translate size-6 origin-center delay-150 hover:rotate-180	"
   >
     <path
       strokeLinecap="round"
@@ -270,7 +270,7 @@ export function Navbar() {
 
             {/* sun icon */}
             <svg
-              className="swap-on h-6 w-6 fill-current"
+              className="swap-on size-6 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -279,7 +279,7 @@ export function Navbar() {
 
             {/* moon icon */}
             <svg
-              className="swap-off h-6 w-6 fill-current"
+              className="swap-off size-6 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >

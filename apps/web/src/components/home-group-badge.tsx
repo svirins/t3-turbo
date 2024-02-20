@@ -12,7 +12,7 @@ export function HomeGroupBadge({ id }: { id: string }) {
         fill="none"
         strokeWidth={2}
         viewBox="0 0 24 24"
-        className="inline-block h-6 w-6 stroke-current"
+        className="inline-block size-6 stroke-current"
       >
         <path
           strokeLinecap="round"

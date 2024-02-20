@@ -29,7 +29,7 @@ export function Meetings({
   data,
   isToday,
 }: {
-  data: RouterOutputs["group"]["all"][number]["days"][number]["meetings"];
+  data: RouterOutputs["group"]["byCitiesAndByWeekday"][number]["days"][number]["meetings"];
   isToday?: boolean;
 }) {
   // get current pathname
@@ -59,7 +59,7 @@ export function Meetings({
                 isToday && isPassed && "text-gray-400",
               )}
             >{`${start}..${end}`}</p>
-            <p className="h-6 w-6 flex-none">
+            <p className="size-6 flex-none">
               <ScheduleButton id={meeting.id} />
             </p>
             <p

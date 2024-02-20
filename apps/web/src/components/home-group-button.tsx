@@ -37,7 +37,7 @@ export function HomeGroupButton({ id }: { id: string }) {
               strokeWidth={2}
               viewBox="0 0 24 24"
               className={clsx(
-                "inline-block h-6 w-6 stroke-gray-500",
+                "inline-block size-6 stroke-gray-500",
                 homeGroupId === id && "stroke-current",
               )}
             >
