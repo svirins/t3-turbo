@@ -1,4 +1,5 @@
 import { z } from "zod";
+
 import { States } from "@acme/utils";
 
 // group schema without days and meetings (for simplicity)
@@ -9,7 +10,7 @@ export const locationSchema = z.object({
   name: z.string(),
 });
 
-export const groupSchema = z.object({
+export const basicGroupSchema = z.object({
   name: z.string().min(3),
   city: z.string().min(3),
   state: z.nativeEnum(States).default(States.Minskaya),
@@ -23,9 +24,6 @@ export const groupSchema = z.object({
   // days: z.array(DaySchema),
 });
 
-
-
-
-
-
-
+export const daysAndMeetingsGroupSchema = z.object({
+  // days: z.array(DaySchema),
+});

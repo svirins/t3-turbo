@@ -27,18 +27,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { groupSchema } from "@/lib/validators";
+import { basicGroupSchema } from "@/lib/validators";
+import { api } from "@/trpc/react";
 
-export function SingleGroup({
-  data,
-  location,
-}: {
-  data: RouterOutputs["group"]["byId"];
-  location: RouterOutputs["location"]["byId"];
-}) {
-  const form = useForm<z.infer<typeof groupSchema>>({
+export function GroupInfoForm({ id }: { id: string }) {
+  //   data,
+  //   location,
+  // }: {
+  //   data: RouterOutputs["group"]["byId"];
+  //   location: RouterOutputs["location"]["byId"];
+  // }) {
+  const form = useForm<z.infer<typeof basicGroupSchema>>({
     // !! TODO: add messages
-    resolver: zodResolver(groupSchema),
+    resolver: zodResolver(basicGroupSchema),
     defaultValues: {
       name: data?.name ?? "",
       city: data?.address?.city ?? "",
@@ -54,7 +55,7 @@ export function SingleGroup({
     shouldUnregister: false,
     shouldUseNativeValidation: false,
   });
-  function onSubmit(values: z.infer<typeof groupSchema>) {
+  function onSubmit(values: z.infer<typeof basicGroupSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);

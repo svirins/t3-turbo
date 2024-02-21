@@ -59,7 +59,7 @@ export function Meetings({
                 isToday && isPassed && "text-gray-400",
               )}
             >{`${start}..${end}`}</p>
-            <p className="size-6 flex-none">
+            <p className="flex-none size-6">
               <ScheduleButton id={meeting.id} />
             </p>
             <p
