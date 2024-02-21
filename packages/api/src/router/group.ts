@@ -129,7 +129,11 @@ export const groupRouter = createTRPCRouter({
         include: {
           address: {
             include: {
-              location: true,
+              location: {
+                select: {
+                  id: true,
+                }
+              },
             },
           },
           days: {

@@ -20,7 +20,7 @@ export function WeekdayFilter({ today }: { today: string }) {
   return (
     <form className="text-right">
       <select
-        className="select select-sm select-bordered max-w-xs"
+        className="max-w-xs select select-sm select-bordered"
         name="weekDaySelector"
         onChange={(e) => {
           handleSearch(e.target.value);

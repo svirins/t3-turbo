@@ -58,7 +58,7 @@ export enum Repeats {
 
 export interface Location {
   id: string;
-  name: string;
+  name?: string;
   addressId?: string;
   coords: {
     latitude: number;

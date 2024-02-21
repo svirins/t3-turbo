@@ -10,14 +10,11 @@ datasource db {
 }
 
 model Group {
-  id          String    @id @default(cuid())
-  name        String    @unique
-  createdAt   DateTime  @default(now())
-  established DateTime? @default(now())
-  phone       String?
-  email       String?
-  address     Address?
-  days        Day[]
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  address   Address?
+  days      Day[]
 }
 
 model Address {
@@ -25,9 +22,7 @@ model Address {
   city      String
   state     State
   street    String
-  room      String?
   comments  String?
-  transport String?
   photoUrls String[]
   location  Location?
   groupId   String    @unique
@@ -36,7 +31,6 @@ model Address {
 
 model Location {
   id        String                                @id @default(cuid())
-  name      String
   coords    Unsupported("geography(Point, 4326)")
   addressId String?                               @unique
   address   Address?                              @relation(fields: [addressId], references: [id], onDelete: SetNull, onUpdate: Cascade)

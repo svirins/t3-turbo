@@ -16,18 +16,17 @@ export default async function GroupPage({
 }: {
   params: { id: string; searchParams: URLSearchParams };
 }) {
-  const data = api.group.byId({ id: params.id });
-  // const location = await api.location.byId({
-  //   id: group!.address!.location!.id,
-  // });
+  const data = await api.group.byId({ id: params.id });
+  const location = await api.location.byId({
+    id: data!.address!.location!.id,
+  });
   if (!data) notFound();
-  // TODO: Implement share button + link + copy to clipboard
-  // TODO: Implement: full-month schedule
+
   return (
     <section className="container grid items-center gap-6 pt-6 pb-8 md:py-10">
       <div className="flex flex-col items-start gap-2">
         <Suspense fallback={<p>Loading ...</p>}>
-          <SingleGroup data={data} />
+          <SingleGroup data={data} location={location} />
         </Suspense>
       </div>
     </section>

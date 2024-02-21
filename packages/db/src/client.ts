@@ -14,13 +14,11 @@ const prismaClientSingleton = () => {
         location: {
           async create(data: {
             id: string;
-            name: string;
             latitude: number;
             longitude: number;
           }) {
             const loc: Location = {
               id: data.id,
-              name: data.name,
               coords: {
                 latitude: data.latitude,
                 longitude: data.longitude,
@@ -36,16 +34,14 @@ const prismaClientSingleton = () => {
             const result = await prisma.$queryRaw<
               {
                 id: string;
-                name: string;
                 st_x: number | null;
                 st_y: number | null;
               }[]
-            >`SELECT id, name, ST_X(coords::geometry), ST_Y(coords::geometry)
+            >`SELECT id, ST_X(coords::geometry), ST_Y(coords::geometry)
             FROM "Location"
             WHERE id = ${data.id}`;
             return {
               id: result[0].id,
-              name: result[0].name,
               coords: {
                 latitude: result[0].st_x,
                 longitude: result[0].st_y,

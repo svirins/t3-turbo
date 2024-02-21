@@ -20,22 +20,22 @@
     "seed": "tsx  prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "5.9.1",
-    "@prisma/extension-accelerate": "^0.6.2"
+    "@prisma/client": "5.10.1",
+    "@prisma/extension-accelerate": "^0.6.3"
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:*",
     "@acme/utils": "workspace:*",
     "@ts-safeql/eslint-plugin": "^2.0.3",
-    "@types/eslint": "^8.56.0",
+    "@types/eslint": "^8.56.2",
     "@types/node": "^20.11.19",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "dotenv": "^16.4.4",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "dotenv": "^16.4.5",
     "dotenv-cli": "^7.3.0",
     "eslint": "^8.56.0",
     "prettier": "^3.2.5",
-    "prisma": "5.9.1",
+    "prisma": "5.10.1",
     "tsup": "8.0.2",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"
